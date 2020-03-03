@@ -3,11 +3,23 @@ import pprint
 import sys
 
 
+class class_schedule:
+    def __init__(self, page_content):
+        self.name = ''
+        self.cars = ''
+        self.ir_license = ''
+        self.schedule = ''
+        self.dates = ''
+        self.tracks = ''
+        self.duration = ''
+
+
 def main():
     pdf_filename = get_PDF_filename()  # getting the pdf path
     pdf_file = get_PDF_object(pdf_filename)  # creating pdf object
     pdf_fileReader = PyPDF2.PdfFileReader(pdf_file)  # creating pdf reader obj
-    print(pdf_fileReader.getPage(43).extractText())
+    print(getContentFromPage(pdf_fileReader, 11))
+    print('\n\n' + str(pdf_fileReader.getNumPages()))
 
 
 def get_PDF_filename():
@@ -21,6 +33,10 @@ def get_PDF_object(pdf_filename):
         return open(pdf_filename, 'rb')
     except:
         sys.exit('Can\'t find the specified file')
+
+
+def getContentFromPage(pdf_fileReader, n):
+    return pdf_fileReader.getPage(n).extractText()
 
 
 main()
