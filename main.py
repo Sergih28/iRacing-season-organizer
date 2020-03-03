@@ -6,9 +6,10 @@ import sys
 def get_PDF_file():
     if len(sys.argv) > 1:
         return sys.argv[1]
-    print('You need to specify the pdf location as the first argument!')
-    return sys.exit()
+    return sys.exit('You need to specify the pdf location as the first argument!')
 
+
+get_PDF_file()
 
 # print(get_PDF_file())
 
