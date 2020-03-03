@@ -80,11 +80,12 @@ def main():
     pdf_file = get_PDF_object(pdf_filename)  # creating pdf object
     pdf_fileReader = PyPDF2.PdfFileReader(pdf_file)  # creating pdf reader obj
     # pdf_total_pages = pdf_fileReader.getNumPages()
-    # test = getContentFromPage(pdf_fileReader, 0)
+    # test = get_content_from_page(pdf_fileReader, 0)
     # print(test)
+    get_titles(pdf_fileReader)
     title = 'Skip Barber Race Series - 2020 Season 2'
     skippy_class = Class_schedule(
-        title, getContentFromPage(pdf_fileReader, 22))
+        title, get_content_from_page(pdf_fileReader, 22))
     print(skippy_class)
 
     # pp = pprint.PrettyPrinter(indent=4)
@@ -104,8 +105,19 @@ def get_PDF_object(pdf_filename):
         sys.exit('Can\'t find the specified file')
 
 
-def getContentFromPage(pdf_fileReader, n):
+def get_content_from_page(pdf_fileReader, n):
     return pdf_fileReader.getPage(n).extractText()
+
+
+def get_titles(pdf_fileReader):
+    initial_page = get_content_from_page(pdf_fileReader, 0)
+    initial_page = initial_page.split('\n')
+    # REPLACE DOTS
+    page = []
+    for line in initial_page:
+        if 'Season' in line:
+            page.append(line.replace('.', '').strip())
+    print(page)
 
 
 main()
