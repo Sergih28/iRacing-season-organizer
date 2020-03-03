@@ -4,19 +4,23 @@ import sys
 
 
 def main():
-    pdf_filename = get_PDF_filename()
-    try:
-        pdf_file = open(pdf_filename, 'rb')  # creating pdf object
-    except:
-        sys.exit('Can\'t find the specified file')
+    pdf_filename = get_PDF_filename()  # getting the pdf path
+    pdf_file = get_PDF_object(pdf_filename)  # creating pdf object
     pdf_fileReader = PyPDF2.PdfFileReader(pdf_file)  # creating pdf reader obj
-    # print(pdf_fileReader.getPage(43).extractText())
+    print(pdf_fileReader.getPage(43).extractText())
 
 
 def get_PDF_filename():
     if len(sys.argv) > 1:
         return sys.argv[1]
     return sys.exit('You need to specify the pdf location as the first argument!')
+
+
+def get_PDF_object(pdf_filename):
+    try:
+        return open(pdf_filename, 'rb')
+    except:
+        sys.exit('Can\'t find the specified file')
 
 
 main()
