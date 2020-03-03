@@ -1,6 +1,7 @@
 import PyPDF2
 import pprint
 import sys
+import re
 
 
 class Class_schedule:
@@ -9,29 +10,22 @@ class Class_schedule:
         self.page_content = page_content
         self.set_name()
         self.set_cars()
-        self.ir_license = ''
-        self.schedule = ''
-        self.dates = ''
-        self.tracks = ''
-        self.duration = ''
+        self.set_ir_license()
+        self.set_schedule()
 
     def __str__(self):
         r = 'name: ' + self.name + '\n'
         r += 'cars: ' + self.cars + '\n'
         r += 'ir_license: ' + self.ir_license + '\n'
-        r += 'schedule: ' + self.schedule + '\n'
-        r += 'dates: ' + self.dates + '\n'
-        r += 'tracks: ' + self.tracks + '\n'
-        r += 'duration: ' + self.duration
+        r += 'schedule: ' + str(self.schedule)
         return r
 
     def set_name(self):
         self.name = self.title.split('-')[0].strip()
-        # self.name = page_content.split('-')[0].strip()
 
     def set_cars(self):
         cars = self.page_content.split(
-            self.title)[1]
+            self.title)[1].strip()
         if 'Rookie' in cars:
             self.cars = cars.split('Rookie')[0].strip()
         elif 'Class D' in cars:
@@ -42,8 +36,43 @@ class Class_schedule:
             self.cars = cars.split('Class B')[0].strip()
         elif 'Class A' in cars:
             self.cars = cars.split('Class A')[0].strip()
-        # self.cars = page_content.split(
-        #     'Season 2')[1].split('Rookie')[0].strip()
+
+    def set_ir_license(self):
+        ir_lic = self.page_content.split(self.cars)[1].strip()
+        self.ir_license = re.split(
+            'races', ir_lic, flags=re.IGNORECASE)[0].strip()
+
+    def set_schedule(self):
+        weeks = self.page_content.split('Week')
+        week_nums = []
+        dates = []
+        tracks = []
+        laps = []
+        counter = 0
+        for week in weeks:
+            counter = counter+1
+            if counter == 1:
+                continue
+            split_week_num = week.split(' (')
+            split_date = split_week_num[1].strip().split(')')
+            split_track = split_date[1].strip().split('(')
+            split_lap = week.split('.')
+            split_lap2 = split_lap[len(split_lap)-1].strip().split('laps')
+            week_num = split_week_num[0].strip()
+            date = split_date[0].strip()
+            track = split_track[0].strip()
+            lap = split_lap2[0].strip()
+            # print('Week ' + week_num)
+            # print(date)
+            # print(track)
+            # print(lap + ' laps')
+            # print('---------')
+            week_nums.append(week_num)
+            dates.append(date)
+            tracks.append(track)
+            laps.append(lap)
+
+        self.schedule = [week_nums, dates, tracks, laps]
 
 
 def main():
