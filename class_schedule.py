@@ -65,6 +65,7 @@ class Class_schedule:
         dates = []
         tracks = []
         races_length = []
+        races_type = 'Laps'
         counter = 0
         for week in weeks:
             counter = counter+1
@@ -90,6 +91,7 @@ class Class_schedule:
             dates.append(date)
             tracks.append(track)
             races_length.append(race_length)
-            # TODO: be able to differenciate between laps and mins race length
+            if ' mins' in week:
+                races_type = 'Time (mins)'
 
-        self.schedule = [week_nums, dates, tracks, races_length]
+        self.schedule = [week_nums, dates, tracks, races_type, races_length]
