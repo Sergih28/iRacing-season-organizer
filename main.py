@@ -5,8 +5,9 @@ import re
 
 
 class Class_schedule:
-    def __init__(self, title, page_content):
+    def __init__(self, type, title, page_content):
         self.title = title
+        self.type = type
         self.page_content = page_content
         self.set_name()
         self.set_cars()
@@ -14,10 +15,10 @@ class Class_schedule:
         self.set_schedule()
 
     def __str__(self):
-        r = 'name: ' + self.name + '\n'
-        r += 'cars: ' + self.cars + '\n'
-        r += 'ir_license: ' + self.ir_license + '\n'
-        r += 'schedule: ' + str(self.schedule)
+        r = 'Name: ' + self.name + '\n'
+        r += 'Cars: ' + self.cars + '\n'
+        r += 'Ir_license: ' + self.ir_license + '\n'
+        r += 'Schedule: ' + str(self.schedule)
         return r
 
     def set_name(self):
@@ -79,14 +80,31 @@ def main():
     pdf_filename = get_PDF_filename()  # getting the pdf path
     pdf_file = get_PDF_object(pdf_filename)  # creating pdf object
     pdf_fileReader = PyPDF2.PdfFileReader(pdf_file)  # creating pdf reader obj
-    # pdf_total_pages = pdf_fileReader.getNumPages()
-    # test = get_content_from_page(pdf_fileReader, 0)
-    # print(test)
-    get_titles(pdf_fileReader)
-    title = 'Skip Barber Race Series - 2020 Season 2'
-    skippy_class = Class_schedule(
-        title, get_content_from_page(pdf_fileReader, 22))
-    print(skippy_class)
+    categories = get_categories(pdf_fileReader)  # based on index page
+    # print(categories)
+
+    category_pos = 0
+    for num_page in range(0, pdf_fileReader.getNumPages()):
+        if category_pos == 2:
+            break
+        # check if page is index
+        page = get_content_from_page(pdf_fileReader, num_page)
+        if not 'Week' in page:
+            continue
+
+        # check if page is continuation of the previous one
+
+        # create class_schedule and print it out
+        type = categories[category_pos][0]
+        category = categories[category_pos][1]
+        class_sch = Class_schedule(type, category, page)
+        category_pos = category_pos + 1
+        print(class_sch)
+
+    # title = 'Skip Barber Race Series - 2020 Season 2'
+    # skippy_class = Class_schedule(
+    #     title, get_content_from_page(pdf_fileReader, 22))
+    # print(skippy_class)
 
     # pp = pprint.PrettyPrinter(indent=4)
     # pp.pprint(skippy_class)
@@ -109,15 +127,36 @@ def get_content_from_page(pdf_fileReader, n):
     return pdf_fileReader.getPage(n).extractText()
 
 
-def get_titles(pdf_fileReader):
+def get_categories(pdf_fileReader):
     initial_page = get_content_from_page(pdf_fileReader, 0)
     initial_page = initial_page.split('\n')
-    # REPLACE DOTS
-    page = []
-    for line in initial_page:
-        if 'Season' in line:
-            page.append(line.replace('.', '').strip())
-    print(page)
+    categories = []
+    type = 'UNKNOWN'
+    pdf_total_pages = pdf_fileReader.getNumPages()
+
+    for num_page in range(0, pdf_total_pages):
+        page = get_content_from_page(pdf_fileReader, num_page)
+        if 'Week' in page:
+            break
+        page = page.split('\n')
+        for line in page:
+            if not 'Season' in line:
+                if '(OVAL)' in line:
+                    type = 'OVAL'
+                elif '(ROAD)' in line:
+                    type = 'ROAD'
+                elif '(DIRT OVAL)' in line:
+                    type = 'DIRT OVAL'
+                elif '(DIRT ROAD)' in line:
+                    type = 'DIRT ROAD'
+                elif '(FUN)' in line:
+                    type = 'FUN'
+            else:
+                categories.append([type, line.replace('.', '').strip()])
+
+    return categories
+
+# if there is next page, and it starts with week 7, join last class obj
 
 
 main()
