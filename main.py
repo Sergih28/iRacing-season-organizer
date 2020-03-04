@@ -16,6 +16,7 @@ class Class_schedule:
 
     def __str__(self):
         r = 'Name: ' + self.name + '\n'
+        r += 'Type: ' + self.type + '\n'
         r += 'Cars: ' + str(self.cars) + '\n'
         r += 'Ir_license: ' + self.ir_license + '\n'
         r += 'Schedule: ' + str(self.schedule)
