@@ -21,7 +21,8 @@ class Class_schedule:
 
     def clear_page_content(self, page_content):
         left_part = page_content[0].split(self.title)[0]
-        page_content[0] = page_content[0][len(left_part):]
+        if not 'Week' in left_part:
+            page_content[0] = page_content[0][len(left_part):]
         self.page_content = page_content
 
     def set_name(self):
@@ -54,21 +55,16 @@ class Class_schedule:
     def set_schedule(self):
         weeks = self.page_content[0].split('Week')
         if len(self.page_content) > 1:  # 2 pages
-            print('MULTIPAGEEEEEEEEE')
-            print(str(weeks))
             new_week = self.page_content[1].split('Week')
             for w in new_week:
                 if w != '':
                     weeks.append(w)
 
-            print('weeks len: ', str(len(weeks)))
-            print(str(weeks))
         week_nums = []
         dates = []
         tracks = []
         races_length = []
         counter = 0
-        # print(str(len(self.page_content)) + 'WIIIIIKS: ' + str(weeks))
         for week in weeks:
             counter = counter+1
             if counter == 1:
@@ -79,20 +75,16 @@ class Class_schedule:
             split_race_length = week.split('.')
             split_race_length2 = split_race_length[len(
                 split_race_length)-1].strip()
+
             if not 'laps' in split_race_length2:
                 split_race_length2 = split_race_length2.split('mins')
             else:
                 split_race_length2 = split_race_length2.split('laps')
-            # split_race_length2 = split_race_length[len(split_race_length)-1].strip().split('laps')
+
             week_num = split_week_num[0].strip()
             date = split_date[0].strip()
             track = split_track[0].strip()
             race_length = split_race_length2[0].strip()
-            # print('Week ' + week_num)
-            # print(date)
-            # print(track)
-            # print(lap + ' laps')
-            # print('---------')
             week_nums.append(week_num)
             dates.append(date)
             tracks.append(track)
