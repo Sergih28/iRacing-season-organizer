@@ -16,7 +16,7 @@ class Class_schedule:
 
     def __str__(self):
         r = 'Name: ' + self.name + '\n'
-        r += 'Cars: ' + self.cars + '\n'
+        r += 'Cars: ' + str(self.cars) + '\n'
         r += 'Ir_license: ' + self.ir_license + '\n'
         r += 'Schedule: ' + str(self.schedule)
         return r
@@ -25,21 +25,25 @@ class Class_schedule:
         self.name = self.title.split('-')[0].strip()
 
     def set_cars(self):
+        self.cars = []
         cars = self.page_content.split(
             self.title)[1].strip()
         if 'Rookie' in cars:
-            self.cars = cars.split('Rookie')[0].strip()
+            cars = cars.split('Rookie')[0].strip()
         elif 'Class D' in cars:
-            self.cars = cars.split('Class D')[0].strip()
+            cars = cars.split('Class D')[0].strip()
         elif 'Class C' in cars:
-            self.cars = cars.split('Class C')[0].strip()
+            cars = cars.split('Class C')[0].strip()
         elif 'Class B' in cars:
-            self.cars = cars.split('Class B')[0].strip()
+            cars = cars.split('Class B')[0].strip()
         elif 'Class A' in cars:
-            self.cars = cars.split('Class A')[0].strip()
+            cars = cars.split('Class A')[0].strip()
+
+        self.cars = [car.strip() for car in cars.split(',')]
 
     def set_ir_license(self):
-        ir_lic = self.page_content.split(self.cars)[1].strip()
+        ir_lic = self.page_content.split(
+            self.cars[len(self.cars) - 1])[1].strip()
         self.ir_license = re.split(
             'races', ir_lic, flags=re.IGNORECASE)[0].strip()
 
@@ -85,7 +89,7 @@ def main():
 
     category_pos = 0
     for num_page in range(0, pdf_fileReader.getNumPages()):
-        if category_pos == 2:
+        if category_pos == 9:
             break
         # check if page is index
         page = get_content_from_page(pdf_fileReader, num_page)
