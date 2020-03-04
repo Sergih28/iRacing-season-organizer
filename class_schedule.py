@@ -51,7 +51,12 @@ class Class_schedule:
             self.title)[1]
         ir_lic = ir_lic.split(self.cars[len(self.cars)-1])
         self.ir_license = re.split(
-            'races', ir_lic[1], flags=re.IGNORECASE)[0].strip()
+            'team racing', ir_lic[1], flags=re.IGNORECASE)[0].strip()
+        self.ir_license = re.split(
+            'every ', self.ir_license, flags=re.IGNORECASE)[0].strip()
+        self.ir_license = re.split(
+            'races', self.ir_license, flags=re.IGNORECASE)[0].strip()
+        self.ir_license = self.ir_license.replace(',', '')
 
     def set_schedule(self):
         weeks = self.page_content[0].split('Week')
@@ -71,22 +76,26 @@ class Class_schedule:
             counter = counter+1
             if counter == 1:
                 continue
+            # import pdb
+            # pdb.set_trace()
             split_week_num = week.split(' (')
             split_date = split_week_num[1].strip().split(')')
             split_track = split_date[1].strip().split('(')
             split_race_length = week.split('.')
             split_race_length2 = split_race_length[len(
-                split_race_length)-1].strip()
+                split_race_length)-1].split('%')
+            split_race_length3 = split_race_length2[len(
+                split_race_length2)-1].strip()
 
-            if not 'laps' in split_race_length2:
-                split_race_length2 = split_race_length2.split('mins')
+            if not 'laps' in split_race_length3:
+                split_race_length3 = split_race_length3.split('mins')
             else:
-                split_race_length2 = split_race_length2.split('laps')
+                split_race_length3 = split_race_length3.split('laps')
 
             week_num = split_week_num[0].strip()
             date = split_date[0].strip()
             track = split_track[0].strip()
-            race_length = split_race_length2[0].strip()
+            race_length = split_race_length3[0].strip()
             week_nums.append(week_num)
             dates.append(date)
             tracks.append(track)
