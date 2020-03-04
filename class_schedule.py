@@ -48,9 +48,10 @@ class Class_schedule:
 
     def set_ir_license(self):
         ir_lic = self.page_content[0].split(
-            self.cars[len(self.cars) - 1])[1].strip()
+            self.title)[1]
+        ir_lic = ir_lic.split(self.cars[len(self.cars)-1])
         self.ir_license = re.split(
-            'races', ir_lic, flags=re.IGNORECASE)[0].strip()
+            'races', ir_lic[1], flags=re.IGNORECASE)[0].strip()
 
     def set_schedule(self):
         weeks = self.page_content[0].split('Week')

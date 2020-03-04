@@ -1,7 +1,7 @@
 Name: iRacing Street Stock
 Type: OVAL
 Cars: ['Street Stock']
-Ir_license: - 2020 Season 2 Fixed
+Ir_license: Rookie (1.0) --> Class D (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Charlotte Motor Speedway - Oval - 2018', 'USA International Speedway - Asphalt', 'Charlotte Motor Speedway - Oval - 2018', 'USA International Speedway - Asphalt', 'Charlotte Motor Speedway - Oval - 2018', 'USA International Speedway - Asphalt', 'Charlotte Motor Speedway - Oval - 2018', 'USA International Speedway - Asphalt', 'Charlotte Motor Speedway - Oval - 2018', 'USA International Speedway - Asphalt', 'Charlotte Motor Speedway - Oval - 2018', 'USA International Speedway - Asphalt'], ['20', '40', '20', '40', '20', '40', '20', '40', '20', '40', '20', '40']]
 
 ------------------------------------
@@ -41,7 +41,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: iRacing Street Stock Class C
 Type: OVAL
 Cars: ['Street Stock']
-Ir_license: Class C - 2020 Season 2 - Fixed
+Ir_license: Class D (4.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lanier National Speedway - Asphalt', 'Darlington Raceway', 'New Smyrna Speedway', 'USA International Speedway - Asphalt', 'Bristol Motor Speedway', 'Phoenix International Raceway - 2008 - Oval', 'Irwindale Speedway - Inner', 'Martinsville Speedway', 'Iowa Speedway - Oval', 'Five Flags Speedway', 'South Boston Speedway', 'Dover International Speedway'], ['70', '30', '70', '45', '70', '35', '70', '70', '40', '70', '70', '35']]
 
 ------------------------------------
@@ -57,7 +57,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: NASCAR iRacing Super Late Model Series
 Type: OVAL
 Cars: ['Super Late Model']
-Ir_license: Series - 2020 Season 2
+Ir_license: Class D (4.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Stafford Motor Speedway - Full Course', 'Southern National Motorsports Park', 'Lucas Oil Raceway - Oval', 'Martinsville Speedway', 'New Smyrna Speedway', 'New Hampshire Motor Speedway - Oval', 'Bristol Motor Speedway', 'South Boston Speedway', 'USA International Speedway - Asphalt', 'The Bullring', 'Lanier National Speedway - Asphalt', 'Five Flags Speedway'], ['100', '100', '80', '100', '100', '50', '100', '100', '75', '100', '100', '100']]
 
 ------------------------------------
@@ -89,7 +89,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: iRacing Silver Crown Cup
 Type: OVAL
 Cars: ['Silver Crown']
-Ir_license: Cup - 2020 Season 2
+Ir_license: Class C (4.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['USA International Speedway - Asphalt', 'Homestead Miami Speedway - Oval', 'Rockingham Speedway - Oval', 'New Hampshire Motor Speedway - Oval', 'Richmond Raceway', 'Kentucky Speedway - Oval', 'The Milwaukee Mile', 'Southern National Motorsports Park', 'Bristol Motor Speedway', 'Indianapolis Motor Speedway - IndyCar Oval', 'Lucas Oil Raceway - Oval', 'Kansas Speedway - Oval'], ['90', '67', '80', '80', '90', '67', '80', '100', '100', '40', '100', '67']]
 
 ------------------------------------
@@ -97,7 +97,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: iRacing Sprint Car Cup
 Type: OVAL
 Cars: ['Sprint Car']
-Ir_license: Cup - 2020 Season 2
+Ir_license: Class C (4.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Iowa Speedway - Oval', 'Five Flags Speedway', 'ISM Raceway - Oval w/open dogleg', 'Irwindale Speedway - Outer', 'Lanier National Speedway - Asphalt', 'Lucas Oil Raceway - Oval', 'Stafford Motor Speedway - Full Course', 'Southern National Motorsports Park', 'New Smyrna Speedway', 'USA International Speedway - Asphalt', 'Richmond Raceway', 'South Boston Speedway'], ['45', '55', '30', '55', '55', '75', '55', '55', '55', '45', '45', '100']]
 
 ------------------------------------
@@ -129,7 +129,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: Global Mazda MX
 Type: ROAD
 Cars: ['Global Mazda MX-5 Cup']
-Ir_license: - 2020 Season 2 Fixed
+Ir_license: Rookie (1.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Tsukuba Circuit - 2000 Full', 'Okayama International Circuit - Full Course', 'Lime Rock Park - Grand Prix', 'WeatherTech Raceway at Laguna Seca - FullCourse', 'Summit Point Raceway - Jefferson Circuit', 'Charlotte Motor Speedway - Roval - 2018', 'Tsukuba Circuit - 2000 Full', 'Okayama International Circuit - Short', 'Lime Rock Park - Chicanes', 'Summit Point Raceway - Summit Point Raceway', 'Okayama International Circuit - Full Course', 'WeatherTech Raceway at Laguna Seca - FullCourse'], ['15', '10', '20', '10', '15', '10', '15', '15', '20', '15', '10', '10']]
 
 ------------------------------------
@@ -161,7 +161,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: iRacing Formula Renault 2.0 Championship
 Type: ROAD
 Cars: ['Formula Renault 2.0']
-Ir_license: Championship - 2020 Season 2
+Ir_license: Rookie (4.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Okayama International Circuit - Full Course', 'Nürburgring Grand-Prix-Strecke - BES/WEC', 'Circuit de Barcelona Catalunya - Grand Prix', 'Lime Rock Park - Classic', 'Watkins Glen International - Classic Boot', 'Road Atlanta - Full Course', 'Autodromo Internazionale Enzo e Dino Ferrari -Grand Prix', 'Silverstone Circuit - Grand Prix', 'Road America - Full Course', 'Phillip Island Circuit', 'Autodromo Nazionale Monza - Grand Prix', 'WeatherTech Raceway at Laguna Seca - FullCourse'], ['20', '15', '15', '30', '20', '22', '18', '13', '13', '18', '16', '21']]
 
 ------------------------------------
@@ -249,7 +249,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: Pro Mazda Championship
 Type: ROAD
 Cars: ['Pro Mazda']
-Ir_license: Championship - 2020 Season 2
+Ir_license: Class D (4.0) --> Pro/WC (4.0)every 2 even hours at 45 pastWeek 1 (2020-03-10)Lime Rock Park - Chicanes (2020-04-01 07:051x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%36 lapsWeek 2 (2020-03-17)Oulton Park Circuit - Intl w/out Hislop (2020-03-21 08:35 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%20 lapsWeek 3 (2020-03-24)Circuit de Spa-Francorchamps - Grand Prix Pits(2020-03-28 08:30 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%18 lapsWeek 4 (2020-03-31)Autódromo José Carlos Pace - Grand Prix(2020-04-04 16:00 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%25 lapsWeek 5 (2020-04-07)Suzuka International Racing Course - Grand Prix(2020-04-11 13:10 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%14 lapsWeek 6 (2020-04-14)Sebring International Raceway - International(2020-04-18 15:20 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%15 lapsWeek 7 (2020-04-21)Canadian Tire Motorsports Park (2020-04-2508:10 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%24 lapsWeek 8 (2020-04-28)Circuit Park Zandvoort - Chicane (2020-05-0213:50 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%18 lapsWeek 9 (2020-05-05)Richmond Raceway (2020-05-09 18:40 1x)Dynamic weather, Dynamic sky, Qualattached, Rolling start, Full coursecautions, Double-file Back.PM: 25%90 lapsWeek 10 (2020-05-12)Nürburgring Nordschleife - Industriefahrten(2020-05-16 08:00 1x)Constant weather, Dynamic sky,Standing start, Local enforcedcautions.PM: 25%7 lapsWeek 11 (2020-05-19)Silverstone Circuit - 2011 - Grand Prix (2020-05-23 19:00 1x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%15 lapsWeek 12 (2020-05-26)Road Atlanta - Full Course (2020-05-30 08:101x)Dynamic weather, Dynamic sky, Qualattached, Standing start, Localenforced cautions.PM: 25%24 laps35
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lime Rock Park - Chicanes', 'Oulton Park Circuit - Intl w/out Hislop', 'Circuit de Spa-Francorchamps - Grand Prix Pits', 'Autódromo José Carlos Pace - Grand Prix', 'Suzuka International Racing Course - Grand Prix', 'Sebring International Raceway - International', 'Canadian Tire Motorsports Park', 'Circuit Park Zandvoort - Chicane', 'Richmond Raceway', 'Nürburgring Nordschleife - Industriefahrten', 'Silverstone Circuit - 2011 - Grand Prix', 'Road Atlanta - Full Course'], ['PM: 25%36', 'PM: 25%20', 'PM: 25%18', 'PM: 25%25', 'PM: 25%14', 'PM: 25%15', 'PM: 25%24', 'PM: 25%18', 'PM: 25%90', 'PM: 25%7', 'PM: 25%15', 'PM: 25%24']]
 
 ------------------------------------
@@ -401,7 +401,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: DIRTcar Class C Dirt Street Stock Series
 Type: DIRT OVAL
 Cars: ['Dirt Street Stock']
-Ir_license: Series - 2020 Season 2 Fixed
+Ir_license: Class D (4.0) --> Pro/WC (4.0), Heat racing
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['USA International Speedway - Dirt', 'Fairbury Speedway', 'Knoxville Raceway', 'Lanier National Speedway - Dirt', 'Lernerville Speedway', 'The Dirt Track at Charlotte', 'Volusia Speedway Park', 'Eldora Speedway', 'Kokomo Speedway', 'Williams Grove Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway - Dirt'], ['H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L57']]
 
 ------------------------------------
@@ -417,7 +417,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 Name: iRacing Dirt Midget Cup
 Type: DIRT OVAL
 Cars: ['Dirt Midget']
-Ir_license: Cup - 2020 Season 2
+Ir_license: Class D (4.0) --> Pro/WC (4.0), Heat racing
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Limaland Motorsports Park', 'Fairbury Speedway', 'Volusia Speedway Park', 'Lanier National Speedway - Dirt', 'Chili Bowl', 'Lernerville Speedway', 'Kokomo Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway - Dirt', 'The Dirt Track at Charlotte', 'Eldora Speedway', 'Fairbury Speedway'], ['H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L59']]
 
 ------------------------------------
