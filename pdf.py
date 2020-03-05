@@ -78,7 +78,9 @@ def extract_pdf_info():
         if not category_pos == 0:
             f.write('\n\n------------------------------------\n\n')
         f.write(str(class_sch))
-        pdf_info.append(class_sch)
+        # pdf_info.append(class_sch)
+        pdf_info.append([class_sch.get_name(), class_sch.get_type(
+        ), class_sch.get_cars(), class_sch.get_ir_license(), class_sch.get_schedule()])
 
         category_pos = category_pos + 1
 
