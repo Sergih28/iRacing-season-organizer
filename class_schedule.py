@@ -123,3 +123,5 @@ class Class_schedule:
     def get_cars(self): return self.cars
     def get_ir_license(self): return self.ir_license
     def get_schedule(self): return self.schedule
+    def get_dates(self): return self.schedule[1]
+    def get_tracks(self): return self.schedule[2]
