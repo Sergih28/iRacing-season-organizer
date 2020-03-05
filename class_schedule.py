@@ -114,7 +114,7 @@ class Class_schedule:
             tracks.append(track)
             races_length.append(race_length)
             if ' mins' in week:
-                races_type = 'Time (mins)'
+                races_type = 'mins'
 
         self.schedule = [week_nums, dates, tracks, races_type, races_length]
 
@@ -125,3 +125,5 @@ class Class_schedule:
     def get_schedule(self): return self.schedule
     def get_dates(self): return self.schedule[1]
     def get_tracks(self): return self.schedule[2]
+    def get_races_type(self): return self.schedule[3]
+    def get_races_length(self): return self.schedule[4]
