@@ -13,6 +13,8 @@ def main():
     workbook = xlsxwriter.Workbook('output.xlsx')
     cell_format = workbook.add_format()
     cell_format.set_align('vcenter')
+    # cell_format2 = workbook.add_format()
+    # cell_format2.set_align('vcenter')
     worksheet = workbook.add_worksheet()
     worksheet.write('B2', 'TYPE', cell_format)
     worksheet.write('C2', 'NAME', cell_format)
@@ -37,7 +39,7 @@ def main():
                     worksheet.write(1, column, 'Week ' +
                                     str(week) + ' (' + str(dates[week-1]) + ')'), cell_format
                 header_done = True
-
+        # cell_format2.set_bg_color('green')
         worksheet.write(row, 1, pdf_obj.get_type(), cell_format)
         worksheet.write(row, 2, pdf_obj.get_name(), cell_format)
         worksheet.write(row, 3, '\n'.join(pdf_obj.get_cars()), cell_format)
@@ -48,7 +50,14 @@ def main():
         column = 3
         for track in tracks:
             column = column + 1
-            track_short = track.split('-')[0].strip()
+
+            # remove piece of track text after last '-'
+            track_short = [t.strip() for t in track.split('-')]
+            if len(track_short) > 1:
+                track_short = ' '.join(track_short[:-1])
+            else:
+                track_short = track_short[0]
+
             # special check for rallycross weird lap length
             if not ':' in races_length[column-4]:
                 content = track_short + \
