@@ -11,10 +11,12 @@ def main():
     # print('Ir License: ' + str(pdf_obj.get_ir_license()))
     # print('Schedule: ' + str(pdf_obj.get_schedule()))
     workbook = xlsxwriter.Workbook('output.xlsx')
+    cell_format = workbook.add_format()
+    cell_format.set_align('vcenter')
     worksheet = workbook.add_worksheet()
-    worksheet.write('B2', 'TYPE')
-    worksheet.write('C2', 'NAME')
-    worksheet.write('D2', 'CARS')
+    worksheet.write('B2', 'TYPE', cell_format)
+    worksheet.write('C2', 'NAME', cell_format)
+    worksheet.write('D2', 'CARS', cell_format)
 
     pdf_info = extract_pdf_info()
     pdf_obj = Class_schedule(data_type='from_data', data=pdf_info[0])
@@ -33,12 +35,12 @@ def main():
 
                     # get the first 12 week race Series
                     worksheet.write(1, column, 'Week ' +
-                                    str(week) + ' (' + str(dates[week-1]) + ')')
+                                    str(week) + ' (' + str(dates[week-1]) + ')'), cell_format
                 header_done = True
 
-        worksheet.write(row, 1, pdf_obj.get_type())
-        worksheet.write(row, 2, pdf_obj.get_name())
-        worksheet.write(row, 3, '\n'.join(pdf_obj.get_cars()))
+        worksheet.write(row, 1, pdf_obj.get_type(), cell_format)
+        worksheet.write(row, 2, pdf_obj.get_name(), cell_format)
+        worksheet.write(row, 3, '\n'.join(pdf_obj.get_cars()), cell_format)
 
         tracks = pdf_obj.get_tracks()
         races_type = pdf_obj.get_races_type()
@@ -53,7 +55,7 @@ def main():
                     ' (' + races_length[column-4] + ' ' + races_type + ')'
             else:
                 content = track_short + ' (' + races_length[column-4] + ')'
-            worksheet.write(row, column, content)
+            worksheet.write(row, column, content, cell_format)
 
         row = row+1
 
