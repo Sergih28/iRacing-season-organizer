@@ -2,14 +2,24 @@ import re
 
 
 class Class_schedule:
-    def __init__(self, type, title, page_content):
-        self.title = title
-        self.type = type
-        self.clear_page_content(page_content)
-        self.set_name()
-        self.set_cars()
-        self.set_ir_license()
-        self.set_schedule()
+    def __init__(self, type=None, title=None, page_content=None, data_type=None, data=None):
+        if data_type == 'from_data':
+            self.from_data(data)
+        else:
+            self.title = title
+            self.type = type
+            self.clear_page_content(page_content)
+            self.set_name()
+            self.set_cars()
+            self.set_ir_license()
+            self.set_schedule()
+
+    def from_data(self, data):
+        self.name = data[0]
+        self.type = data[1]
+        self.cars = data[2]
+        self.ir_license = data[3]
+        self.schedule = data[4]
 
     def __str__(self):
         r = 'Name: ' + self.name + '\n'
@@ -18,6 +28,9 @@ class Class_schedule:
         r += 'Ir_license: ' + self.ir_license + '\n'
         r += 'Schedule: ' + str(self.schedule)
         return r
+
+    def __repr__(self):
+        return [self.name, self.type, self.cars, self.ir_license, self.schedule]
 
     def clear_page_content(self, page_content):
         left_part = page_content[0].split(self.title)[0]
@@ -104,3 +117,9 @@ class Class_schedule:
                 races_type = 'Time (mins)'
 
         self.schedule = [week_nums, dates, tracks, races_type, races_length]
+
+    def get_name(self): return self.name
+    def get_type(self): return self.type
+    def get_cars(self): return self.cars
+    def get_ir_license(self): return self.ir_license
+    def get_schedule(self): return self.schedule
