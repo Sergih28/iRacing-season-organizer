@@ -19,18 +19,26 @@ def main():
     pdf_info = extract_pdf_info()
     pdf_obj = Class_schedule(data_type='from_data', data=pdf_info[0])
     row = 2
+    header_done = False
     for series in pdf_info:
         pdf_obj = Class_schedule(data_type='from_data', data=series)
 
-        column = 3
-        # write week num headers
-        for week in range(1, 14):
-            column = column + 1
-            worksheet.write(1, column, 'Week ' + str(week))
+        if not header_done:
+            column = 3
+            # write week num headers
+            dates = pdf_obj.get_dates()
+            if len(dates) == 12:
+                for week in range(1, 13):
+                    column = column + 1
+
+                    # get the first 12 week race Series
+                    worksheet.write(1, column, 'Week ' +
+                                    str(week) + ' (' + str(dates[week-1]) + ')')
+                header_done = True
 
         worksheet.write(row, 1, pdf_obj.get_type())
         worksheet.write(row, 2, pdf_obj.get_name())
-        worksheet.write(row, 3, ','.join(pdf_obj.get_cars()))
+        worksheet.write(row, 3, '\n'.join(pdf_obj.get_cars()))
 
         tracks = pdf_obj.get_tracks()
         column = 3
