@@ -41,11 +41,19 @@ def main():
         worksheet.write(row, 3, '\n'.join(pdf_obj.get_cars()))
 
         tracks = pdf_obj.get_tracks()
+        races_type = pdf_obj.get_races_type()
+        races_length = pdf_obj.get_races_length()
         column = 3
         for track in tracks:
             column = column + 1
             track_short = track.split('-')[0].strip()
-            worksheet.write(row, column, track_short)
+            # special check for rallycross weird lap length
+            if not ':' in races_length[column-4]:
+                content = track_short + \
+                    ' (' + races_length[column-4] + ' ' + races_type + ')'
+            else:
+                content = track_short + ' (' + races_length[column-4] + ')'
+            worksheet.write(row, column, content)
 
         row = row+1
 
