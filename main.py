@@ -3,7 +3,7 @@ from pdf import extract_pdf_info
 from class_schedule import Class_schedule
 from free_content import get_free_content
 from cell import set_cell_styles
-from buttons import button
+from legend import *
 import xlsxwriter
 
 
@@ -142,32 +142,18 @@ def main():
         worksheet.set_column(1, 1, 12)
         worksheet.set_column(2, 2, 4)
 
+    # LEGEND
     # link buttons
     button(workbook, worksheets, row=4)
     button(workbook, worksheets, type='TWITTER', row=5)
     button(workbook, worksheets, type='GITHUB', row=6)
 
-    # owned legend
-    for worksheet in worksheets:
-        cell = workbook.add_format()
-        cell2 = workbook.add_format()
-        set_cell_styles(
-            cell, color=content_colors[0], bg_color=content_bg_colors[0], bold=True)
-        set_cell_styles(
-            cell2, color=content_colors[1], bg_color=content_bg_colors[1], bold=True)
-        worksheet.write(8, 1, 'Owned', cell)
-        worksheet.write(9, 1, 'Missing', cell2)
+    # owned / missing legend
+    owned_or_not_legend(workbook, worksheets,
+                        content_colors, content_bg_colors)
 
     # colors legend
-    for worksheet in worksheets:
-        count = 0
-        for bg_color in bg_colors:
-            cell = workbook.add_format()
-            row = count + 11
-            set_cell_styles(
-                cell, color=colors[count], bg_color=bg_color, bold=True)
-            worksheet.write(row, 1, license_names[count], cell)
-            count = count + 1
+    colors_legend(workbook, worksheets, bg_colors, colors, license_names)
 
     workbook.close()
 
