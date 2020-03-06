@@ -20,7 +20,7 @@ def button(workbook, worksheets, type='DONATION', row=1, col=1):
         color = '#009CDE'
 
     set_cell_styles(cell_button, bg_color=bg_color,
-                    color=color, align='center')
+                    color=color)
     for worksheet in worksheets:
         worksheet.write_url(
             row, col, button_url, cell_format=cell_button, string=button_text)

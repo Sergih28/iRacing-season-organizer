@@ -18,6 +18,10 @@ def main():
                  '#FEEC04', '#FC8A27', '#FC0706']
     colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF',
               '#000000', '#000000', '#FFFFFF', ]
+    license_names = ['Pro', 'Class A', 'Class B',
+                     'Class C', 'Class D', 'Rookie']
+    content_bg_colors = ['#1E9E1E', '#40474C']
+    content_colors = ['black', '#DDDDDD']
 
     workbook = xlsxwriter.Workbook('output.xlsx')
     cell_format_main = workbook.add_format()
@@ -28,9 +32,9 @@ def main():
     cell_format_content_not_owned = workbook.add_format()
     set_cell_styles(cell_format_content_owned)
     set_cell_styles(cell_format_content_not_owned)
-    cell_format_content_owned.set_bg_color('#1E9E1E')
-    cell_format_content_not_owned.set_bg_color('#40474C')
-    cell_format_content_not_owned.set_font_color('#DDDDDD')
+    cell_format_content_owned.set_bg_color(content_bg_colors[0])
+    cell_format_content_not_owned.set_bg_color(content_bg_colors[1])
+    cell_format_content_not_owned.set_font_color(content_colors[1])
     cell_format_content = [cell_format_content_owned,
                            cell_format_content_not_owned]
 
@@ -93,10 +97,10 @@ def main():
     worksheet_O = workbook.add_worksheet('OVAL')
     worksheet_DR = workbook.add_worksheet('DIRT ROAD')
     worksheet_DO = workbook.add_worksheet('DIRT OVAL')
-    col_R = 2
-    col_O = 2
-    col_DR = 2
-    col_DO = 2
+    col_R = 4
+    col_O = 4
+    col_DR = 4
+    col_DO = 4
     weeks_done_R = False
     weeks_done_O = False
     weeks_done_DR = False
@@ -126,17 +130,44 @@ def main():
 
     # TODO: track text size for each column
     # then set the column size according to that
-    worksheet_R.set_column(1, col_R, 25)
-    worksheet_O.set_column(1, col_O, 25)
-    worksheet_DR.set_column(1, col_DR, 25)
-    worksheet_DO.set_column(1, col_DO, 25)
+    worksheet_R.set_column(3, col_R, 25)
+    worksheet_O.set_column(3, col_O, 25)
+    worksheet_DR.set_column(3, col_DR, 25)
+    worksheet_DO.set_column(3, col_DO, 25)
     worksheet_main.set_column(2, 3, 17)
     worksheet_main.set_column(4, 17, 25)
     worksheets = [worksheet_R, worksheet_O, worksheet_DR, worksheet_DO]
 
-    button(workbook, worksheets)
-    button(workbook, worksheets, type='TWITTER', col=2)
-    button(workbook, worksheets, type='GITHUB', col=3)
+    for worksheet in worksheets:
+        worksheet.set_column(1, 1, 12)
+        worksheet.set_column(2, 2, 4)
+
+    # link buttons
+    button(workbook, worksheets, row=4)
+    button(workbook, worksheets, type='TWITTER', row=5)
+    button(workbook, worksheets, type='GITHUB', row=6)
+
+    # owned legend
+    for worksheet in worksheets:
+        cell = workbook.add_format()
+        cell2 = workbook.add_format()
+        set_cell_styles(
+            cell, color=content_colors[0], bg_color=content_bg_colors[0], bold=True)
+        set_cell_styles(
+            cell2, color=content_colors[1], bg_color=content_bg_colors[1], bold=True)
+        worksheet.write(8, 1, 'Owned', cell)
+        worksheet.write(9, 1, 'Missing', cell2)
+
+    # colors legend
+    for worksheet in worksheets:
+        count = 0
+        for bg_color in bg_colors:
+            cell = workbook.add_format()
+            row = count + 11
+            set_cell_styles(
+                cell, color=colors[count], bg_color=bg_color, bold=True)
+            worksheet.write(row, 1, license_names[count], cell)
+            count = count + 1
 
     workbook.close()
 
@@ -177,7 +208,7 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
                 row = row + 1
 
                 # get the first 12 week race Series
-                worksheet.write(row, 1, 'Week ' +
+                worksheet.write(row, 3, 'Week ' +
                                 str(week) + ' (' + str(dates[week-1]) + ')', cell_format_week)
             weeks_done = True
 
@@ -192,10 +223,6 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
         # remove piece of track text after last '-'
         track_short = [t.strip() for t in track.split('-')]
 
-        # colorise background depending if it is owned content or not
-        # import pdb
-        # pdb.set_trace()
-
         if len(track_short) > 1:
             track_short = ' '.join(track_short[:-1])
         else:
@@ -208,6 +235,7 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
         if 'Legends' in track_short:
             track_short = track_short.replace('Legends', '').strip()
 
+        # colorise background depending if it is owned content or not
         if track_short in free_content[0]:
             cell_format_track = cell_format_content[0]
         else:
@@ -245,3 +273,4 @@ main()
 # TODO: A way to filter the owned content
 # TODO: Set automatic width for columns
 # TODO: Add a box with the colors meaning
+# TODO: Add legend, and reorder buttons
