@@ -5,9 +5,10 @@ Organise in a spreadsheet the new season by loading the official pdf.
 ## What I learned
 
 - Python _venv_
-- Basic Python debuggin with _pdb_
+- Basic Python debugging with _pdb_
 - PDF reading with Python
-- XLS creation with Python
+- XLS creation with Python's library _xlsxwritter_
+- Python dictinoaries usage
 
 ## Planning
 

@@ -31,9 +31,9 @@ def owned_or_not_legend(workbook, worksheets, content_colors, content_bg_colors)
         cell = workbook.add_format()
         cell2 = workbook.add_format()
         set_cell_styles(
-            cell, color=content_colors[0], bg_color=content_bg_colors[0], bold=True)
+            cell, color=content_colors['normal'], bg_color=content_bg_colors['owned'], bold=True)
         set_cell_styles(
-            cell2, color=content_colors[1], bg_color=content_bg_colors[1], bold=True)
+            cell2, color=content_colors['alt'], bg_color=content_bg_colors['missing'], bold=True)
         worksheet.write(8, 1, 'Owned', cell)
         worksheet.write(9, 1, 'Missing', cell2)
 
@@ -41,10 +41,11 @@ def owned_or_not_legend(workbook, worksheets, content_colors, content_bg_colors)
 def colors_legend(workbook, worksheets, bg_colors, colors, license_names):
     for worksheet in worksheets:
         count = 0
-        for bg_color in bg_colors:
+        for key in bg_colors:
             cell = workbook.add_format()
             row = count + 11
             set_cell_styles(
-                cell, color=colors[count], bg_color=bg_color, bold=True)
-            worksheet.write(row, 1, license_names[count], cell)
+                cell, color=colors[key], bg_color=bg_colors[key], bold=True)
+            worksheet.write(
+                row, 1, license_names[list(license_names)[count]], cell)
             count = count + 1

@@ -5,24 +5,10 @@ from free_content import get_free_content
 from cell import set_cell_styles
 from legend import *
 import xlsxwriter
+from dics import *
 
 
 def main():
-    # print('Name: ' + str(pdf_obj.get_name()))
-    # print('Type: ' + str(pdf_obj.get_type()))
-    # print('Cars: ' + str(pdf_obj.get_cars()))
-    # print('Ir License: ' + str(pdf_obj.get_ir_license()))
-    # print('Schedule: ' + str(pdf_obj.get_schedule()))
-
-    bg_colors = ['#000000', '#0153DB', '#00C702',
-                 '#FEEC04', '#FC8A27', '#FC0706']
-    colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF',
-              '#000000', '#000000', '#FFFFFF', ]
-    license_names = ['Pro', 'Class A', 'Class B',
-                     'Class C', 'Class D', 'Rookie']
-    content_bg_colors = ['#1E9E1E', '#40474C']
-    content_colors = ['black', '#DDDDDD']
-
     workbook = xlsxwriter.Workbook('output.xlsx')
     cell_format_main = workbook.add_format()
     cell_format_main.set_align('vcenter')
@@ -32,9 +18,11 @@ def main():
     cell_format_content_not_owned = workbook.add_format()
     set_cell_styles(cell_format_content_owned)
     set_cell_styles(cell_format_content_not_owned)
-    cell_format_content_owned.set_bg_color(content_bg_colors[0])
-    cell_format_content_not_owned.set_bg_color(content_bg_colors[1])
-    cell_format_content_not_owned.set_font_color(content_colors[1])
+    cell_format_content_owned.set_bg_color(
+        content['bg_colors']['owned'])
+    cell_format_content_not_owned.set_bg_color(
+        content['bg_colors']['missing'])
+    cell_format_content_not_owned.set_font_color(content['colors']['alt'])
     cell_format_content = [cell_format_content_owned,
                            cell_format_content_not_owned]
 
@@ -44,54 +32,6 @@ def main():
     worksheet_main.write('D2', 'CARS', cell_format_main)
 
     pdf_info = extract_pdf_info()
-    row = 2
-    header_done = False
-    for series in pdf_info:
-        pdf_obj = Class_schedule(data_type='from_data', data=series)
-        cell_format_temp = workbook.add_format()
-        cell_format_temp.set_align('vcenter')
-
-        if not header_done:
-            column = 3
-            # write week num headers
-            dates = pdf_obj.get_dates()
-            if len(dates) == 12:
-                for week in range(1, 13):
-                    column = column + 1
-
-                    # get the first 12 week race Series
-                    worksheet_main.write(1, column, 'Week ' +
-                                         str(week) + ' (' + str(dates[week-1]) + ')'), cell_format_main
-                header_done = True
-        cell_format_temp.set_bg_color(bg_colors[3])
-        worksheet_main.write(row, 1, pdf_obj.get_type(), cell_format_main)
-        worksheet_main.write(row, 2, pdf_obj.get_name(), cell_format_temp)
-        worksheet_main.write(row, 3, '\n'.join(
-            pdf_obj.get_cars()), cell_format_main)
-
-        tracks = pdf_obj.get_tracks()
-        races_type = pdf_obj.get_races_type()
-        races_length = pdf_obj.get_races_length()
-        column = 3
-        for track in tracks:
-            column = column + 1
-
-            # remove piece of track text after last '-'
-            track_short = [t.strip() for t in track.split('-')]
-            if len(track_short) > 1:
-                track_short = ' '.join(track_short[:-1])
-            else:
-                track_short = track_short[0]
-
-            # special check for rallycross weird lap length
-            if not ':' in races_length[column-4]:
-                content = track_short + \
-                    ' (' + races_length[column-4] + ' ' + races_type + ')'
-            else:
-                content = track_short + ' (' + races_length[column-4] + ')'
-            worksheet_main.write(row, column, content, cell_format_main)
-
-        row = row+1
 
     worksheet_R = workbook.add_worksheet('ROAD')
     worksheet_O = workbook.add_worksheet('OVAL')
@@ -113,19 +53,19 @@ def main():
 
         if pdf_obj.get_type() == 'ROAD':
             update_page(workbook, pdf_obj, worksheet_R, col_R,
-                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_R, bg_colors, colors)
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_R, content['bg_colors'], content['colors'], licenses)
             col_R = col_R + 1
         elif pdf_obj.get_type() == 'OVAL':
             update_page(workbook, pdf_obj, worksheet_O, col_O,
-                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_O, bg_colors, colors)
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_O, content['bg_colors'], content['colors'], licenses)
             col_O = col_O + 1
         elif pdf_obj.get_type() == 'DIRT ROAD':
             update_page(workbook, pdf_obj, worksheet_DR, col_DR,
-                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_DR, bg_colors, colors)
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_DR, content['bg_colors'], content['colors'], licenses)
             col_DR = col_DR + 1
         elif pdf_obj.get_type() == 'DIRT OVAL':
             update_page(workbook, pdf_obj, worksheet_DO, col_DO,
-                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_DO, bg_colors, colors)
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_DO, content['bg_colors'], content['colors'], licenses)
             col_DO = col_DO + 1
 
     # TODO: track text size for each column
@@ -142,7 +82,7 @@ def main():
         worksheet.set_column(1, 1, 12)
         worksheet.set_column(2, 2, 4)
 
-    # LEGEND
+    # ---------- LEGEND ----------
     # link buttons
     button(workbook, worksheets, row=4)
     button(workbook, worksheets, type='TWITTER', row=5)
@@ -150,22 +90,24 @@ def main():
 
     # owned / missing legend
     owned_or_not_legend(workbook, worksheets,
-                        content_colors, content_bg_colors)
+                        content['colors'], content['bg_colors'])
 
     # colors legend
-    colors_legend(workbook, worksheets, bg_colors, colors, license_names)
+    colors_legend(workbook, worksheets, licenses['bg_colors'],
+                  licenses['colors'], licenses['names'])
 
     workbook.close()
 
 
-def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main, cell_format_content, weeks_done, bg_colors, colors):
+def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main, cell_format_content, weeks_done, bg_colors, colors, licenses):
     free_content = get_free_content()
 
     # set bg color and font color for that cell
     cell_format_colorised = cell_format
-    colors = get_license_colors(bg_colors, colors, pdf_obj.get_ir_license())
-    cell_format_colorised.set_bg_color(colors[0])
-    cell_format_colorised.set_font_color(colors[1])
+    license_colors = get_license_colors(
+        bg_colors, colors, pdf_obj.get_ir_license(), licenses)
+    cell_format_colorised.set_bg_color(license_colors[0])
+    cell_format_colorised.set_font_color(license_colors[1])
     set_cell_styles(cell_format_colorised, bold=True)
 
     worksheet.write(2, col, pdf_obj.get_name(), cell_format_colorised)
@@ -237,19 +179,27 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
         worksheet.write(row, col, content, cell_format_track)
 
 
-def get_license_colors(bg_colors, colors, ir_license):
-    if ir_license == 'Rookie':
-        return [bg_colors[4], colors[4]]
-    elif ir_license == 'Class D':
-        return [bg_colors[3], colors[3]]
-    elif ir_license == 'Class C':
-        return [bg_colors[2], colors[2]]
-    elif ir_license == 'Class B':
-        return [bg_colors[1], colors[1]]
-    elif ir_license == 'Class A':
-        return [bg_colors[1], colors[1]]
-    else:
-        return [bg_colors[0], colors[0]]
+def get_license_colors(bg_colors, colors, sel_ir_license, ir_licenses):
+
+    # creting an array because I have no way to go to the previous item in a dictionary
+    all_colors = [[], []]
+    for bg_color in ir_licenses['bg_colors']:
+        all_colors[0].append(ir_licenses['bg_colors'][bg_color])
+    for color in ir_licenses['colors']:
+        all_colors[1].append(ir_licenses['colors'][color])
+
+    count = 0
+    for name in ir_licenses['names']:
+        if ir_licenses['names'][name] == sel_ir_license:
+            if count > 0:
+                pos = count-1
+            else:
+                count = 0
+            bg_color = all_colors[0][pos]
+            color = all_colors[1][pos]
+            return [bg_color, color]
+        count = count + 1
+    return ['gray', 'white']
 
 
 main()
@@ -258,5 +208,3 @@ main()
 # TODO: extra tab with "what can I race", based on the content
 # TODO: A way to filter the owned content
 # TODO: Set automatic width for columns
-# TODO: Add a box with the colors meaning
-# TODO: Add legend, and reorder buttons
