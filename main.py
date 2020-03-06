@@ -2,6 +2,8 @@ import sys
 from pdf import extract_pdf_info
 from class_schedule import Class_schedule
 from free_content import get_free_content
+from cell import set_cell_styles
+from buttons import donation_button
 import xlsxwriter
 
 
@@ -131,20 +133,8 @@ def main():
     worksheet_main.set_column(2, 3, 17)
     worksheet_main.set_column(4, 17, 25)
 
-    # donation button
-    cell_paypal = workbook.add_format()
-    paypal_text = 'DONATE'
-    paypal_url = 'https://www.paypal.me/sergih'
-    set_cell_styles(cell_paypal, bg_color='#003087',
-                    color='#009CDE', align='center')
-    worksheet_R.write_url(
-        1, 1, paypal_url, cell_format=cell_paypal, string=paypal_text)
-    worksheet_O.write_url(
-        1, 1, paypal_url, cell_format=cell_paypal, string=paypal_text)
-    worksheet_DR.write_url(
-        1, 1, paypal_url, cell_format=cell_paypal, string=paypal_text)
-    worksheet_DO.write_url(
-        1, 1, paypal_url, cell_format=cell_paypal, string=paypal_text)
+    donation_button(
+        workbook, [worksheet_R, worksheet_O, worksheet_DR, worksheet_DO])
 
     workbook.close()
 
@@ -242,19 +232,6 @@ def get_license_colors(bg_colors, colors, ir_license):
         return [bg_colors[1], colors[1]]
     else:
         return [bg_colors[0], colors[0]]
-
-
-def set_cell_styles(cell, border_color='#575757', align=False, color=False, bg_color=False, bold=False):
-    cell.set_border(1)
-    cell.set_border_color(border_color)
-    if align:
-        cell.set_align(align)
-    if color:
-        cell.set_font_color(color)
-    if bg_color:
-        cell.set_bg_color(bg_color)
-    if bold:
-        cell.set_bold()
 
 
 main()
