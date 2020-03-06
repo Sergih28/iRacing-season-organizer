@@ -3,7 +3,7 @@ from pdf import extract_pdf_info
 from class_schedule import Class_schedule
 from free_content import get_free_content
 from cell import set_cell_styles
-from buttons import donation_button
+from buttons import button
 import xlsxwriter
 
 
@@ -132,9 +132,11 @@ def main():
     worksheet_DO.set_column(1, col_DO, 25)
     worksheet_main.set_column(2, 3, 17)
     worksheet_main.set_column(4, 17, 25)
+    worksheets = [worksheet_R, worksheet_O, worksheet_DR, worksheet_DO]
 
-    donation_button(
-        workbook, [worksheet_R, worksheet_O, worksheet_DR, worksheet_DO])
+    button(workbook, worksheets)
+    button(workbook, worksheets, type='TWITTER', col=2)
+    button(workbook, worksheets, type='GITHUB', col=3)
 
     workbook.close()
 
@@ -237,9 +239,7 @@ def get_license_colors(bg_colors, colors, ir_license):
 main()
 
 # FIXME: iRLMS series and endurance not getting correct schedule
-# FIXME: Do not split by '-' on the name, Mazda and next name are cut
 # TODO: extra tab with "what can I race", based on the content
 # TODO: A way to filter the owned content
 # TODO: Set automatic width for columns
-# TODO: Add my paypal (and twitter)
 # TODO: Add a box with the colors meaning
