@@ -30,6 +30,7 @@ def get_free_content():
     content[1].append('NASCAR Ford Mustang Xfinity Car 2018')
     content[1].append('Street Stock')
     content[1].append('Legends Ford \'34 Coupe')
+    content[1].append('Dirt Legends Ford \'34 Coupe')
     content[1].append('NASCAR Chevrolet Impala SS COT circa 2013')
     content[1].append('NASCAR Chevrolet Silverado Truck circa 2013')
     content[1].append('NASCAR Chevrolet Impala SS Xfinity Car circa 2011')
