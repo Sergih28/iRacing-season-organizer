@@ -89,12 +89,10 @@ def main():
     button(workbook, worksheets, type='GITHUB', row=6)
 
     # owned / missing legend
-    owned_or_not_legend(workbook, worksheets,
-                        content['colors'], content['bg_colors'])
+    owned_or_not_legend(workbook, worksheets)
 
     # colors legend
-    colors_legend(workbook, worksheets, licenses['bg_colors'],
-                  licenses['colors'], licenses['names'])
+    colors_legend(workbook, worksheets)
 
     workbook.close()
 

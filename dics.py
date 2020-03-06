@@ -28,10 +28,18 @@ licenses = {
 content = {
     'bg_colors': {
         'owned': '#1E9E1E',
-        'missing': '#40474C'
+        'missing': '#40474C',
+        'twitter': '#1DA1F2',
+        'github': '#333000',
+        'paypal': '#003087'
     },
     'colors': {
         'normal': 'black',
-        'alt': '#DDDDDD'
+        'alt': '#DDDDDD',
+        'owned': 'black',
+        'missing': '#DDDDDD',
+        'twitter': '#FFFFFF',
+        'github': '#FAFAFA',
+        'paypal': '#009CDE'
     }
 }
