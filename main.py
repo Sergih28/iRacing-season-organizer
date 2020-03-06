@@ -26,11 +26,6 @@ def main():
     cell_format_content = [cell_format_content_owned,
                            cell_format_content_not_owned]
 
-    worksheet_main = workbook.add_worksheet('OLD')
-    worksheet_main.write('B2', 'TYPE', cell_format_main)
-    worksheet_main.write('C2', 'NAME', cell_format_main)
-    worksheet_main.write('D2', 'CARS', cell_format_main)
-
     pdf_info = extract_pdf_info()
 
     worksheet_R = workbook.add_worksheet('ROAD')
@@ -74,8 +69,6 @@ def main():
     worksheet_O.set_column(3, col_O, 25)
     worksheet_DR.set_column(3, col_DR, 25)
     worksheet_DO.set_column(3, col_DO, 25)
-    worksheet_main.set_column(2, 3, 17)
-    worksheet_main.set_column(4, 17, 25)
     worksheets = [worksheet_R, worksheet_O, worksheet_DR, worksheet_DO]
 
     for worksheet in worksheets:
