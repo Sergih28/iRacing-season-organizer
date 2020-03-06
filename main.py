@@ -1,6 +1,7 @@
 import sys
 from pdf import extract_pdf_info
 from class_schedule import Class_schedule
+from free_content import get_free_content
 import xlsxwriter
 
 
@@ -19,6 +20,18 @@ def main():
     workbook = xlsxwriter.Workbook('output.xlsx')
     cell_format_main = workbook.add_format()
     cell_format_main.set_align('vcenter')
+    set_cell_styles(cell_format_main)
+
+    cell_format_content_owned = workbook.add_format()
+    cell_format_content_not_owned = workbook.add_format()
+    set_cell_styles(cell_format_content_owned)
+    set_cell_styles(cell_format_content_not_owned)
+    cell_format_content_owned.set_bg_color('#1E9E1E')
+    cell_format_content_not_owned.set_bg_color('#40474C')
+    cell_format_content_not_owned.set_font_color('#DDDDDD')
+    cell_format_content = [cell_format_content_owned,
+                           cell_format_content_not_owned]
+
     worksheet_main = workbook.add_worksheet('OLD')
     worksheet_main.write('B2', 'TYPE', cell_format_main)
     worksheet_main.write('C2', 'NAME', cell_format_main)
@@ -90,22 +103,23 @@ def main():
         pdf_obj = Class_schedule(data_type='from_data', data=series)
         cell_format_temp = workbook.add_format()
         cell_format_temp.set_align('vcenter')
+        set_cell_styles(cell_format_temp)
 
         if pdf_obj.get_type() == 'ROAD':
-            update_page(pdf_obj, worksheet_R, col_R,
-                        cell_format_temp, cell_format_main, weeks_done_R, bg_colors, colors)
+            update_page(workbook, pdf_obj, worksheet_R, col_R,
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_R, bg_colors, colors)
             col_R = col_R + 1
         elif pdf_obj.get_type() == 'OVAL':
-            update_page(pdf_obj, worksheet_O, col_O,
-                        cell_format_temp, cell_format_main, weeks_done_O, bg_colors, colors)
+            update_page(workbook, pdf_obj, worksheet_O, col_O,
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_O, bg_colors, colors)
             col_O = col_O + 1
         elif pdf_obj.get_type() == 'DIRT ROAD':
-            update_page(pdf_obj, worksheet_DR, col_DR,
-                        cell_format_temp, cell_format_main, weeks_done_DR, bg_colors, colors)
+            update_page(workbook, pdf_obj, worksheet_DR, col_DR,
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_DR, bg_colors, colors)
             col_DR = col_DR + 1
         elif pdf_obj.get_type() == 'DIRT OVAL':
-            update_page(pdf_obj, worksheet_DO, col_DO,
-                        cell_format_temp, cell_format_main, weeks_done_DO, bg_colors, colors)
+            update_page(workbook, pdf_obj, worksheet_DO, col_DO,
+                        cell_format_temp, cell_format_main, cell_format_content, weeks_done_DO, bg_colors, colors)
             col_DO = col_DO + 1
 
     # TODO: track text size for each column
@@ -120,20 +134,35 @@ def main():
     workbook.close()
 
 
-def update_page(pdf_obj, worksheet, col, cell_format, cell_format_main, weeks_done, bg_colors, colors):
+def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main, cell_format_content, weeks_done, bg_colors, colors):
+    free_content = get_free_content()
+
     # set bg color and font color for that cell
     cell_format_colorised = cell_format
     colors = get_license_colors(bg_colors, colors, pdf_obj.get_ir_license())
     cell_format_colorised.set_bg_color(colors[0])
     cell_format_colorised.set_font_color(colors[1])
+    set_cell_styles(cell_format_colorised, bold=True)
 
     worksheet.write(2, col, pdf_obj.get_name(), cell_format_colorised)
-    worksheet.write(3, col, '\n'.join(
-        pdf_obj.get_cars()), cell_format_main)
+
+    cars = pdf_obj.get_cars()
+    for car in cars:
+        if car in free_content[1]:
+            cell_format_cars = cell_format_content[0]
+            break
+        else:
+            cell_format_cars = cell_format_content[1]
+    cell_format_cars.set_align('vcenter')
+    set_cell_styles(cell_format_cars)
+    worksheet.write(3, col, '\n'.join(cars), cell_format_cars)
 
     # set week column
     if not weeks_done:
         row = 3
+        cell_format_week = workbook.add_format()
+        cell_format_week.set_bg_color('yellow')
+        set_cell_styles(cell_format_week, bold=True)
         # write week num headers
         dates = pdf_obj.get_dates()
         if len(dates) == 12:
@@ -142,22 +171,38 @@ def update_page(pdf_obj, worksheet, col, cell_format, cell_format_main, weeks_do
 
                 # get the first 12 week race Series
                 worksheet.write(row, 1, 'Week ' +
-                                str(week) + ' (' + str(dates[week-1]) + ')'), cell_format_main
+                                str(week) + ' (' + str(dates[week-1]) + ')', cell_format_week)
             weeks_done = True
 
     tracks = pdf_obj.get_tracks()
     races_type = pdf_obj.get_races_type()
     races_length = pdf_obj.get_races_length()
     row = 3
+
     for track in tracks:
         row = row + 1
 
         # remove piece of track text after last '-'
         track_short = [t.strip() for t in track.split('-')]
+
+        # colorise background depending if it is owned content or not
+        # import pdb
+        # pdb.set_trace()
+
         if len(track_short) > 1:
             track_short = ' '.join(track_short[:-1])
         else:
             track_short = track_short[0]
+
+        if 'Oval' in track_short:
+            track_short = track_short.replace('Oval', '').strip()
+        if 'Legends' in track_short:
+            track_short = track_short.replace('Legends', '').strip()
+
+        if track_short in free_content[0]:
+            cell_format_track = cell_format_content[0]
+        else:
+            cell_format_track = cell_format_content[1]
 
         # special check for rallycross weird lap length
         if not ':' in races_length[row-4]:
@@ -165,7 +210,8 @@ def update_page(pdf_obj, worksheet, col, cell_format, cell_format_main, weeks_do
                 ' (' + races_length[row-4] + ' ' + races_type + ')'
         else:
             content = track_short + ' (' + races_length[row-4] + ')'
-        worksheet.write(row, col, content, cell_format_main)
+        set_cell_styles(cell_format_track)
+        worksheet.write(row, col, content, cell_format_track)
 
 
 def get_license_colors(bg_colors, colors, ir_license):
@@ -181,6 +227,13 @@ def get_license_colors(bg_colors, colors, ir_license):
         return [bg_colors[1], colors[1]]
     else:
         return [bg_colors[0], colors[0]]
+
+
+def set_cell_styles(cell, color='#575757', bold=False):
+    cell.set_border(1)
+    cell.set_border_color(color)
+    if bold:
+        cell.set_bold()
 
 
 main()
