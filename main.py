@@ -13,6 +13,8 @@ def main():
 
     bg_colors = ['#000000', '#0153DB', '#00C702',
                  '#FEEC04', '#FC8A27', '#FC0706']
+    colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF',
+              '#000000', '#000000', '#FFFFFF', ]
 
     workbook = xlsxwriter.Workbook('output.xlsx')
     cell_format_main = workbook.add_format()
@@ -91,19 +93,19 @@ def main():
 
         if pdf_obj.get_type() == 'ROAD':
             update_page(pdf_obj, worksheet_R, col_R,
-                        cell_format_temp, cell_format_main, weeks_done_R)
+                        cell_format_temp, cell_format_main, weeks_done_R, bg_colors, colors)
             col_R = col_R + 1
         elif pdf_obj.get_type() == 'OVAL':
             update_page(pdf_obj, worksheet_O, col_O,
-                        cell_format_temp, cell_format_main, weeks_done_O)
+                        cell_format_temp, cell_format_main, weeks_done_O, bg_colors, colors)
             col_O = col_O + 1
         elif pdf_obj.get_type() == 'DIRT ROAD':
             update_page(pdf_obj, worksheet_DR, col_DR,
-                        cell_format_temp, cell_format_main, weeks_done_DR)
+                        cell_format_temp, cell_format_main, weeks_done_DR, bg_colors, colors)
             col_DR = col_DR + 1
         elif pdf_obj.get_type() == 'DIRT OVAL':
             update_page(pdf_obj, worksheet_DO, col_DO,
-                        cell_format_temp, cell_format_main, weeks_done_DO)
+                        cell_format_temp, cell_format_main, weeks_done_DO, bg_colors, colors)
             col_DO = col_DO + 1
 
     # TODO: track text size for each column
@@ -118,8 +120,14 @@ def main():
     workbook.close()
 
 
-def update_page(pdf_obj, worksheet, col, cell_format, cell_format_main, weeks_done):
-    worksheet.write(2, col, pdf_obj.get_name(), cell_format)
+def update_page(pdf_obj, worksheet, col, cell_format, cell_format_main, weeks_done, bg_colors, colors):
+    # set bg color and font color for that cell
+    cell_format_colorised = cell_format
+    colors = get_license_colors(bg_colors, colors, pdf_obj.get_ir_license())
+    cell_format_colorised.set_bg_color(colors[0])
+    cell_format_colorised.set_font_color(colors[1])
+
+    worksheet.write(2, col, pdf_obj.get_name(), cell_format_colorised)
     worksheet.write(3, col, '\n'.join(
         pdf_obj.get_cars()), cell_format_main)
 
@@ -160,8 +168,28 @@ def update_page(pdf_obj, worksheet, col, cell_format, cell_format_main, weeks_do
         worksheet.write(row, col, content, cell_format_main)
 
 
+def get_license_colors(bg_colors, colors, ir_license):
+    if ir_license == 'Rookie':
+        return [bg_colors[4], colors[4]]
+    elif ir_license == 'Class D':
+        return [bg_colors[3], colors[3]]
+    elif ir_license == 'Class C':
+        return [bg_colors[2], colors[2]]
+    elif ir_license == 'Class B':
+        return [bg_colors[1], colors[1]]
+    elif ir_license == 'Class A':
+        return [bg_colors[1], colors[1]]
+    else:
+        return [bg_colors[0], colors[0]]
+
+
 main()
 
-# TODO: color the name and its background according to the license
-# TODO: fix iRLMS series and endurance not getting correct schedule
-# TODO: Do not split by '-' on the name, Mazda and next name are cut
+# TODO: color the name and its background according to the license. The same with the car and tracks, depending if they are owned content or not
+# FIXME: iRLMS series and endurance not getting correct schedule
+# FIXME: Do not split by '-' on the name, Mazda and next name are cut
+# TODO: extra tab with "what can I race", based on the content
+# TODO: A way to filter the owned content
+# TODO: Set automatic width for columns
+# TODO: Add my paypal (and twitter)
+# TODO: Add a box with the colors meaning

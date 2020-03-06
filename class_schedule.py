@@ -121,7 +121,12 @@ class Class_schedule:
     def get_name(self): return self.name
     def get_type(self): return self.type
     def get_cars(self): return self.cars
-    def get_ir_license(self): return self.ir_license
+
+    def get_ir_license(self):
+        license = self.ir_license.split('-->')
+        license = license[0].strip().split('(')
+        return license[0].strip()
+
     def get_schedule(self): return self.schedule
     def get_dates(self): return self.schedule[1]
     def get_tracks(self): return self.schedule[2]
