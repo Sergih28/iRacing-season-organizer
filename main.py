@@ -203,6 +203,8 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
 
         if 'Oval' in track_short:
             track_short = track_short.replace('Oval', '').strip()
+        if 'Roval' in track_short:
+            track_short = track_short.replace('Roval', '').strip()
         if 'Legends' in track_short:
             track_short = track_short.replace('Legends', '').strip()
 
