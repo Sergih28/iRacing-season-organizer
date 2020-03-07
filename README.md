@@ -8,7 +8,7 @@ Organise in a spreadsheet the new season by loading the official pdf.
 - Basic Python debugging with _pdb_
 - PDF reading with Python
 - XLS creation with Python's library _xlsxwritter_
-- Python dictinoaries usage
+- Python dictionaries usage
 
 ## Planning
 
