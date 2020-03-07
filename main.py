@@ -91,7 +91,7 @@ def main():
     owned_or_not_legend(workbook, worksheets)
     colors_legend(workbook, worksheets)
 
-    # add tracks list in a new page
+    # ---------- CONTENT PAGE ----------
     worksheet_content = workbook.add_worksheet('CONTENT')
     worksheet_content.set_column(2, 2, 45)
     worksheet_content.write(1, 1, 'OWNED')
@@ -99,16 +99,17 @@ def main():
     free_tracks = get_free_content()[0]
     cell_green = workbook.add_format()
     cell_gray = workbook.add_format()
-    cell_title1 = workbook.add_format()
-    cell_title2 = workbook.add_format()
-    set_cell_styles(cell_title1, bold=True)
-    set_cell_styles(cell_title2, bold=True)
+    # cell_blank = workbook.add_format()
+    cell_title = workbook.add_format()
+    set_cell_styles(cell_title, bold=True)
     set_cell_styles(
         cell_green, bg_color=content['bg_colors']['owned'])
     set_cell_styles(
         cell_gray, bg_color=content['bg_colors']['missing'])
-    worksheet_content.write(1, 1, 'OWNED', cell_title1)
-    worksheet_content.write(1, 2, 'TRACKS', cell_title1)
+    # set_cell_styles(cell_blank, bg_color=content['bg_colors']['twitter'])
+    worksheet_content.write(1, 1, 'OWNED', cell_title)
+    worksheet_content.write(1, 2, 'TRACKS', cell_title)
+    worksheet_content.write(1, 3, 'USES', cell_title)
 
     row = 2
     count = 0
@@ -118,7 +119,7 @@ def main():
         count = count + 1
     # remove duplicate tracks
     tracks_list = list(dict.fromkeys(tracks_list))
-    total_tracks = len(tracks_list) + 2
+    total_tracks = len(tracks_list) + 1
     for track in tracks_list:
         cell_track = workbook.add_format()
         if track in free_tracks:
@@ -129,20 +130,17 @@ def main():
         # condition to paint the bg_color depending on the row OWNED
         criteria_Y = '=$B'+str(row+1)+'="Y"'
         criteria_N = '=$B'+str(row+1)+'="N"'
-        worksheet_content.conditional_format(2, 1, total_tracks, 2, {'type': 'formula',
+
+        worksheet_content.conditional_format(2, 1, total_tracks, 3, {'type': 'formula',
                                                                      'criteria': criteria_Y, 'format': cell_green})
-        worksheet_content.conditional_format(2, 1, total_tracks, 2, {'type': 'formula',
+        worksheet_content.conditional_format(2, 1, total_tracks, 3, {'type': 'formula',
                                                                      'criteria': criteria_N, 'format': cell_gray})
+        worksheet_content.data_validation(
+            2, 1, total_tracks, 1, {'validate': 'list', 'source': ['Y', 'N']})
 
         worksheet_content.write(row, 2, track, cell_track)
+        worksheet_content.write(row, 3, '8', cell_track)
         row = row + 1
-
-    # set conditional color in owned and track columns
-
-    # worksheet_content.conditional_format(2, 1, total_rows, 1, {'type': 'cell',
-    #                                                            'criteria': '==', 'value': '"Y"', 'format': cell_green})
-    # worksheet_content.conditional_format(2, 1, total_rows, 1, {'type': 'cell',
-    #                                                            'criteria': '==', 'value': '"N"', 'format': cell_gray})
 
     workbook.close()
 
