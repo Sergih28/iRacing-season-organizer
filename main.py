@@ -67,9 +67,10 @@ def main():
 
         tracks = pdf_obj.get_tracks()
         for track in tracks:
-            if not track in tracks_list:
-                tracks_list.append(track)
+            tracks_list.append(track)
+            # if not track in tracks_list:
 
+    print(tracks_list)
     # TODO: track text size for each column
     # then set the column size according to that
     worksheet_R.set_column(3, col_R, 25)
@@ -103,9 +104,9 @@ def main():
     cell_title = workbook.add_format()
     set_cell_styles(cell_title, bold=True)
     set_cell_styles(
-        cell_green, bg_color=content['bg_colors']['owned'])
+        cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
     set_cell_styles(
-        cell_gray, bg_color=content['bg_colors']['missing'])
+        cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
     # set_cell_styles(cell_blank, bg_color=content['bg_colors']['twitter'])
     worksheet_content.write(1, 1, 'OWNED', cell_title)
     worksheet_content.write(1, 2, 'TRACKS', cell_title)
@@ -113,10 +114,18 @@ def main():
 
     row = 2
     count = 0
+    tracks_usage = {}
 
     for track in tracks_list:
-        tracks_list[count] = clean_track_name(track)
+        # track_clean_name = clean_track_name(track)
+        track_clean_name = track
+        tracks_list[count] = track_clean_name
+        if track_clean_name in tracks_usage:
+            tracks_usage[track_clean_name] = tracks_usage[track_clean_name] + 1
+        else:
+            tracks_usage[track_clean_name] = 1
         count = count + 1
+
     # remove duplicate tracks
     tracks_list = list(dict.fromkeys(tracks_list))
     total_tracks = len(tracks_list) + 1
@@ -138,8 +147,9 @@ def main():
         worksheet_content.data_validation(
             2, 1, total_tracks, 1, {'validate': 'list', 'source': ['Y', 'N']})
 
+        track_usage = tracks_usage[track]
         worksheet_content.write(row, 2, track, cell_track)
-        worksheet_content.write(row, 3, '8', cell_track)
+        worksheet_content.write(row, 3, track_usage, cell_track)
         row = row + 1
 
     workbook.close()
@@ -193,14 +203,8 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
 
     for track in tracks:
         row = row + 1
-        track_short = clean_track_name(track)
-
-        if 'Oval' in track_short:
-            track_short = track_short.replace('Oval', '').strip()
-        if 'Roval' in track_short:
-            track_short = track_short.replace('Roval', '').strip()
-        if 'Legends' in track_short:
-            track_short = track_short.replace('Legends', '').strip()
+        track_short = track
+        # track_short = clean_track_name(track)
 
         # colorise background depending if it is owned content or not
         if track_short in free_content[0]:
@@ -240,12 +244,6 @@ def get_license_colors(bg_colors, colors, sel_ir_license, ir_licenses):
         count = count + 1
     return ['gray', 'white']
 
- # clear track name removing ' - '
-
-
-def clean_track_name(track):
-    return [t.strip() for t in track.split(' -')][0]
-
 
 main()
 
@@ -253,4 +251,4 @@ main()
 # TODO: extra tab with "what can I race", based on the content
 # TODO: A way to filter the owned content
 # TODO: Set automatic width for columns
-# TODO: Print all tracks in another page
+# TODO: check if tracks count is working properly

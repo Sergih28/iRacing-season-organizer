@@ -108,6 +108,7 @@ class Class_schedule:
             week_num = split_week_num[0].strip()
             date = split_date[0].strip()
             track = split_track[0].strip()
+            track = self.clean_track_name(track)
             race_length = split_race_length3[0].strip()
             week_nums.append(week_num)
             dates.append(date)
@@ -117,6 +118,10 @@ class Class_schedule:
                 races_type = 'mins'
 
         self.schedule = [week_nums, dates, tracks, races_type, races_length]
+
+    # clear track name removing ' - '
+    def clean_track_name(self, track):
+        return [t.strip() for t in track.split(' -')][0]
 
     def get_name(self): return self.name
     def get_type(self): return self.type
