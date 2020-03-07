@@ -26,6 +26,8 @@ def main():
     cell_format_content = [cell_format_content_owned,
                            cell_format_content_not_owned]
 
+    tracks_list = []
+
     pdf_info = extract_pdf_info()
 
     worksheet_R = workbook.add_worksheet('ROAD')
@@ -63,6 +65,11 @@ def main():
                         cell_format_temp, cell_format_main, cell_format_content, weeks_done_DO, content['bg_colors'], content['colors'], licenses)
             col_DO = col_DO + 1
 
+        tracks = pdf_obj.get_tracks()
+        for track in tracks:
+            if not track in tracks_list:
+                tracks_list.append(track)
+
     # TODO: track text size for each column
     # then set the column size according to that
     worksheet_R.set_column(3, col_R, 25)
@@ -81,11 +88,61 @@ def main():
     button(workbook, worksheets, type='TWITTER', row=5)
     button(workbook, worksheets, type='GITHUB', row=6)
 
-    # owned / missing legend
     owned_or_not_legend(workbook, worksheets)
-
-    # colors legend
     colors_legend(workbook, worksheets)
+
+    # add tracks list in a new page
+    worksheet_content = workbook.add_worksheet('CONTENT')
+    worksheet_content.set_column(2, 2, 45)
+    worksheet_content.write(1, 1, 'OWNED')
+    tracks_list = sorted(tracks_list)
+    free_tracks = get_free_content()[0]
+    cell_green = workbook.add_format()
+    cell_gray = workbook.add_format()
+    cell_title1 = workbook.add_format()
+    cell_title2 = workbook.add_format()
+    set_cell_styles(cell_title1, bold=True)
+    set_cell_styles(cell_title2, bold=True)
+    set_cell_styles(
+        cell_green, bg_color=content['bg_colors']['owned'])
+    set_cell_styles(
+        cell_gray, bg_color=content['bg_colors']['missing'])
+    worksheet_content.write(1, 1, 'OWNED', cell_title1)
+    worksheet_content.write(1, 2, 'TRACKS', cell_title1)
+
+    row = 2
+    count = 0
+
+    for track in tracks_list:
+        tracks_list[count] = clean_track_name(track)
+        count = count + 1
+    # remove duplicate tracks
+    tracks_list = list(dict.fromkeys(tracks_list))
+    total_tracks = len(tracks_list) + 2
+    for track in tracks_list:
+        cell_track = workbook.add_format()
+        if track in free_tracks:
+            worksheet_content.write(row, 1, 'Y')
+        else:
+            worksheet_content.write(row, 1, 'N')
+
+        # condition to paint the bg_color depending on the row OWNED
+        criteria_Y = '=$B'+str(row+1)+'="Y"'
+        criteria_N = '=$B'+str(row+1)+'="N"'
+        worksheet_content.conditional_format(2, 1, total_tracks, 2, {'type': 'formula',
+                                                                     'criteria': criteria_Y, 'format': cell_green})
+        worksheet_content.conditional_format(2, 1, total_tracks, 2, {'type': 'formula',
+                                                                     'criteria': criteria_N, 'format': cell_gray})
+
+        worksheet_content.write(row, 2, track, cell_track)
+        row = row + 1
+
+    # set conditional color in owned and track columns
+
+    # worksheet_content.conditional_format(2, 1, total_rows, 1, {'type': 'cell',
+    #                                                            'criteria': '==', 'value': '"Y"', 'format': cell_green})
+    # worksheet_content.conditional_format(2, 1, total_rows, 1, {'type': 'cell',
+    #                                                            'criteria': '==', 'value': '"N"', 'format': cell_gray})
 
     workbook.close()
 
@@ -138,14 +195,7 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
 
     for track in tracks:
         row = row + 1
-
-        # remove piece of track text after last '-'
-        track_short = [t.strip() for t in track.split('-')]
-
-        if len(track_short) > 1:
-            track_short = ' '.join(track_short[:-1])
-        else:
-            track_short = track_short[0]
+        track_short = clean_track_name(track)
 
         if 'Oval' in track_short:
             track_short = track_short.replace('Oval', '').strip()
@@ -192,6 +242,12 @@ def get_license_colors(bg_colors, colors, sel_ir_license, ir_licenses):
         count = count + 1
     return ['gray', 'white']
 
+ # clear track name removing ' - '
+
+
+def clean_track_name(track):
+    return [t.strip() for t in track.split(' -')][0]
+
 
 main()
 
@@ -199,3 +255,4 @@ main()
 # TODO: extra tab with "what can I race", based on the content
 # TODO: A way to filter the owned content
 # TODO: Set automatic width for columns
+# TODO: Print all tracks in another page
