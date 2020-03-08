@@ -288,7 +288,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['20
 
 Name: IMSA Sportscar Championship
 Type: ROAD
-Cars: ['Ford GT - 2017', 'Ferrari 488 GTE', 'Porsche 911 RSR', 'BMW M8 GTE', 'Chevrolet Corvette C7 Daytona Prototype', 'Mercedes AMG GT3', 'Audi R8LMS']
+Cars: ['Ford GT - 2017', 'Ferrari 488 GTE', 'Porsche 911 RSR', 'BMW M8 GTE', 'Chevrolet Corvette C7 Daytona Prototype', 'Mercedes AMG GT3', 'Audi R8 LMS']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Sebring International Raceway', 'Lime Rock Park', 'Road America', 'Circuit de Spa-Francorchamps', 'Watkins Glen International', 'Circuit de Barcelona Catalunya', 'Silverstone Circuit', 'Mid-Ohio Sports Car Course', 'Sonoma Raceway', 'Road Atlanta', 'Circuit Gilles Villeneuve', 'Detroit Grand Prix at Belle Isle'], 'mins', ['45', '45', '45', '60', '45', '45', '45', '45', '45', '60', '45', '45']]
 
@@ -320,7 +320,7 @@ Schedule: [['1', '2', '3', '4', '5', '6', '7', '8'], ['2020-03-10', '2020-03-17'
 
 Name: iRacing Endurance Le Mans Series- 2020 Season 2
 Type: ROAD
-Cars: ['Audi R18', 'Porsche 919', 'Ford GT - 2017', 'Ferrari 488 GTE', 'Porsche 911RSR', 'BMW M8 GTE', 'HPD ARX-01c']
+Cars: ['Audi R18', 'Porsche 919', 'Ford GT - 2017', 'Ferrari 488 GTE', 'Porsche 911 RSR', 'BMW M8 GTE', 'HPD ARX-01c']
 Ir_license: Class C (4.0) --> Pro/WC (4.0)
 Schedule: [['9', '10', '11', '12', '1', '2', '3', '4', '5', '6'], ['2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-03-17', '2020-03-31', '2020-04-14', '2020-04-28', '2020-05-12', '2020-05-26'], ['Suzuka International Racing Course', 'Silverstone Circuit', 'Circuit de Barcelona Catalunya', 'Circuit des 24 Heures du Mans 2424', 'Sebring International Raceway', 'Autodromo Nazionale Monza', 'Road America', 'Circuit de Spa-Francorchamps', 'Silverstone Circuit', 'Circuit des 24 Heures du Mans 2424'], 'mins', ['60', '60', '60', '0), Team racingRaces every other Saturday at 7, 18, Sunday at 14 GMT', '360', '360', '360', '360', '360', '360']]
 

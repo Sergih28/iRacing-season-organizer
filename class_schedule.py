@@ -43,8 +43,18 @@ class Class_schedule:
 
     def set_cars(self):
         self.cars = []
+
+        # special checks for PDF EOL with 2 cars
+        if '911RSR' in self.page_content[0]:
+            self.page_content[0] = self.page_content[0].replace(
+                '911RSR', '911 RSR')
+        if 'R8LMS' in self.page_content[0]:
+            self.page_content[0] = self.page_content[0].replace(
+                'R8LMS', 'R8 LMS')
+
         cars = self.page_content[0].split(
             self.title)[1].strip()
+
         self.cars = cars
         if 'Rookie' in cars:
             cars = cars.split('Rookie')[0].strip()

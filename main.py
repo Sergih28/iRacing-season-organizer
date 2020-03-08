@@ -304,4 +304,3 @@ main()
 # TODO: Ability to hide series (with VBA)
 # TODO: move below the series that don't have 12 weeks, so they can get the correct dates on the weeks
 # TODO: Make fun page
-# TODO: Porsche 911RSR and Porsche 911 RSR should be the same car, right?
