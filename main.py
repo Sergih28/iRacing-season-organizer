@@ -263,3 +263,4 @@ main()
 # TODO: link track names in the pages with the CONTENT page
 # TODO: Leave the year on the track names
 # TODO: Lock cells
+# TODO: Ability to hide series

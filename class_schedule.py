@@ -39,7 +39,7 @@ class Class_schedule:
         self.page_content = page_content
 
     def set_name(self):
-        self.name = self.title.split('-')[0].strip()
+        self.name = self.title.split(' -')[0].strip()
 
     def set_cars(self):
         self.cars = []
