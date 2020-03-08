@@ -86,7 +86,11 @@ def main():
         worksheet.set_column(2, 2, 4)
         worksheet.set_column(3, 3, 25)
         for col in range(4, categories[category]['col']):
-            col_size = col_sizes[category][col] * 1.55
+            if category == 'dirt_oval':
+                col_size = col_sizes[category][col] * 1.9
+            else:
+                col_size = col_sizes[category][col] * 1.55
+
             worksheet.set_column(col, col, col_size)
 
     # ---------- LEGEND ----------
@@ -263,11 +267,10 @@ main()
 # FIXME: iRLMS series and endurance not getting correct schedule
 # TODO: Extra tab with "what can I race", based on the content
 # TODO: A way to filter the owned content
-# TODO: Set automatic width for columns
 # TODO: Check if tracks count is working properly
 # TODO: link track names in the pages with the CONTENT page
 # TODO: Link cars in the pages with the CONTENT page (therefore sepparate them in individual cells)
-# TODO: Leave the year on the track names
 # TODO: Lock cells
 # TODO: List cars in CONTENT pages, like done with tracks
 # TODO: Ability to hide series (with VBA)
+# TODO: move below the series that don't have 12 weeks, so they can get the correct dates on the weeks
