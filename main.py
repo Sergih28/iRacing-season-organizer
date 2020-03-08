@@ -239,13 +239,18 @@ def get_license_colors(bg_colors, colors, sel_ir_license, ir_licenses):
     for color in ir_licenses['colors']:
         all_colors[1].append(ir_licenses['colors'][color])
 
+    sel_license_name = sel_ir_license[0]
+    sel_license_num = sel_ir_license[1]
     count = 0
     for name in ir_licenses['names']:
-        if ir_licenses['names'][name] == sel_ir_license:
-            if count > 0:
-                pos = count-1
+        if ir_licenses['names'][name] == sel_license_name:
+            if sel_license_num == float(4.0):
+                if count > 0:
+                    pos = count-1
+                else:
+                    count = 0
             else:
-                count = 0
+                pos = count
             bg_color = all_colors[0][pos]
             color = all_colors[1][pos]
             return [bg_color, color]
@@ -256,11 +261,14 @@ def get_license_colors(bg_colors, colors, sel_ir_license, ir_licenses):
 main()
 
 # FIXME: iRLMS series and endurance not getting correct schedule
-# TODO: extra tab with "what can I race", based on the content
+# TODO: Extra tab with "what can I race", based on the content
 # TODO: A way to filter the owned content
 # TODO: Set automatic width for columns
-# TODO: check if tracks count is working properly
+# TODO: Check if tracks count is working properly
 # TODO: link track names in the pages with the CONTENT page
+# TODO: Link cars in the pages with the CONTENT page (therefore sepparate them in individual cells)
 # TODO: Leave the year on the track names
 # TODO: Lock cells
-# TODO: Ability to hide series
+# TODO: List cars in CONTENT pages, like done with tracks
+# TODO: Take into account the 4.0 in license requirements, bc some should be rookie, not D class (like Rookie 1.0 license)
+# TODO: Ability to hide series (with VBA)

@@ -128,9 +128,14 @@ class Class_schedule:
     def get_cars(self): return self.cars
 
     def get_ir_license(self):
-        license = self.ir_license.split('-->')
-        license = license[0].strip().split('(')
-        return license[0].strip()
+        if type(self.ir_license) is list:
+            return [self.ir_license[0], self.ir_license[1]]
+
+        ir_license = self.ir_license.split('-->')
+        ir_license = ir_license[0].strip().split('(')
+        license_name = ir_license[0].strip()
+        license_num = ir_license[1].split(')')[0].strip()
+        return [license_name, float(license_num)]
 
     def get_schedule(self): return self.schedule
     def get_dates(self): return self.schedule[1]
