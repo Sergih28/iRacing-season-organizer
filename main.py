@@ -270,5 +270,4 @@ main()
 # TODO: Leave the year on the track names
 # TODO: Lock cells
 # TODO: List cars in CONTENT pages, like done with tracks
-# TODO: Take into account the 4.0 in license requirements, bc some should be rookie, not D class (like Rookie 1.0 license)
 # TODO: Ability to hide series (with VBA)

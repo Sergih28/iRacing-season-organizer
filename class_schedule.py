@@ -89,8 +89,7 @@ class Class_schedule:
             counter = counter+1
             if counter == 1:
                 continue
-            # import pdb
-            # pdb.set_trace()
+
             split_week_num = week.split(' (')
             split_date = split_week_num[1].strip().split(')')
             split_track = split_date[1].strip().split('(')
@@ -109,6 +108,9 @@ class Class_schedule:
             date = split_date[0].strip()
             track = split_track[0].strip()
             track = self.clean_track_name(track)
+            # if '2007' in split_date[1]:
+            #     import pdb
+            #     pdb.set_trace()
             race_length = split_race_length3[0].strip()
             week_nums.append(week_num)
             dates.append(date)
@@ -121,7 +123,23 @@ class Class_schedule:
 
     # clear track name removing ' - '
     def clean_track_name(self, track):
-        return [t.strip() for t in track.split(' -')][0]
+        track_clean_name = [t.strip() for t in track.split(' -')][0]
+
+        # special check for le mans
+        track_clean_name = track_clean_name.replace('- 24 Heures', '')
+
+        # special check for tsukuba
+        if not 'Tsukuba' in track_clean_name:
+            # append track year
+            year = [int(s) for s in track if s.isdigit()]
+            if len(year) == 4:
+                track_clean_name += ' '
+                for digit in year:
+                    track_clean_name += str(digit)
+
+        # if any(char.isdigit() for char in track):
+        #     [int(s) for s in track if s.isdigit()]
+        return track_clean_name
 
     def get_name(self): return self.name
     def get_type(self): return self.type
