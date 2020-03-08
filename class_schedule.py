@@ -136,12 +136,12 @@ class Class_schedule:
         track_clean_name = [t.strip() for t in track.split(' -')][0]
 
         # special check for le mans
-        track_clean_name = track_clean_name.replace('- 24 Heures', '')
+        track = track.replace('- 24 Heures', '')
 
         # special check for tsukuba
-        if not 'Tsukuba' in track_clean_name:
+        if not 'Tsukuba' in track:
             # append track year
-            year = [int(s) for s in track_clean_name if s.isdigit()]
+            year = [int(s) for s in track if s.isdigit()]
             if len(year) == 4:
                 track_clean_name += ' '
                 for digit in year:
