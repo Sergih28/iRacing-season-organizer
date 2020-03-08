@@ -1,4 +1,4 @@
-licenses = {
+ir_licenses = {
     'names': {
         'P': 'Pro',
         'A': 'Class A',

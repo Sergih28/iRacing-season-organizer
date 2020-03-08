@@ -1,5 +1,5 @@
 from cell import set_cell_styles
-from dics import content, licenses
+from dics import content, ir_licenses
 
 
 def button(workbook, worksheet, type='DONATION', row=1, col=1):
@@ -20,50 +20,52 @@ def button(workbook, worksheet, type='DONATION', row=1, col=1):
         bg_color = content['bg_colors']['paypal']
         color = content['colors']['paypal']
 
-    set_cell_styles(cell_button, bg_color=bg_color,
-                    color=color)
+    set_cell_styles(cell_button, bg_color=bg_color, color=color)
     worksheet.write_url(
         row, col, button_url, cell_format=cell_button, string=button_text)
 
 
-def print_buttons(workbook, categories):
+def print_buttons(workbook, categories, first_row):
     for category in categories:
         worksheet = categories[category]['worksheet']
-        button(workbook, worksheet, row=4)
-        button(workbook, worksheet, type='TWITTER', row=5)
-        button(workbook, worksheet, type='GITHUB', row=6)
+        button(workbook, worksheet, row=first_row)
+        button(workbook, worksheet, type='TWITTER', row=first_row+1)
+        button(workbook, worksheet, type='GITHUB', row=first_row+2)
 
 
-def owned_missing(workbook, worksheet):
+def owned_missing(workbook, worksheet, first_row):
     cell = workbook.add_format()
     cell2 = workbook.add_format()
     set_cell_styles(
         cell, color=content['colors']['normal'], bg_color=content['bg_colors']['owned'], bold=True)
     set_cell_styles(
         cell2, color=content['colors']['alt'], bg_color=content['bg_colors']['missing'], bold=True)
-    worksheet.write(8, 1, 'Owned', cell)
-    worksheet.write(9, 1, 'Missing', cell2)
+    worksheet.write(first_row, 1, 'Owned', cell)
+    worksheet.write(first_row+1, 1, 'Missing', cell2)
 
 
-def print_owned_missing(workbook, categories):
+def print_owned_missing(workbook, categories, first_row):
     for category in categories:
         worksheet = categories[category]['worksheet']
-        owned_missing(workbook, worksheet)
+        owned_missing(workbook, worksheet, first_row)
 
 
-def classes(workbook, worksheet):
+def classes(workbook, worksheet, first_row):
     count = 0
-    for key in licenses['bg_colors']:
+    for key in ir_licenses['bg_colors']:
         cell = workbook.add_format()
-        row = count + 11
-        set_cell_styles(
-            cell, color=licenses['colors'][key], bg_color=licenses['bg_colors'][key], bold=True)
+        color = ir_licenses['colors'][key]
+        bg_color = ir_licenses['bg_colors'][key]
+        row = first_row + count
+        class_name = ir_licenses['names'][list(ir_licenses['names'])[count]]
+
+        set_cell_styles(cell, color=color, bg_color=bg_color, bold=True)
         worksheet.write(
-            row, 1, licenses['names'][list(licenses['names'])[count]], cell)
-        count = count + 1
+            row, 1, class_name, cell)
+        count += 1
 
 
-def print_classes(workbook, categories):
+def print_classes(workbook, categories, first_row):
     for category in categories:
         worksheet = categories[category]['worksheet']
-        classes(workbook, worksheet)
+        classes(workbook, worksheet, first_row)
