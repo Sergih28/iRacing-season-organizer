@@ -11,8 +11,7 @@ from dics import *
 def main():
     workbook = xlsxwriter.Workbook('output.xlsx')
     cell_format_main = workbook.add_format()
-    cell_format_main.set_align('vcenter')
-    set_cell_styles(cell_format_main)
+    set_cell_styles(cell_format_main, align='vcenter')
 
     cell_format_content_owned = workbook.add_format()
     cell_format_content_not_owned = workbook.add_format()
@@ -61,41 +60,34 @@ def main():
 
         if pdf_obj.get_type() == 'ROAD':
             update_page(workbook, pdf_obj, categories['road']['worksheet'], categories['road']['col'],
-                        cell_format_temp, cell_format_main, cell_format_content, categories['road']['weeks_done'], content['bg_colors'], content['colors'], licenses)
+                        cell_format_temp, cell_format_main, cell_format_content, categories['road']['weeks_done'], content['bg_colors'], content['colors'], licenses, 'road')
             categories['road']['col'] = categories['road']['col'] + 1
         elif pdf_obj.get_type() == 'OVAL':
             update_page(workbook, pdf_obj, categories['oval']['worksheet'], categories['oval']['col'],
-                        cell_format_temp, cell_format_main, cell_format_content, categories['oval']['weeks_done'], content['bg_colors'], content['colors'], licenses)
+                        cell_format_temp, cell_format_main, cell_format_content, categories['oval']['weeks_done'], content['bg_colors'], content['colors'], licenses, 'oval')
             categories['oval']['col'] = categories['oval']['col'] + 1
         elif pdf_obj.get_type() == 'DIRT ROAD':
             update_page(workbook, pdf_obj, categories['dirt_road']['worksheet'], categories['dirt_road']['col'],
-                        cell_format_temp, cell_format_main, cell_format_content, categories['dirt_road']['weeks_done'], content['bg_colors'], content['colors'], licenses)
+                        cell_format_temp, cell_format_main, cell_format_content, categories['dirt_road']['weeks_done'], content['bg_colors'], content['colors'], licenses, 'dirt_road')
             categories['dirt_road']['col'] = categories['dirt_road']['col'] + 1
         elif pdf_obj.get_type() == 'DIRT OVAL':
             update_page(workbook, pdf_obj, categories['dirt_oval']['worksheet'], categories['dirt_oval']['col'],
-                        cell_format_temp, cell_format_main, cell_format_content, categories['dirt_oval']['weeks_done'], content['bg_colors'], content['colors'], licenses)
+                        cell_format_temp, cell_format_main, cell_format_content, categories['dirt_oval']['weeks_done'], content['bg_colors'], content['colors'], licenses, 'dirt_oval')
             categories['dirt_oval']['col'] = categories['dirt_oval']['col'] + 1
 
         tracks = pdf_obj.get_tracks()
         for track in tracks:
             tracks_list.append(track)
 
-    # TODO: track text size for each column
-    # then set the column size according to that
-    categories['road']['worksheet'].set_column(
-        3, categories['road']['col'], 25)
-    categories['oval']['worksheet'].set_column(
-        3, categories['oval']['col'], 25)
-    categories['dirt_road']['worksheet'].set_column(
-        3, categories['dirt_road']['col'], 25)
-    categories['dirt_oval']['worksheet'].set_column(
-        3, categories['dirt_oval']['col'], 25)
-    worksheets = [categories['road']['worksheet'], categories['oval']['worksheet'],
-                  categories['dirt_road']['worksheet'], categories['dirt_oval']['worksheet']]
-
-    for worksheet in worksheets:
+    # Set automatic colum width
+    for category in categories:
+        worksheet = categories[category]['worksheet']
         worksheet.set_column(1, 1, 12)
         worksheet.set_column(2, 2, 4)
+        worksheet.set_column(3, 3, 25)
+        for col in range(4, categories[category]['col']):
+            col_size = col_sizes[category][col] * 1.55
+            worksheet.set_column(col, col, col_size)
 
     # ---------- LEGEND ----------
     print_buttons(workbook, categories)
@@ -165,7 +157,7 @@ def main():
     workbook.close()
 
 
-def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main, cell_format_content, weeks_done, bg_colors, colors, licenses):
+def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main, cell_format_content, weeks_done, bg_colors, colors, licenses, category):
     free_content = get_free_content()
 
     # set bg color and font color for that cell
@@ -214,6 +206,15 @@ def update_page(workbook, pdf_obj, worksheet, col, cell_format, cell_format_main
     for track in tracks:
         row = row + 1
 
+        # save track length if it's higher than current
+        track_length = len(track)
+        if col in col_sizes[category]:
+            category_row_size = col_sizes[category][col]
+            if category_row_size < track_length:
+                col_sizes[category][col] = track_length
+        else:
+            col_sizes[category][col] = track_length
+
         # colorise background depending if it is owned content or not
         if track in free_content[0]:
             cell_format_track = cell_format_content[0]
@@ -259,3 +260,6 @@ main()
 # TODO: A way to filter the owned content
 # TODO: Set automatic width for columns
 # TODO: check if tracks count is working properly
+# TODO: link track names in the pages with the CONTENT page
+# TODO: Leave the year on the track names
+# TODO: Lock cells

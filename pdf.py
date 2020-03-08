@@ -9,7 +9,6 @@ def extract_pdf_info():
     pdf_file = get_PDF_object(pdf_filename)  # creating pdf object
     pdf_fileReader = PyPDF2.PdfFileReader(pdf_file)  # creating pdf reader obj
     categories = get_categories(pdf_fileReader)  # based on index page
-    # print(categories)
 
     # writting ouput to file for testing purposes
     f = open("output.txt", "w")

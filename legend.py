@@ -1,5 +1,5 @@
 from cell import set_cell_styles
-from dics import *
+from dics import content, licenses
 
 
 def button(workbook, worksheet, type='DONATION', row=1, col=1):
