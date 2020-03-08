@@ -29,6 +29,11 @@ def extract_pdf_info():
 
         is_last_page = (num_page == pdf_total_pages - 1)
         type = categories[category_pos][0]
+
+        # Do not show FUN races
+        if type == 'FUN':
+            continue
+
         category = categories[category_pos][1]
         next_category = ''
         next_page = ''

@@ -499,27 +499,3 @@ Type: DIRT ROAD
 Cars: ['Lucas Oil Off Road Pro 2 Truck']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
 Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Wild West Motorsports Park', 'Wild Horse Pass Motorsports Park', 'Wild West Motorsports Park', 'Wild Horse Pass Motorsports Park', 'Wild West Motorsports Park', 'Wild Horse Pass Motorsports Park', 'Wild West Motorsports Park', 'Wild Horse Pass Motorsports Park', 'Wild West Motorsports Park', 'Wild Horse Pass Motorsports Park', 'Wild West Motorsports Park', 'Wild Horse Pass Motorsports Park'], 'Laps', ['15', '15', '15', '15', '15', '15', '15', '15', '15', '15', '15', '15']]
-
-------------------------------------
-
-Name: Carburetor Cup
-Type: FUN
-Cars: ['NASCAR Cup Series Toyota Camry', 'NASCAR Cup Series ChevroletCamaro ZL1', 'NASCAR Cup Series Ford Mustang']
-Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Talladega Superspeedway', 'Charlotte Motor Speedway 2018', 'Daytona International Speedway', 'Autodromo Nazionale Monza', 'Talladega Superspeedway', 'Charlotte Motor Speedway 2018', 'Daytona International Speedway 2007', 'Pocono Raceway 2011', 'Talladega Superspeedway', 'Charlotte Motor Speedway 2018', 'Daytona International Speedway', 'Pocono Raceway 2011', 'Talladega Superspeedway'], 'Laps', ['15', '25', '15', '15', '15', '25', '15', '15', '15', '25', '15', '15', '15']]
-
-------------------------------------
-
-Name: Dallara Dash
-Type: FUN
-Cars: ['Dallara DW12']
-Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Charlotte Motor Speedway 2016', 'Phoenix International Raceway 2008', 'WeatherTech Raceway at Laguna Seca', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Indianapolis Motor Speedway', 'Pocono Raceway 2011', 'Phoenix International Raceway 2008', 'WeatherTech Raceway at Laguna Seca', 'Autodromo Nazionale Monza', 'Phoenix International Raceway 2008', 'Indianapolis Motor Speedway', 'Charlotte Motor Speedway 2016'], 'Laps', ['30', '30', '10', '15', '30', '10', '30', '30', '10', '15', '30', '10', '30']]
-
-------------------------------------
-
-Name: PickUp Cup
-Type: FUN
-Cars: ['NASCAR Truck Series Chevrolet Silverado - 2013']
-Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Daytona International Speedway 2007', 'Charlotte Motor Speedway 2018', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Pocono Raceway 2011', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Charlotte Motor Speedway 2016', 'Phoenix International Raceway 2008', 'Pocono Raceway 2011', 'Charlotte Motor Speedway 2018', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007'], 'Laps', ['10', '25', '25', '10', '25', '25', '10', '25', '25', '10', '25', '25', '10']]
