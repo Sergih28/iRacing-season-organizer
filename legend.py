@@ -16,7 +16,7 @@ def button(workbook, worksheet, type='DONATION', row=1, col=1):
         color = content['colors']['github']
     else:
         button_text = 'DONATE'
-        button_url = 'https://www.button.me/sergih'
+        button_url = 'https://www.paypal.me/sergih'
         bg_color = content['bg_colors']['paypal']
         color = content['colors']['paypal']
 
