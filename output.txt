@@ -2,7 +2,7 @@ Name: iRacing Street Stock
 Type: OVAL
 Cars: ['Street Stock']
 Ir_license: Rookie (1.0) --> Class D (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Charlotte Motor Speedway 2018', 'USA International Speedway', 'Charlotte Motor Speedway 2018', 'USA International Speedway', 'Charlotte Motor Speedway 2018', 'USA International Speedway', 'Charlotte Motor Speedway 2018', 'USA International Speedway', 'Charlotte Motor Speedway 2018', 'USA International Speedway', 'Charlotte Motor Speedway 2018', 'USA International Speedway'], 'Laps', ['20', '40', '20', '40', '20', '40', '20', '40', '20', '40', '20', '40']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Charlotte Motor Speedway', 'USA International Speedway', 'Charlotte Motor Speedway', 'USA International Speedway', 'Charlotte Motor Speedway', 'USA International Speedway', 'Charlotte Motor Speedway', 'USA International Speedway', 'Charlotte Motor Speedway', 'USA International Speedway', 'Charlotte Motor Speedway', 'USA International Speedway'], 'Laps', ['20', '40', '20', '40', '20', '40', '20', '40', '20', '40', '20', '40']]
 
 ------------------------------------
 
@@ -10,7 +10,7 @@ Name: iRacing Advanced Legends
 Type: OVAL
 Cars: ["Legends Ford '34 Coupe"]
 Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Charlotte Motor Speedway 2018', 'Oxford Plains Speedway', 'USA International Speedway', 'South Boston Speedway', 'Thompson Speedway Motorsports Park', 'Lanier National Speedway', 'Charlotte Motor Speedway 2018', 'Concord Speedway', 'USA International Speedway', 'South Boston Speedway', 'Thompson Speedway Motorsports Park', 'Lanier National Speedway'], 'Laps', ['40', '40', '40', '40', '30', '40', '40', '40', '40', '40', '30', '40']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Charlotte Motor Speedway', 'Oxford Plains Speedway', 'USA International Speedway', 'South Boston Speedway', 'Thompson Speedway Motorsports Park', 'Lanier National Speedway', 'Charlotte Motor Speedway', 'Concord Speedway', 'USA International Speedway', 'South Boston Speedway', 'Thompson Speedway Motorsports Park', 'Lanier National Speedway'], 'Laps', ['40', '40', '40', '40', '30', '40', '40', '40', '40', '40', '30', '40']]
 
 ------------------------------------
 
@@ -26,7 +26,7 @@ Name: NASCAR iRacing National Series
 Type: OVAL
 Cars: ['NASCAR K&N Pro Chevrolet Impala']
 Ir_license: Rookie (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Phoenix International Raceway 2008', 'Michigan International Speedway 2014', 'Kentucky Speedway', 'South Boston Speedway', 'Dover International Speedway', 'Indianapolis Motor Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Rockingham Speedway', 'Iowa Speedway', 'Homestead Miami Speedway', 'Lanier National Speedway'], 'Laps', ['40', '25', '35', '60', '40', '15', '45', '20', '40', '40', '35', '60']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Phoenix International Raceway', 'Michigan International Speedway', 'Kentucky Speedway', 'South Boston Speedway', 'Dover International Speedway', 'Indianapolis Motor Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Rockingham Speedway', 'Iowa Speedway', 'Homestead Miami Speedway', 'Lanier National Speedway'], 'Laps', ['40', '25', '35', '60', '40', '15', '45', '20', '40', '40', '35', '60']]
 
 ------------------------------------
 
@@ -42,7 +42,7 @@ Name: iRacing Street Stock Class C
 Type: OVAL
 Cars: ['Street Stock']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lanier National Speedway', 'Darlington Raceway', 'New Smyrna Speedway', 'USA International Speedway', 'Bristol Motor Speedway', 'Phoenix International Raceway 2008', 'Irwindale Speedway', 'Martinsville Speedway', 'Iowa Speedway', 'Five Flags Speedway', 'South Boston Speedway', 'Dover International Speedway'], 'Laps', ['70', '30', '70', '45', '70', '35', '70', '70', '40', '70', '70', '35']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lanier National Speedway', 'Darlington Raceway', 'New Smyrna Speedway', 'USA International Speedway', 'Bristol Motor Speedway', 'Phoenix International Raceway', 'Irwindale Speedway', 'Martinsville Speedway', 'Iowa Speedway', 'Five Flags Speedway', 'South Boston Speedway', 'Dover International Speedway'], 'Laps', ['70', '30', '70', '45', '70', '35', '70', '70', '40', '70', '70', '35']]
 
 ------------------------------------
 
@@ -66,7 +66,7 @@ Name: NASCAR iRacing Class C Series
 Type: OVAL
 Cars: ['NASCAR Gander Outdoors Toyota Tundra', 'NASCAR Gander OutdoorsChevrolet Silverado']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Chicagoland Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Dover International Speedway', 'Martinsville Speedway', 'Charlotte Motor Speedway 2018', 'The Milwaukee Mile', 'Kansas Speedway'], 'Laps', ['40', '40', '40', '75', '40', '55', '25', '50', '70', '45', '50', '40']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Chicagoland Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Dover International Speedway', 'Martinsville Speedway', 'Charlotte Motor Speedway', 'The Milwaukee Mile', 'Kansas Speedway'], 'Laps', ['40', '40', '40', '75', '40', '55', '25', '50', '70', '45', '50', '40']]
 
 ------------------------------------
 
@@ -74,7 +74,7 @@ Name: INDYCAR Series
 Type: OVAL
 Cars: ['Dallara IR18']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Auto Club Speedway', 'Twin Ring Motegi', 'Texas Motor Speedway', 'Pocono Raceway', 'Worldwide Technology Raceway', 'Homestead Miami Speedway', 'Phoenix International Raceway 2008', 'Daytona International Speedway', 'Kansas Speedway', 'Iowa Speedway', 'Indianapolis Motor Speedway', 'Kentucky Speedway'], 'Laps', ['60', '70', '80', '45', '75', '75', '90', '25', '75', '120', '60', '75']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Auto Club Speedway', 'Twin Ring Motegi', 'Texas Motor Speedway', 'Pocono Raceway', 'Worldwide Technology Raceway', 'Homestead Miami Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Kansas Speedway', 'Iowa Speedway', 'Indianapolis Motor Speedway', 'Kentucky Speedway'], 'Laps', ['60', '70', '80', '45', '75', '75', '90', '25', '75', '120', '60', '75']]
 
 ------------------------------------
 
@@ -82,7 +82,7 @@ Name: NASCAR iRacing Class B Series
 Type: OVAL
 Cars: ['NASCAR XFINITY Chevrolet Camaro', 'NASCAR XFINITY Ford Mustang', 'NASCAR XFINITY Toyota Supra']
 Ir_license: Class C (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Chicagoland Speedway', 'Rockingham Speedway', 'Talladega Superspeedway', 'Dover International Speedway', 'Kansas Speedway', 'Lucas Oil Raceway', 'Charlotte Motor Speedway 2018', 'Mid-Ohio Sports Car Course'], 'Laps', ['45', '45', '45', '80', '45', '75', '30', '55', '45', '70', '50', '20']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Chicagoland Speedway', 'Rockingham Speedway', 'Talladega Superspeedway', 'Dover International Speedway', 'Kansas Speedway', 'Lucas Oil Raceway', 'Charlotte Motor Speedway', 'Mid-Ohio Sports Car Course'], 'Laps', ['45', '45', '45', '80', '45', '75', '30', '55', '45', '70', '50', '20']]
 
 ------------------------------------
 
@@ -114,7 +114,7 @@ Name: NASCAR iRacing Class A Series
 Type: OVAL
 Cars: ['NASCAR Cup Series Toyota Camry', 'NASCAR Cup Series ChevroletCamaro ZL1', 'NASCAR Cup Series Ford Mustang']
 Ir_license: Class B (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Rockingham Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Dover International Speedway', 'Martinsville Speedway', 'Iowa Speedway', 'Charlotte Motor Speedway 2018', 'Kansas Speedway'], 'Laps', ['50', '50', '50', '88', '60', '65', '35', '60', '75', '75', '62', '50']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Rockingham Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Dover International Speedway', 'Martinsville Speedway', 'Iowa Speedway', 'Charlotte Motor Speedway', 'Kansas Speedway'], 'Laps', ['50', '50', '50', '88', '60', '65', '35', '60', '75', '75', '62', '50']]
 
 ------------------------------------
 
@@ -122,7 +122,7 @@ Name: NASCAR iRacing Class A Series
 Type: OVAL
 Cars: ['NASCAR Cup Series Toyota Camry', 'NASCAR Cup Series ChevroletCamaro ZL1', 'NASCAR Cup Series Ford Mustang']
 Ir_license: Class B (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Rockingham Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Dover International Speedway', 'Martinsville Speedway', 'Iowa Speedway', 'Charlotte Motor Speedway 2018', 'Kansas Speedway'], 'Laps', ['100', '100', '100', '175', '120', '130', '70', '120', '150', '150', '125', '100']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Atlanta Motor Speedway', 'Homestead Miami Speedway', 'Texas Motor Speedway', 'Bristol Motor Speedway', 'Rockingham Speedway', 'Richmond Raceway', 'Talladega Superspeedway', 'Dover International Speedway', 'Martinsville Speedway', 'Iowa Speedway', 'Charlotte Motor Speedway', 'Kansas Speedway'], 'Laps', ['100', '100', '100', '175', '120', '130', '70', '120', '150', '150', '125', '100']]
 
 ------------------------------------
 
@@ -130,7 +130,7 @@ Name: Global Mazda MX-5 Cup
 Type: ROAD
 Cars: ['Global Mazda MX-5 Cup']
 Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Tsukuba Circuit', 'Okayama International Circuit', 'Lime Rock Park', 'WeatherTech Raceway at Laguna Seca', 'Summit Point Raceway', 'Charlotte Motor Speedway 2018', 'Tsukuba Circuit', 'Okayama International Circuit', 'Lime Rock Park', 'Summit Point Raceway', 'Okayama International Circuit', 'WeatherTech Raceway at Laguna Seca'], 'Laps', ['15', '10', '20', '10', '15', '10', '15', '15', '20', '15', '10', '10']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Tsukuba Circuit', 'Okayama International Circuit', 'Lime Rock Park', 'WeatherTech Raceway at Laguna Seca', 'Summit Point Raceway', 'Charlotte Motor Speedway', 'Tsukuba Circuit', 'Okayama International Circuit', 'Lime Rock Park', 'Summit Point Raceway', 'Okayama International Circuit', 'WeatherTech Raceway at Laguna Seca'], 'Laps', ['15', '10', '20', '10', '15', '10', '15', '15', '20', '15', '10', '10']]
 
 ------------------------------------
 
@@ -138,7 +138,7 @@ Name: Sim-Lab Production Car Challenge
 Type: ROAD
 Cars: ['Global Mazda MX-5 Cup', 'VW Jetta TDI Cup', 'Pontiac Solstice', 'FordMustang FR500S']
 Ir_license: Rookie (3.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lime Rock Park', 'Okayama International Circuit', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'WeatherTech Raceway at Laguna Seca', 'Summit Point Raceway', 'Tsukuba Circuit', 'Silverstone Circuit 2011', 'Tsukuba Circuit', 'Summit Point Raceway', 'Silverstone Circuit 2011', 'Charlotte Motor Speedway'], 'mins', ['25', '25', '40', '25', '25', '25', '40', '25', '25', '25', '25', '40']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lime Rock Park', 'Okayama International Circuit', 'Phoenix International Raceway', 'Daytona International Speedway', 'WeatherTech Raceway at Laguna Seca', 'Summit Point Raceway', 'Tsukuba Circuit', 'Silverstone Circuit', 'Tsukuba Circuit', 'Summit Point Raceway', 'Silverstone Circuit', 'Charlotte Motor Speedway'], 'mins', ['25', '25', '40', '25', '25', '25', '40', '25', '25', '25', '25', '40']]
 
 ------------------------------------
 
@@ -178,7 +178,7 @@ Name: Ruf GT3 Challenge
 Type: ROAD
 Cars: ['Ruf RT 12R Track']
 Ir_license: Rookie (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Circuit des 24 Heures du Mans 2424', 'Circuit de Barcelona Catalunya', 'Silverstone Circuit', 'Daytona International Speedway', 'Sebring International Raceway', 'Circuit Zolder', 'Nürburgring Nordschleife', 'Autódromo José Carlos Pace', 'Tsukuba Circuit', 'Summit Point Raceway', 'Lime Rock Park', 'Charlotte Motor Speedway'], 'mins', ['30', '30', '30', '30', '30', '30', '4', '30', '30', '30', '30', '30']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Circuit des 24 Heures du Mans', 'Circuit de Barcelona Catalunya', 'Silverstone Circuit', 'Daytona International Speedway', 'Sebring International Raceway', 'Circuit Zolder', 'Nürburgring Nordschleife', 'Autódromo José Carlos Pace', 'Tsukuba Circuit', 'Summit Point Raceway', 'Lime Rock Park', 'Charlotte Motor Speedway'], 'mins', ['30', '30', '30', '30', '30', '30', '4', '30', '30', '30', '30', '30']]
 
 ------------------------------------
 
@@ -186,7 +186,7 @@ Name: iRacing Spec Racer Ford Challenge
 Type: ROAD
 Cars: ['SCCA Spec Racer Ford']
 Ir_license: Rookie (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['WeatherTech Raceway at Laguna Seca', 'Nürburgring Nordschleife', 'Donington Park Racing Circuit', 'Charlotte Motor Speedway 2016', 'Silverstone Circuit 2011', 'Sonoma Raceway', 'Circuit de Spa-Francorchamps', 'Brands Hatch Circuit', 'Circuit de Barcelona Catalunya', 'Autódromo José Carlos Pace', 'Canadian Tire Motorsports Park', 'Lime Rock Park'], 'Laps', ['16', '3', '20', '19', '12', '14', '10', '28', '12', '14', '16', '23']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['WeatherTech Raceway at Laguna Seca', 'Nürburgring Nordschleife', 'Donington Park Racing Circuit', 'Charlotte Motor Speedway', 'Silverstone Circuit', 'Sonoma Raceway', 'Circuit de Spa-Francorchamps', 'Brands Hatch Circuit', 'Circuit de Barcelona Catalunya', 'Autódromo José Carlos Pace', 'Canadian Tire Motorsports Park', 'Lime Rock Park'], 'Laps', ['16', '3', '20', '19', '12', '14', '10', '28', '12', '14', '16', '23']]
 
 ------------------------------------
 
@@ -194,7 +194,7 @@ Name: Fanatec Global Challenge
 Type: ROAD
 Cars: ['Cadillac CTS-V Racecar', 'Kia Optima']
 Ir_license: Rookie (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['WeatherTech Raceway at Laguna Seca', 'Nürburgring Nordschleife', 'Circuit des 24 Heures du Mans 2424', 'Tsukuba Circuit', 'Nürburgring Grand-Prix-Strecke', 'Circuit de Spa-Francorchamps', 'Mid-Ohio Sports Car Course', 'Silverstone Circuit 2011', 'Daytona International Speedway', 'Detroit Grand Prix at Belle Isle', 'Summit Point Raceway', 'Watkins Glen International'], 'mins', ['25', '25', '25', '25', '25', '25', '25', '25', '40', '25', '25', '25']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['WeatherTech Raceway at Laguna Seca', 'Nürburgring Nordschleife', 'Circuit des 24 Heures du Mans', 'Tsukuba Circuit', 'Nürburgring Grand-Prix-Strecke', 'Circuit de Spa-Francorchamps', 'Mid-Ohio Sports Car Course', 'Silverstone Circuit', 'Daytona International Speedway', 'Detroit Grand Prix at Belle Isle', 'Summit Point Raceway', 'Watkins Glen International'], 'mins', ['25', '25', '25', '25', '25', '25', '25', '25', '40', '25', '25', '25']]
 
 ------------------------------------
 
@@ -202,7 +202,7 @@ Name: IMSA Michelin Pilot Challenge
 Type: ROAD
 Cars: ['Audi RS 3 LMS']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['WeatherTech Raceway at Laguna Seca', 'Sebring International Raceway', 'Sonoma Raceway', 'Road America', 'Snetterton Circuit', 'Suzuka International Racing Course', 'Silverstone Circuit 2011', 'Mid-Ohio Sports Car Course', 'Road Atlanta', 'Donington Park Racing Circuit', 'Autódromo José Carlos Pace', 'Mount Panorama Circuit'], 'mins', ['30', '30', '30', '30', '30', '30', '30', '30', '30', '30', '30', '30']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['WeatherTech Raceway at Laguna Seca', 'Sebring International Raceway', 'Sonoma Raceway', 'Road America', 'Snetterton Circuit', 'Suzuka International Racing Course', 'Silverstone Circuit', 'Mid-Ohio Sports Car Course', 'Road Atlanta', 'Donington Park Racing Circuit', 'Autódromo José Carlos Pace', 'Mount Panorama Circuit'], 'mins', ['30', '30', '30', '30', '30', '30', '30', '30', '30', '30', '30', '30']]
 
 ------------------------------------
 
@@ -218,7 +218,7 @@ Name: Kamel GT Championship
 Type: ROAD
 Cars: ['Audi 90 GTO', 'Nissan GTP ZX-T']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)30 minute
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Sebring International Raceway', 'Circuit Gilles Villeneuve', 'Charlotte Motor Speedway', 'Watkins Glen International', 'Canadian Tire Motorsports Park', 'WeatherTech Raceway at Laguna Seca', 'Virginia International Raceway', 'Detroit Grand Prix at Belle Isle', 'Road America', 'Daytona International Speedway 2007', 'Road Atlanta', 'Summit Point Raceway'], 'mins', ['40', '40', '40', '60', '40', '40', '40', '40', '40', '60', '40', '40']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Sebring International Raceway', 'Circuit Gilles Villeneuve', 'Charlotte Motor Speedway', 'Watkins Glen International', 'Canadian Tire Motorsports Park', 'WeatherTech Raceway at Laguna Seca', 'Virginia International Raceway', 'Detroit Grand Prix at Belle Isle', 'Road America', 'Daytona International Speedway', 'Road Atlanta', 'Summit Point Raceway'], 'mins', ['40', '40', '40', '60', '40', '40', '40', '40', '40', '60', '40', '40']]
 
 ------------------------------------
 
@@ -250,7 +250,7 @@ Name: Pro Mazda Championship
 Type: ROAD
 Cars: ['Pro Mazda']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lime Rock Park', 'Oulton Park Circuit', 'Circuit de Spa-Francorchamps', 'Autódromo José Carlos Pace', 'Suzuka International Racing Course', 'Sebring International Raceway', 'Canadian Tire Motorsports Park', 'Circuit Park Zandvoort', 'Richmond Raceway', 'Nürburgring Nordschleife', 'Silverstone Circuit 2011', 'Road Atlanta'], 'Laps', ['36', '20', '18', '25', '14', '15', '24', '18', '90', '7', '15', '24']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lime Rock Park', 'Oulton Park Circuit', 'Circuit de Spa-Francorchamps', 'Autódromo José Carlos Pace', 'Suzuka International Racing Course', 'Sebring International Raceway', 'Canadian Tire Motorsports Park', 'Circuit Park Zandvoort', 'Richmond Raceway', 'Nürburgring Nordschleife', 'Silverstone Circuit', 'Road Atlanta'], 'Laps', ['36', '20', '18', '25', '14', '15', '24', '18', '90', '7', '15', '24']]
 
 ------------------------------------
 
@@ -282,7 +282,7 @@ Name: Grand Prix Legends
 Type: ROAD
 Cars: ['Lotus 49']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Phillip Island Circuit', 'Watkins Glen International', 'Donington Park Racing Circuit', 'Twin Ring Motegi', 'Road Atlanta', 'Suzuka International Racing Course', 'Silverstone Circuit 2011', 'Summit Point Raceway', 'Mount Panorama Circuit', 'Daytona International Speedway 2007', 'Autódromo José Carlos Pace', 'Nürburgring Combined'], 'Laps', ['22', '20', '32', '18', '25', '17', '20', '29', '17', '46', '22', '5']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Phillip Island Circuit', 'Watkins Glen International', 'Donington Park Racing Circuit', 'Twin Ring Motegi', 'Road Atlanta', 'Suzuka International Racing Course', 'Silverstone Circuit', 'Summit Point Raceway', 'Mount Panorama Circuit', 'Daytona International Speedway', 'Autódromo José Carlos Pace', 'Nürburgring Combined'], 'Laps', ['22', '20', '32', '18', '25', '17', '20', '29', '17', '46', '22', '5']]
 
 ------------------------------------
 
@@ -322,7 +322,7 @@ Name: iRacing Endurance Le Mans Series- 2020 Season 2
 Type: ROAD
 Cars: ['Audi R18', 'Porsche 919', 'Ford GT - 2017', 'Ferrari 488 GTE', 'Porsche 911 RSR', 'BMW M8 GTE', 'HPD ARX-01c']
 Ir_license: Class C (4.0) --> Pro/WC (4.0)
-Schedule: [['9', '10', '11', '12', '1', '2', '3', '4', '5', '6'], ['2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-03-17', '2020-03-31', '2020-04-14', '2020-04-28', '2020-05-12', '2020-05-26'], ['Suzuka International Racing Course', 'Silverstone Circuit', 'Circuit de Barcelona Catalunya', 'Circuit des 24 Heures du Mans 2424', 'Sebring International Raceway', 'Autodromo Nazionale Monza', 'Road America', 'Circuit de Spa-Francorchamps', 'Silverstone Circuit', 'Circuit des 24 Heures du Mans 2424'], 'mins', ['60', '60', '60', '0), Team racingRaces every other Saturday at 7, 18, Sunday at 14 GMT', '360', '360', '360', '360', '360', '360']]
+Schedule: [['9', '10', '11', '12', '1', '2', '3', '4', '5', '6'], ['2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-03-17', '2020-03-31', '2020-04-14', '2020-04-28', '2020-05-12', '2020-05-26'], ['Suzuka International Racing Course', 'Silverstone Circuit', 'Circuit de Barcelona Catalunya', 'Circuit des 24 Heures du Mans', 'Sebring International Raceway', 'Autodromo Nazionale Monza', 'Road America', 'Circuit de Spa-Francorchamps', 'Silverstone Circuit', 'Circuit des 24 Heures du Mans'], 'mins', ['60', '60', '60', '0), Team racingRaces every other Saturday at 7, 18, Sunday at 14 GMT', '360', '360', '360', '360', '360', '360']]
 
 ------------------------------------
 
@@ -330,7 +330,7 @@ Name: iRacing Classic Lotus Grand Prix- 2020 Season 2
 Type: ROAD
 Cars: ['Lotus 79']
 Ir_license: Class C (4.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Road America', 'Canadian Tire Motorsports Park', 'Sonoma Raceway', 'Circuit de Spa-Francorchamps', 'Mount Panorama Circuit', 'Phillip Island Circuit', 'Indianapolis Motor Speedway', 'Nürburgring Grand-Prix-Strecke', 'Autodromo Nazionale Monza', 'WeatherTech Raceway at Laguna Seca', 'Autódromo José Carlos Pace', 'Silverstone Circuit 2011'], 'Laps', ['22', '38', '32', '21', '23', '36', '33', '24', '27', '34', '30', '29']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Road America', 'Canadian Tire Motorsports Park', 'Sonoma Raceway', 'Circuit de Spa-Francorchamps', 'Mount Panorama Circuit', 'Phillip Island Circuit', 'Indianapolis Motor Speedway', 'Nürburgring Grand-Prix-Strecke', 'Autodromo Nazionale Monza', 'WeatherTech Raceway at Laguna Seca', 'Autódromo José Carlos Pace', 'Silverstone Circuit'], 'Laps', ['22', '38', '32', '21', '23', '36', '33', '24', '27', '34', '30', '29']]
 
 ------------------------------------
 
@@ -466,7 +466,7 @@ Name: Rookie iRacing Rallycross Series
 Type: DIRT ROAD
 Cars: ['Ford Fiesta RS WRC', 'VW Beetle', 'Subaru WRX STI']
 Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008'], 'Laps', ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway'], 'Laps', ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10']]
 
 ------------------------------------
 
@@ -474,7 +474,7 @@ Name: Rookie Pro 2 Lite Truck Championship
 Type: DIRT ROAD
 Cars: ['Lucas Oil Off Road Pro 2 Lite']
 Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008'], 'Laps', ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Daytona International Speedway', 'Phoenix International Raceway'], 'Laps', ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10']]
 
 ------------------------------------
 
@@ -482,7 +482,7 @@ Name: iRacing Rallycross Series
 Type: DIRT ROAD
 Cars: ['Ford Fiesta RS WRC', 'VW Beetle', 'Subaru WRX STI']
 Ir_license: Rookie (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway 2007', 'Iowa Speedway', 'Atlanta Motor Speedway', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Lucas Oil Raceway', 'Sonoma Raceway', 'Daytona International Speedway 2007', 'Atlanta Motor Speedway', 'Daytona International Speedway 2007', 'Iowa Speedway', 'Lucas Oil Raceway'], 'Laps', ['H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L67']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway', 'Iowa Speedway', 'Atlanta Motor Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Lucas Oil Raceway', 'Sonoma Raceway', 'Daytona International Speedway', 'Atlanta Motor Speedway', 'Daytona International Speedway', 'Iowa Speedway', 'Lucas Oil Raceway'], 'Laps', ['H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L67']]
 
 ------------------------------------
 
@@ -506,7 +506,7 @@ Name: Carburetor Cup
 Type: FUN
 Cars: ['NASCAR Cup Series Toyota Camry', 'NASCAR Cup Series ChevroletCamaro ZL1', 'NASCAR Cup Series Ford Mustang']
 Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Talladega Superspeedway', 'Charlotte Motor Speedway 2018', 'Daytona International Speedway', 'Autodromo Nazionale Monza', 'Talladega Superspeedway', 'Charlotte Motor Speedway 2018', 'Daytona International Speedway 2007', 'Pocono Raceway 2011', 'Talladega Superspeedway', 'Charlotte Motor Speedway 2018', 'Daytona International Speedway', 'Pocono Raceway 2011', 'Talladega Superspeedway'], 'Laps', ['15', '25', '15', '15', '15', '25', '15', '15', '15', '25', '15', '15', '15']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Talladega Superspeedway', 'Charlotte Motor Speedway', 'Daytona International Speedway', 'Autodromo Nazionale Monza', 'Talladega Superspeedway', 'Charlotte Motor Speedway', 'Daytona International Speedway', 'Pocono Raceway', 'Talladega Superspeedway', 'Charlotte Motor Speedway', 'Daytona International Speedway', 'Pocono Raceway', 'Talladega Superspeedway'], 'Laps', ['15', '25', '15', '15', '15', '25', '15', '15', '15', '25', '15', '15', '15']]
 
 ------------------------------------
 
@@ -514,7 +514,7 @@ Name: Dallara Dash
 Type: FUN
 Cars: ['Dallara DW12']
 Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Charlotte Motor Speedway 2016', 'Phoenix International Raceway 2008', 'WeatherTech Raceway at Laguna Seca', 'Daytona International Speedway 2007', 'Phoenix International Raceway 2008', 'Indianapolis Motor Speedway', 'Pocono Raceway 2011', 'Phoenix International Raceway 2008', 'WeatherTech Raceway at Laguna Seca', 'Autodromo Nazionale Monza', 'Phoenix International Raceway 2008', 'Indianapolis Motor Speedway', 'Charlotte Motor Speedway 2016'], 'Laps', ['30', '30', '10', '15', '30', '10', '30', '30', '10', '15', '30', '10', '30']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Charlotte Motor Speedway', 'Phoenix International Raceway', 'WeatherTech Raceway at Laguna Seca', 'Daytona International Speedway', 'Phoenix International Raceway', 'Indianapolis Motor Speedway', 'Pocono Raceway', 'Phoenix International Raceway', 'WeatherTech Raceway at Laguna Seca', 'Autodromo Nazionale Monza', 'Phoenix International Raceway', 'Indianapolis Motor Speedway', 'Charlotte Motor Speedway'], 'Laps', ['30', '30', '10', '15', '30', '10', '30', '30', '10', '15', '30', '10', '30']]
 
 ------------------------------------
 
@@ -522,4 +522,4 @@ Name: PickUp Cup
 Type: FUN
 Cars: ['NASCAR Truck Series Chevrolet Silverado - 2013']
 Ir_license: Rookie (1.0) --> Pro/WC (4.0)
-Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Daytona International Speedway 2007', 'Charlotte Motor Speedway 2018', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Pocono Raceway 2011', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Charlotte Motor Speedway 2016', 'Phoenix International Raceway 2008', 'Pocono Raceway 2011', 'Charlotte Motor Speedway 2018', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007'], 'Laps', ['10', '25', '25', '10', '25', '25', '10', '25', '25', '10', '25', '25', '10']]
+Schedule: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26', '2020-06-02'], ['Daytona International Speedway', 'Charlotte Motor Speedway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Pocono Raceway', 'Phoenix International Raceway', 'Daytona International Speedway', 'Charlotte Motor Speedway', 'Phoenix International Raceway', 'Pocono Raceway', 'Charlotte Motor Speedway', 'Phoenix International Raceway', 'Daytona International Speedway'], 'Laps', ['10', '25', '25', '10', '25', '25', '10', '25', '25', '10', '25', '25', '10']]

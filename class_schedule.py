@@ -141,14 +141,12 @@ class Class_schedule:
         # special check for tsukuba
         if not 'Tsukuba' in track_clean_name:
             # append track year
-            year = [int(s) for s in track if s.isdigit()]
+            year = [int(s) for s in track_clean_name if s.isdigit()]
             if len(year) == 4:
                 track_clean_name += ' '
                 for digit in year:
                     track_clean_name += str(digit)
 
-        # if any(char.isdigit() for char in track):
-        #     [int(s) for s in track if s.isdigit()]
         return track_clean_name
 
     def get_name(self): return self.name
