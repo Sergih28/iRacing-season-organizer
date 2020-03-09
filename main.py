@@ -11,7 +11,8 @@ from xlsx import get_license_colors
 
 def main():
     # create xlsx file
-    workbook = xlsxwriter.Workbook('output.xlsx')
+    ir_season = "2020S2"
+    workbook = xlsxwriter.Workbook('iRacing_' + ir_season + '_organizer.xlsx')
 
     # create cell formats
     cell_format_main = workbook.add_format()
