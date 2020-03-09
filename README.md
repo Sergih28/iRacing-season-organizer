@@ -1,13 +1,13 @@
 # iRacing-season-organizer
 
 This Python script gets the official iRacing PDF season schedule, and it creates an excel file in which we can customize our content and organize our season based on that, with multiple features (some of them not done yet).
-For easier showing, I've shared the excel file [here]() so you can copy it and see what it does at the moment. Beware that It'll change mostly everyday whenever I'm adding more functionalities (and hopefully not breaking current ones).
+For easier showing, I've shared the excel file [here](https://drive.google.com/file/d/1nIJnGKBl-SLz0TQ45uWtCKW1AB4_8X9k/view?usp=sharing) so you can copy it and see what it does at the moment. Beware that It'll change mostly everyday whenever I'm adding more functionalities (and hopefully not breaking current ones).
 
 ## Do you want to help?
 
 We are open to ideas, either in the iRacing's forum post, creating an issue, or contacting me via [twitter](https://twitter.com/sergiheras).
 
-I'm also considering creating a discord server (or a slack group) or incorporating a space for this in my own discord server.
+I'm also considering creating a discord server (or a slack group) or incorporating a space for this into my own discord server.
 
 ## What I learned
 
