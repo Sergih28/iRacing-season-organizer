@@ -293,14 +293,3 @@ def set_auto_col_width(categories):
 
 
 main()
-
-# FIXME: iRLMS series and endurance not getting correct schedule
-# TODO: Extra tab with "what can I race", based on the content
-# TODO: A way to filter the owned content
-# TODO: Check if tracks count is working properly
-# TODO: link track names in the pages with the CONTENT page
-# TODO: Link cars in the pages with the CONTENT page (therefore sepparate them in individual cells)
-# TODO: Lock cells
-# TODO: Ability to hide series (with VBA)
-# TODO: move below the series that don't have 12 weeks, so they can get the correct dates on the weeks
-# TODO: Make fun page
