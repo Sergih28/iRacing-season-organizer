@@ -60,10 +60,6 @@ def extract_pdf_info():
             except:
                 next_page_shared = False
 
-            if 'Le Man' in next_page:
-                print(next_page)
-                print(next_page_shared)
-
             # check if this page is shared with another category
             # page_shared = is_page_shared(page, category, next_category)
 
@@ -71,22 +67,11 @@ def extract_pdf_info():
             if not next_category in next_page and 'Week' in next_page:
                 continues_next_page = True
 
+            last_week = get_last_week(page)
+            next_page_first_week = get_first_week(next_page)
+
             # extra check if week 1 and week 12 are on the same next page
             # check if the first week on the next page is +1 of last week of current page
-            last_week = ''
-            next_page_first_week = ''
-
-            weeks_split = page.split('Week ')
-            weeks_split = weeks_split[len(weeks_split)-1].split(' (')
-            last_week = int(weeks_split[0])
-
-            weeks2_split = next_page.split('Week ')
-            weeks2_split = weeks2_split[1].split(' (')
-            next_page_first_week = int(weeks2_split[0])
-
-            print('last week ' + str(last_week))
-            print('next_page_first_week ' + str(next_page_first_week))
-
             if next_category in next_page and last_week == (next_page_first_week - 1):
                 continues_next_page = True
 
@@ -188,3 +173,17 @@ def omit_index_page(page):
     if not 'Week' in page:
         return True
     return False
+
+
+def get_last_week(page):
+    weeks_split = page.split('Week ')
+    weeks_split = weeks_split[len(weeks_split)-1].split(' (')
+    last_week = int(weeks_split[0])
+    return last_week
+
+
+def get_first_week(page):
+    weeks2_split = page.split('Week ')
+    weeks2_split = weeks2_split[1].split(' (')
+    first_week = int(weeks2_split[0])
+    return first_week

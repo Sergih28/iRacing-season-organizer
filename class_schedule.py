@@ -82,10 +82,6 @@ class Class_schedule:
         self.ir_license = self.ir_license.replace(',', '')
 
     def set_schedule(self):
-        # print(self.page_content)
-        # if 'Le Mans' in self.page_content[0]:
-        # import pdb
-        # pdb.set_trace()
         weeks = self.page_content[0].split('Week')
         if len(self.page_content) > 1:  # 2 pages
             new_week = self.page_content[1].split('Week')
@@ -99,6 +95,7 @@ class Class_schedule:
         races_length = []
         races_type = 'Laps'
         counter = 0
+        skip_weeks = True
         for week in weeks:
             counter = counter+1
             if counter == 1:
@@ -118,13 +115,17 @@ class Class_schedule:
             else:
                 split_race_length3 = split_race_length3.split('laps')
 
-            week_num = split_week_num[0].strip()
+            week_num = int(split_week_num[0].strip())
+
+            # skip weeks until we get week 1
+            if week_num == 1:
+                skip_weeks = False
+            if skip_weeks:
+                continue
+
             date = split_date[0].strip()
             track = split_track[0].strip()
             track = self.clean_track_name(track)
-            # if '2007' in split_date[1]:
-            #     import pdb
-            #     pdb.set_trace()
             race_length = split_race_length3[0].strip()
             week_nums.append(week_num)
             dates.append(date)
