@@ -178,7 +178,7 @@ Name: Ruf GT3 Challenge
 Type: ROAD
 Cars: ['Ruf RT 12R Track']
 Ir_license: Rookie (4.0) --> Pro/WC (4.0)
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Circuit des 24 Heures du Mans', 'Circuit de Barcelona Catalunya', 'Silverstone Circuit', 'Daytona International Speedway', 'Sebring International Raceway', 'Circuit Zolder', 'Nürburgring Nordschleife', 'Autódromo José Carlos Pace', 'Tsukuba Circuit', 'Summit Point Raceway', 'Lime Rock Park', 'Charlotte Motor Speedway'], 'mins', ['30', '30', '30', '30', '30', '30', '4', '30', '30', '30', '30', '30']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Circuit des 24 Heures du Mans', 'Circuit de Barcelona Catalunya', 'Silverstone Circuit', 'Daytona International Speedway', 'Sebring International Raceway', 'Circuit Zolder', 'Nürburgring Nordschleife', 'Autódromo José Carlos Pace', 'Tsukuba Circuit', 'Summit Point Raceway', 'Lime Rock Park', 'Charlotte Motor Speedway'], 'Laps', ['30', '30', '30', '30', '30', '30', '4', '30', '30', '30', '30', '30']]
 
 ------------------------------------
 
@@ -298,7 +298,7 @@ Name: VRS GT Endurance Series
 Type: ROAD
 Cars: ['McLaren MP4-12C GT3', 'BMW Z4 GT3', 'Ford GT GT3', 'Mercedes AMG GT3', 'Audi R8 LMS', 'Ferrari 488 GT3']
 Ir_license: Class D (4.0) --> Pro/WC (4.0)
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-14', '2020-03-21', '2020-03-28', '2020-04-04', '2020-04-11', '2020-04-18', '2020-04-25', '2020-05-02', '2020-05-09', '2020-05-16', '2020-05-23', '2020-05-30'], ['Circuit de Spa-Francorchamps', 'Watkins Glen International', 'Canadian Tire Motorsports Park', 'Sebring International Raceway', 'Summit Point Raceway', 'Suzuka International Racing Course', 'Mount Panorama Circuit', 'Donington Park Racing Circuit', 'Autódromo José Carlos Pace', 'Road Atlanta', 'Tsukuba Circuit', 'Road America'], 'Laps', ['180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-14', '2020-03-21', '2020-03-28', '2020-04-04', '2020-04-11', '2020-04-18', '2020-04-25', '2020-05-02', '2020-05-09', '2020-05-16', '2020-05-23', '2020-05-30'], ['Circuit de Spa-Francorchamps', 'Watkins Glen International', 'Canadian Tire Motorsports Park', 'Sebring International Raceway', 'Summit Point Raceway', 'Suzuka International Racing Course', 'Mount Panorama Circuit', 'Donington Park Racing Circuit', 'Autódromo José Carlos Pace', 'Road Atlanta', 'Tsukuba Circuit', 'Road America'], 'mins', ['180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180']]
 
 ------------------------------------
 
@@ -322,7 +322,7 @@ Name: iRacing Endurance Le Mans Series- 2020 Season 2
 Type: ROAD
 Cars: ['Audi R18', 'Porsche 919', 'Ford GT - 2017', 'Ferrari 488 GTE', 'Porsche 911 RSR', 'BMW M8 GTE', 'HPD ARX-01c']
 Ir_license: Class C (4.0) --> Pro/WC (4.0)
-Schedule: [[1, 2, 3, 4, 5, 6], ['2020-03-17', '2020-03-31', '2020-04-14', '2020-04-28', '2020-05-12', '2020-05-26'], ['Sebring International Raceway', 'Autodromo Nazionale Monza', 'Road America', 'Circuit de Spa-Francorchamps', 'Silverstone Circuit', 'Circuit des 24 Heures du Mans'], 'Laps', ['360', '360', '360', '360', '360', '360']]
+Schedule: [[1, 2, 3, 4, 5, 6], ['2020-03-17', '2020-03-31', '2020-04-14', '2020-04-28', '2020-05-12', '2020-05-26'], ['Sebring International Raceway', 'Autodromo Nazionale Monza', 'Road America', 'Circuit de Spa-Francorchamps', 'Silverstone Circuit', 'Circuit des 24 Heures du Mans'], 'mins', ['360', '360', '360', '360', '360', '360']]
 
 ------------------------------------
 
@@ -386,7 +386,7 @@ Name: DIRTcar 360 Sprint Car Series
 Type: DIRT OVAL
 Cars: ['Dirt Sprint Car - 360']
 Ir_license: Class D (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Eldora Speedway', 'Kokomo Speedway', 'Lanier National Speedway', 'Lernerville Speedway', 'Knoxville Raceway', 'USA International Speedway', 'Williams Grove Speedway', 'Limaland Motorsports Park', 'Eldora Speedway', 'Fairbury Speedway', 'Volusia Speedway Park', 'The Dirt Track at Charlotte'], 'Laps', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L55']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Eldora Speedway', 'Kokomo Speedway', 'Lanier National Speedway', 'Lernerville Speedway', 'Knoxville Raceway', 'USA International Speedway', 'Williams Grove Speedway', 'Limaland Motorsports Park', 'Eldora Speedway', 'Fairbury Speedway', 'Volusia Speedway Park', 'The Dirt Track at Charlotte'], 'mins', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L55']]
 
 ------------------------------------
 
@@ -394,7 +394,7 @@ Name: USAC 360 Sprint Car Series
 Type: DIRT OVAL
 Cars: ['Dirt Sprint Car - 360 Non-Winged']
 Ir_license: Class D (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lernerville Speedway', 'Williams Grove Speedway', 'Fairbury Speedway', 'Volusia Speedway Park', 'Limaland Motorsports Park', 'Knoxville Raceway', 'Kokomo Speedway', 'Lernerville Speedway', 'Eldora Speedway', 'Fairbury Speedway', 'The Dirt Track at Charlotte', 'Lernerville Speedway'], 'Laps', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L56']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lernerville Speedway', 'Williams Grove Speedway', 'Fairbury Speedway', 'Volusia Speedway Park', 'Limaland Motorsports Park', 'Knoxville Raceway', 'Kokomo Speedway', 'Lernerville Speedway', 'Eldora Speedway', 'Fairbury Speedway', 'The Dirt Track at Charlotte', 'Lernerville Speedway'], 'mins', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L56']]
 
 ------------------------------------
 
@@ -402,7 +402,7 @@ Name: DIRTcar Class C Dirt Street Stock Series
 Type: DIRT OVAL
 Cars: ['Dirt Street Stock']
 Ir_license: Class D (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['USA International Speedway', 'Fairbury Speedway', 'Knoxville Raceway', 'Lanier National Speedway', 'Lernerville Speedway', 'The Dirt Track at Charlotte', 'Volusia Speedway Park', 'Eldora Speedway', 'Kokomo Speedway', 'Williams Grove Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway'], 'Laps', ['H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L57']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['USA International Speedway', 'Fairbury Speedway', 'Knoxville Raceway', 'Lanier National Speedway', 'Lernerville Speedway', 'The Dirt Track at Charlotte', 'Volusia Speedway Park', 'Eldora Speedway', 'Kokomo Speedway', 'Williams Grove Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway'], 'mins', ['H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L57']]
 
 ------------------------------------
 
@@ -418,7 +418,7 @@ Name: iRacing Dirt Midget Cup
 Type: DIRT OVAL
 Cars: ['Dirt Midget']
 Ir_license: Class D (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Limaland Motorsports Park', 'Fairbury Speedway', 'Volusia Speedway Park', 'Lanier National Speedway', 'Chili Bowl', 'Lernerville Speedway', 'Kokomo Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway', 'The Dirt Track at Charlotte', 'Eldora Speedway', 'Fairbury Speedway'], 'Laps', ['H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L59']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Limaland Motorsports Park', 'Fairbury Speedway', 'Volusia Speedway Park', 'Lanier National Speedway', 'Chili Bowl', 'Lernerville Speedway', 'Kokomo Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway', 'The Dirt Track at Charlotte', 'Eldora Speedway', 'Fairbury Speedway'], 'mins', ['H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L', 'H:8LC:10LF:25L59']]
 
 ------------------------------------
 
@@ -426,7 +426,7 @@ Name: DIRTcar Pro Late Model Series
 Type: DIRT OVAL
 Cars: ['Dirt Late Model - Pro']
 Ir_license: Class D (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['The Dirt Track at Charlotte', 'Fairbury Speedway', 'Lernerville Speedway', 'Knoxville Raceway', 'Kokomo Speedway', 'Limaland Motorsports Park', 'Eldora Speedway', 'Williams Grove Speedway', 'Lernerville Speedway', 'Volusia Speedway Park', 'USA International Speedway', 'Fairbury Speedway'], 'Laps', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L60']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['The Dirt Track at Charlotte', 'Fairbury Speedway', 'Lernerville Speedway', 'Knoxville Raceway', 'Kokomo Speedway', 'Limaland Motorsports Park', 'Eldora Speedway', 'Williams Grove Speedway', 'Lernerville Speedway', 'Volusia Speedway Park', 'USA International Speedway', 'Fairbury Speedway'], 'mins', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L60']]
 
 ------------------------------------
 
@@ -442,7 +442,7 @@ Name: World of Outlaws Sprint Car Series
 Type: DIRT OVAL
 Cars: ['Dirt Sprint Car - 410']
 Ir_license: Class C (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['USA International Speedway', 'Volusia Speedway Park', 'Lernerville Speedway', 'Fairbury Speedway', 'Knoxville Raceway', 'Limaland Motorsports Park', 'Lernerville Speedway', 'Kokomo Speedway', 'Eldora Speedway', 'Williams Grove Speedway', 'The Dirt Track at Charlotte', 'Lanier National Speedway'], 'Laps', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L62']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['USA International Speedway', 'Volusia Speedway Park', 'Lernerville Speedway', 'Fairbury Speedway', 'Knoxville Raceway', 'Limaland Motorsports Park', 'Lernerville Speedway', 'Kokomo Speedway', 'Eldora Speedway', 'Williams Grove Speedway', 'The Dirt Track at Charlotte', 'Lanier National Speedway'], 'mins', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L62']]
 
 ------------------------------------
 
@@ -450,7 +450,7 @@ Name: AMSOIL USAC Sprint Car National Championship
 Type: DIRT OVAL
 Cars: ['Dirt Sprint Car - 410 Non-Winged']
 Ir_license: Class C (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lernerville Speedway', 'Williams Grove Speedway', 'Fairbury Speedway', 'Volusia Speedway Park', 'Limaland Motorsports Park', 'Knoxville Raceway', 'Kokomo Speedway', 'Lernerville Speedway', 'Eldora Speedway', 'Fairbury Speedway', 'The Dirt Track at Charlotte', 'Lanier National Speedway'], 'Laps', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L63']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Lernerville Speedway', 'Williams Grove Speedway', 'Fairbury Speedway', 'Volusia Speedway Park', 'Limaland Motorsports Park', 'Knoxville Raceway', 'Kokomo Speedway', 'Lernerville Speedway', 'Eldora Speedway', 'Fairbury Speedway', 'The Dirt Track at Charlotte', 'Lanier National Speedway'], 'mins', ['H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L', 'H:8LC:10LF:30L63']]
 
 ------------------------------------
 
@@ -458,7 +458,7 @@ Name: World of Outlaws Late Model Series
 Type: DIRT OVAL
 Cars: ['Dirt Late Model - Super']
 Ir_license: Class C (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Eldora Speedway', 'Lernerville Speedway', 'Kokomo Speedway', 'Fairbury Speedway', 'The Dirt Track at Charlotte', 'Williams Grove Speedway', 'Volusia Speedway Park', 'Knoxville Raceway', 'USA International Speedway', 'Lernerville Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway'], 'Laps', ['H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L64']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Eldora Speedway', 'Lernerville Speedway', 'Kokomo Speedway', 'Fairbury Speedway', 'The Dirt Track at Charlotte', 'Williams Grove Speedway', 'Volusia Speedway Park', 'Knoxville Raceway', 'USA International Speedway', 'Lernerville Speedway', 'Limaland Motorsports Park', 'Lanier National Speedway'], 'mins', ['H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L', 'H:8LC:10LF:40L64']]
 
 ------------------------------------
 
@@ -482,7 +482,7 @@ Name: iRacing Rallycross Series
 Type: DIRT ROAD
 Cars: ['Ford Fiesta RS WRC', 'VW Beetle', 'Subaru WRX STI']
 Ir_license: Rookie (4.0) --> Pro/WC (4.0) Heat racing
-Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway 2007', 'Iowa Speedway', 'Atlanta Motor Speedway', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Lucas Oil Raceway', 'Sonoma Raceway', 'Daytona International Speedway 2007', 'Atlanta Motor Speedway', 'Daytona International Speedway 2007', 'Iowa Speedway', 'Lucas Oil Raceway'], 'Laps', ['H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L67']]
+Schedule: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], ['2020-03-10', '2020-03-17', '2020-03-24', '2020-03-31', '2020-04-07', '2020-04-14', '2020-04-21', '2020-04-28', '2020-05-05', '2020-05-12', '2020-05-19', '2020-05-26'], ['Daytona International Speedway 2007', 'Iowa Speedway', 'Atlanta Motor Speedway', 'Phoenix International Raceway 2008', 'Daytona International Speedway 2007', 'Lucas Oil Raceway', 'Sonoma Raceway', 'Daytona International Speedway 2007', 'Atlanta Motor Speedway', 'Daytona International Speedway 2007', 'Iowa Speedway', 'Lucas Oil Raceway'], 'mins', ['H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L', 'H:5LC:6LF:10L67']]
 
 ------------------------------------
 

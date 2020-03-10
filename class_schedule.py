@@ -93,7 +93,7 @@ class Class_schedule:
         dates = []
         tracks = []
         races_length = []
-        races_type = 'Laps'
+        races_type = 'mins'
         counter = 0
         skip_weeks = True
         for week in weeks:
@@ -131,8 +131,8 @@ class Class_schedule:
             dates.append(date)
             tracks.append(track)
             races_length.append(race_length)
-            if ' mins' in week:
-                races_type = 'mins'
+            if ' laps' in week:
+                races_type = 'Laps'
 
         self.schedule = [week_nums, dates, tracks, races_type, races_length]
 
