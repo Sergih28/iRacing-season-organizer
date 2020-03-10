@@ -93,8 +93,9 @@ class Class_schedule:
         dates = []
         tracks = []
         races_length = []
-        races_type = 'Laps'
+        races_type = 'mins'
         counter = 0
+        skip_weeks = True
         for week in weeks:
             counter = counter+1
             if counter == 1:
@@ -114,20 +115,24 @@ class Class_schedule:
             else:
                 split_race_length3 = split_race_length3.split('laps')
 
-            week_num = split_week_num[0].strip()
+            week_num = int(split_week_num[0].strip())
+
+            # skip weeks until we get week 1
+            if week_num == 1:
+                skip_weeks = False
+            if skip_weeks:
+                continue
+
             date = split_date[0].strip()
             track = split_track[0].strip()
             track = self.clean_track_name(track)
-            # if '2007' in split_date[1]:
-            #     import pdb
-            #     pdb.set_trace()
             race_length = split_race_length3[0].strip()
             week_nums.append(week_num)
             dates.append(date)
             tracks.append(track)
             races_length.append(race_length)
-            if ' mins' in week:
-                races_type = 'mins'
+            if ' laps' in week:
+                races_type = 'Laps'
 
         self.schedule = [week_nums, dates, tracks, races_type, races_length]
 

@@ -2,5 +2,8 @@
 env/
 __pycache__
 
+# excel file
+*.xlsx
+
 #VSCODE
 .vscode

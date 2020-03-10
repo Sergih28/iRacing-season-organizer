@@ -17,9 +17,9 @@ def extract_pdf_info():
     pdf_total_pages = pdf_fileReader.getNumPages()
     skip_next_page = False
     for num_page in range(0, pdf_total_pages):
-        # omit index pages
         page = get_content_from_page(pdf_fileReader, num_page)
-        if not 'Week' in page:
+        omit_page = omit_index_page(page)
+        if omit_page:
             continue
 
         # skip next page if we already read it joined with the previous one
@@ -42,8 +42,14 @@ def extract_pdf_info():
         continues_next_page = False
 
         if not is_last_page:
+            next_page_num = num_page + 1
             next_category = categories[category_pos + 1][1]
-            next_page = get_content_from_page(pdf_fileReader, (num_page + 1))
+            next_page = get_content_from_page(pdf_fileReader, (next_page_num))
+            omit_next_page = omit_index_page(next_page)
+            if omit_next_page:
+                next_page_num = num_page + 2
+                next_page = get_content_from_page(
+                    pdf_fileReader, (next_page_num))
 
             # check if next page is shared with another category
             try:
@@ -59,6 +65,14 @@ def extract_pdf_info():
 
             # check if next page belongs to this category
             if not next_category in next_page and 'Week' in next_page:
+                continues_next_page = True
+
+            last_week = get_last_week(page)
+            next_page_first_week = get_first_week(next_page)
+
+            # extra check if week 1 and week 12 are on the same next page
+            # check if the first week on the next page is +1 of last week of current page
+            if next_category in next_page and last_week == (next_page_first_week - 1):
                 continues_next_page = True
 
             # omit next page if it's related only with the current one
@@ -153,3 +167,23 @@ def is_page_shared(page, category, next_category):
         if 'Week' in page_split2[0] and 'Week' in page_split2[1]:
             return True
     return False
+
+
+def omit_index_page(page):
+    if not 'Week' in page:
+        return True
+    return False
+
+
+def get_last_week(page):
+    weeks_split = page.split('Week ')
+    weeks_split = weeks_split[len(weeks_split)-1].split(' (')
+    last_week = int(weeks_split[0])
+    return last_week
+
+
+def get_first_week(page):
+    weeks2_split = page.split('Week ')
+    weeks2_split = weeks2_split[1].split(' (')
+    first_week = int(weeks2_split[0])
+    return first_week
