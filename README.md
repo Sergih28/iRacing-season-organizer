@@ -5,7 +5,7 @@ For easier showing, I've shared the excel file [here](https://drive.google.com/f
 
 ## Do you want to help?
 
-We are open to ideas, either in the iRacing's forum post, creating an issue, or contacting me via [twitter](https://twitter.com/sergiheras).
+We are open to ideas, either in the [iRacing's forum post](https://members.iracing.com/jforum/posts/list/3701367.page), creating an issue, or contacting me via [twitter](https://twitter.com/sergiheras).
 
 I'm also considering creating a discord server (or a slack group) or incorporating a space for this into my own discord server.
 
