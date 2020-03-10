@@ -17,7 +17,8 @@ def extract_pdf_info():
     pdf_total_pages = pdf_fileReader.getNumPages()
     skip_next_page = False
     for num_page in range(0, pdf_total_pages):
-        omit_page = omit_index_page(pdf_fileReader, num_page)
+        page = get_content_from_page(pdf_fileReader, num_page)
+        omit_page = omit_index_page(page)
         if omit_page:
             continue
 
@@ -41,8 +42,14 @@ def extract_pdf_info():
         continues_next_page = False
 
         if not is_last_page:
+            next_page_num = num_page + 1
             next_category = categories[category_pos + 1][1]
-            next_page = get_content_from_page(pdf_fileReader, (num_page + 1))
+            next_page = get_content_from_page(pdf_fileReader, (next_page_num))
+            omit_next_page = omit_index_page(next_page)
+            if omit_next_page:
+                next_page_num = num_page + 2
+                next_page = get_content_from_page(
+                    pdf_fileReader, (next_page_num))
 
             # check if next page is shared with another category
             try:
@@ -74,7 +81,7 @@ def extract_pdf_info():
             last_week = int(weeks_split[0])
 
             weeks2_split = next_page.split('Week ')
-            weeks2_split = weeks2_split[len(weeks2_split)-1].split(' (')
+            weeks2_split = weeks2_split[1].split(' (')
             next_page_first_week = int(weeks2_split[0])
 
             print('last week ' + str(last_week))
@@ -82,10 +89,6 @@ def extract_pdf_info():
 
             if next_category in next_page and last_week == (next_page_first_week - 1):
                 continues_next_page = True
-            if 'Le Man' in next_page:
-                import pdb
-                pdb.set_trace()
-                print(continues_next_page)
 
             # omit next page if it's related only with the current one
             if not next_page_shared and continues_next_page:
@@ -181,8 +184,7 @@ def is_page_shared(page, category, next_category):
     return False
 
 
-def omit_index_page(pdf_fileReader, num_page):
-    page = get_content_from_page(pdf_fileReader, num_page)
+def omit_index_page(page):
     if not 'Week' in page:
         return True
     return False
