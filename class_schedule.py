@@ -82,6 +82,10 @@ class Class_schedule:
         self.ir_license = self.ir_license.replace(',', '')
 
     def set_schedule(self):
+        # print(self.page_content)
+        # if 'Le Mans' in self.page_content[0]:
+        # import pdb
+        # pdb.set_trace()
         weeks = self.page_content[0].split('Week')
         if len(self.page_content) > 1:  # 2 pages
             new_week = self.page_content[1].split('Week')

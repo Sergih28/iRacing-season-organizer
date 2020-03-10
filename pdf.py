@@ -17,9 +17,8 @@ def extract_pdf_info():
     pdf_total_pages = pdf_fileReader.getNumPages()
     skip_next_page = False
     for num_page in range(0, pdf_total_pages):
-        # omit index pages
-        page = get_content_from_page(pdf_fileReader, num_page)
-        if not 'Week' in page:
+        omit_page = omit_index_page(pdf_fileReader, num_page)
+        if omit_page:
             continue
 
         # skip next page if we already read it joined with the previous one
@@ -54,12 +53,39 @@ def extract_pdf_info():
             except:
                 next_page_shared = False
 
+            if 'Le Man' in next_page:
+                print(next_page)
+                print(next_page_shared)
+
             # check if this page is shared with another category
             # page_shared = is_page_shared(page, category, next_category)
 
             # check if next page belongs to this category
             if not next_category in next_page and 'Week' in next_page:
                 continues_next_page = True
+
+            # extra check if week 1 and week 12 are on the same next page
+            # check if the first week on the next page is +1 of last week of current page
+            last_week = ''
+            next_page_first_week = ''
+
+            weeks_split = page.split('Week ')
+            weeks_split = weeks_split[len(weeks_split)-1].split(' (')
+            last_week = int(weeks_split[0])
+
+            weeks2_split = next_page.split('Week ')
+            weeks2_split = weeks2_split[len(weeks2_split)-1].split(' (')
+            next_page_first_week = int(weeks2_split[0])
+
+            print('last week ' + str(last_week))
+            print('next_page_first_week ' + str(next_page_first_week))
+
+            if next_category in next_page and last_week == (next_page_first_week - 1):
+                continues_next_page = True
+            if 'Le Man' in next_page:
+                import pdb
+                pdb.set_trace()
+                print(continues_next_page)
 
             # omit next page if it's related only with the current one
             if not next_page_shared and continues_next_page:
@@ -152,4 +178,11 @@ def is_page_shared(page, category, next_category):
     if len(page_split2) > 1:
         if 'Week' in page_split2[0] and 'Week' in page_split2[1]:
             return True
+    return False
+
+
+def omit_index_page(pdf_fileReader, num_page):
+    page = get_content_from_page(pdf_fileReader, num_page)
+    if not 'Week' in page:
+        return True
     return False
