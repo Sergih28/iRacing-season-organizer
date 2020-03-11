@@ -29,10 +29,24 @@ def main():
     cell_format_content = [cell_format_content_owned,
                            cell_format_content_not_owned]
 
+    pdf_info = extract_pdf_info()
+
+    # ---------- CONTENT PAGE ----------
+    worksheet_content = workbook.add_worksheet('CONTENT')
+
     tracks_list = []
     cars_list = []
 
-    pdf_info = extract_pdf_info()
+    for series in pdf_info:
+        pdf_obj = Class_schedule(data_type='from_data', data=series)
+        fill_tracks_list(pdf_obj, tracks_list)
+        fill_cars_list(pdf_obj, cars_list)
+
+    # --- TRACKS ---
+    print_content(workbook, worksheet_content, tracks_list, 2, 'tracks')
+    # --- CARS ---
+    print_content(workbook, worksheet_content, cars_list, 6, 'cars')
+    # ----------------------------------
 
     categories = {}
     fill_categories_dic(workbook, categories, 4)
@@ -48,22 +62,12 @@ def main():
             update_page(workbook, pdf_obj, categories,
                         cell_format_temp, cell_format_main, cell_format_content, type, content)
 
-        fill_tracks_list(pdf_obj, tracks_list)
-        fill_cars_list(pdf_obj, cars_list)
-
     set_auto_col_width(categories)
 
     # ---------- LEGEND ----------
     print_buttons(workbook, categories, 4)
     print_owned_missing(workbook, categories, 8)
     print_classes(workbook, categories, 11)
-
-    # ---------- CONTENT PAGE ----------
-    worksheet_content = workbook.add_worksheet('CONTENT')
-    # --- TRACKS ---
-    print_content(workbook, worksheet_content, tracks_list, 2, 'tracks')
-    # --- CARS ---
-    print_content(workbook, worksheet_content, cars_list, 6, 'cars')
 
     workbook.close()
 
