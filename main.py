@@ -12,7 +12,8 @@ from xlsx import get_license_colors
 def main():
     # create xlsx file
     ir_season = "2020S2"
-    workbook = xlsxwriter.Workbook('iRacing_' + ir_season + '_organizer.xlsx')
+    workbook = xlsxwriter.Workbook(
+        'iRacing_' + ir_season + '_organizer_2.xlsx')
 
     # create cell formats
     cell_format_main = workbook.add_format()
@@ -36,6 +37,8 @@ def main():
 
     tracks_list = []
     cars_list = []
+    tracks_cells_list = {}  # 'name':{ 'row': N, 'col': N}
+    cars_cells_list = {}  # 'name':{ 'row': N, 'col': N}
 
     for series in pdf_info:
         pdf_obj = Class_schedule(data_type='from_data', data=series)
@@ -43,9 +46,11 @@ def main():
         fill_cars_list(pdf_obj, cars_list)
 
     # --- TRACKS ---
-    print_content(workbook, worksheet_content, tracks_list, 2, 'tracks')
+    print_content(workbook, worksheet_content, tracks_list,
+                  2, 'tracks', tracks_cells_list)
     # --- CARS ---
-    print_content(workbook, worksheet_content, cars_list, 6, 'cars')
+    print_content(workbook, worksheet_content,
+                  cars_list, 6, 'cars', cars_cells_list)
     # ----------------------------------
 
     categories = {}
@@ -60,7 +65,7 @@ def main():
         type = pdf_obj.get_type().replace(' ', '_').lower()
         if type != 'fun':
             update_page(workbook, pdf_obj, categories,
-                        cell_format_temp, cell_format_main, cell_format_content, type, content)
+                        cell_format_temp, cell_format_main, cell_format_content, type, content, tracks_cells_list)
 
     set_auto_col_width(categories)
 
@@ -72,7 +77,7 @@ def main():
     workbook.close()
 
 
-def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, cell_format_content, category, content):
+def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, cell_format_content, category, content, tracks_cells_list):
     free_content = get_free_content()
     worksheet = categories[category]['worksheet']
     col = categories[category]['col']
@@ -140,12 +145,28 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
 
         # special check for rallycross weird lap length
         if not ':' in races_length[row-4]:
-            content = track + \
-                ' (' + races_length[row-4] + ' ' + races_type + ')'
+            content = ' (' + races_length[row-4] + ' ' + races_type + ')'
         else:
-            content = track + ' (' + races_length[row-4] + ')'
+            content = ' (' + races_length[row-4] + ')'
         set_cell_styles(cell_format_track)
-        worksheet.write(row, col, content, cell_format_track)
+        # hhh
+        track_row = tracks_cells_list[track]['row']
+        track_col = tracks_cells_list[track]['col']
+        track_letter = num_to_letter(track_col)
+        criteria = '=CONCAT(CONTENT!' + track_letter + \
+            str(track_row) + '; "' + content + '")'
+        worksheet.write(row, col, criteria, cell_format_track)
+
+        # criteria_Y = '=$'+letter_row+str(row+1)+'="Y"'
+        # criteria_N = '=$'+letter_row+str(row+1)+'="N"'
+        # import pdb
+        # pdb.set_trace()
+
+        # worksheet.conditional_format(row, categories[category]['col'], row, categories[category]['col'], {
+        # 'type': 'formula', 'criteria': criteria, 'format': cell_format_track})
+
+        # hhh
+        # worksheet.write(row, col, content, cell_format_track)
 
     categories[category]['col'] += 1
 
@@ -190,7 +211,7 @@ def set_auto_col_width(categories):
             worksheet.set_column(col, col, col_size)
 
 
-def print_content(workbook, worksheet_content, content_list, col, content_type):
+def print_content(workbook, worksheet_content, content_list, col, content_type, cells_list):
     worksheet_content.set_column(col, col, 45)
     content_list = sorted(content_list)
     if content_type == 'tracks':
@@ -248,7 +269,17 @@ def print_content(workbook, worksheet_content, content_list, col, content_type):
         content_usage_temp = content_usage[content_item]
         worksheet_content.write(row, col, content_item, cell_content)
         worksheet_content.write(row, col+1, content_usage_temp, cell_content)
+
+        # save cell position to be able to link it later
+        cells_list[content_item] = {}
+        cells_list[content_item]['row'] = row + 1
+        cells_list[content_item]['col'] = col
+
         row = row + 1
+
+
+def num_to_letter(n):
+    return chr(n + 65)
 
 
 main()
