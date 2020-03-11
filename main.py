@@ -61,116 +61,9 @@ def main():
     # ---------- CONTENT PAGE ----------
     worksheet_content = workbook.add_worksheet('CONTENT')
     # --- TRACKS ---
-    worksheet_content.set_column(2, 2, 45)
-    tracks_list = sorted(tracks_list)
-    free_tracks = get_free_content()[0]
-    cell_green = workbook.add_format()
-    cell_gray = workbook.add_format()
-    # cell_blank = workbook.add_format()
-    cell_title = workbook.add_format()
-    set_cell_styles(cell_title, bold=True)
-    set_cell_styles(
-        cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
-    set_cell_styles(
-        cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
-
-    worksheet_content.write(1, 1, 'OWNED', cell_title)
-    worksheet_content.write(1, 2, 'TRACKS', cell_title)
-    worksheet_content.write(1, 3, 'USAGE', cell_title)
-
-    row = 2
-    count = 0
-    tracks_usage = {}
-
-    for track in tracks_list:
-        track_clean_name = track
-        tracks_list[count] = track_clean_name
-        if track_clean_name in tracks_usage:
-            tracks_usage[track_clean_name] += 1
-        else:
-            tracks_usage[track_clean_name] = 1
-        count = count + 1
-
-    # remove duplicate tracks
-    tracks_list = list(dict.fromkeys(tracks_list))
-    total_tracks = len(tracks_list) + 1
-    for track in tracks_list:
-        cell_track = workbook.add_format()
-        if track in free_tracks:
-            worksheet_content.write(row, 1, 'Y')
-        else:
-            worksheet_content.write(row, 1, 'N')
-
-        # condition to paint the bg_color depending on the row OWNED
-        criteria_Y = '=$B'+str(row+1)+'="Y"'
-        criteria_N = '=$B'+str(row+1)+'="N"'
-
-        worksheet_content.conditional_format(2, 1, total_tracks, 3, {'type': 'formula',
-                                                                     'criteria': criteria_Y, 'format': cell_green})
-        worksheet_content.conditional_format(2, 1, total_tracks, 3, {'type': 'formula',
-                                                                     'criteria': criteria_N, 'format': cell_gray})
-        worksheet_content.data_validation(
-            2, 1, total_tracks, 1, {'validate': 'list', 'source': ['Y', 'N']})
-
-        track_usage = tracks_usage[track]
-        worksheet_content.write(row, 2, track, cell_track)
-        worksheet_content.write(row, 3, track_usage, cell_track)
-        row = row + 1
-
+    print_content(workbook, worksheet_content, tracks_list, 2, 'tracks')
     # --- CARS ---
-    worksheet_content.set_column(6, 6, 45)
-    cars_list = sorted(cars_list)
-    free_cars = get_free_content()[1]
-    cell_green_cars = workbook.add_format()
-    cell_gray_cars = workbook.add_format()
-    cell_title = workbook.add_format()
-    set_cell_styles(cell_title, bold=True)
-    set_cell_styles(
-        cell_green_cars, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
-    set_cell_styles(
-        cell_gray_cars, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
-
-    worksheet_content.write(1, 5, 'OWNED', cell_title)
-    worksheet_content.write(1, 6, 'CARS', cell_title)
-    worksheet_content.write(1, 7, 'USAGE', cell_title)
-
-    row = 2
-    count = 0
-    cars_usage = {}
-
-    for car in cars_list:
-        cars_list[count] = car
-        if car in cars_usage:
-            cars_usage[car] += 1
-        else:
-            cars_usage[car] = 1
-        count = count + 1
-
-    # remove duplicate tracks
-    cars_list = list(dict.fromkeys(cars_list))
-    total_cars = len(cars_list) + 1
-    for car in cars_list:
-        cell_car = workbook.add_format()
-        if car in free_cars:
-            worksheet_content.write(row, 5, 'Y')
-        else:
-            worksheet_content.write(row, 5, 'N')
-
-        # condition to paint the bg_color depending on the row OWNED
-        criteria_Y = '=$F'+str(row+1)+'="Y"'
-        criteria_N = '=$F'+str(row+1)+'="N"'
-
-        worksheet_content.conditional_format(2, 5, total_cars, 7, {'type': 'formula',
-                                                                   'criteria': criteria_Y, 'format': cell_green_cars})
-        worksheet_content.conditional_format(2, 5, total_cars, 7, {'type': 'formula',
-                                                                   'criteria': criteria_N, 'format': cell_gray_cars})
-        worksheet_content.data_validation(
-            2, 5, total_cars, 5, {'validate': 'list', 'source': ['Y', 'N']})
-
-        car_usage = cars_usage[car]
-        worksheet_content.write(row, 6, car, cell_car)
-        worksheet_content.write(row, 7, car_usage, cell_car)
-        row = row + 1
+    print_content(workbook, worksheet_content, cars_list, 6, 'cars')
 
     workbook.close()
 
@@ -291,6 +184,67 @@ def set_auto_col_width(categories):
                 col_size = col_sizes[category][col] * 1.55
 
             worksheet.set_column(col, col, col_size)
+
+
+def print_content(workbook, worksheet_content, content_list, col, content_type):
+    worksheet_content.set_column(col, col, 45)
+    content_list = sorted(content_list)
+    if content_type == 'tracks':
+        free_content = get_free_content()[0]
+        letter_row = 'B'
+    else:
+        free_content = get_free_content()[1]
+        letter_row = 'F'
+    cell_green = workbook.add_format()
+    cell_gray = workbook.add_format()
+    cell_title = workbook.add_format()
+    set_cell_styles(cell_title, bold=True)
+    set_cell_styles(
+        cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
+    set_cell_styles(
+        cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
+
+    worksheet_content.write(1, col-1, 'OWNED', cell_title)
+    worksheet_content.write(1, col, content_type.upper(), cell_title)
+    worksheet_content.write(1, col+1, 'USAGE', cell_title)
+
+    row = 2
+    count = 0
+    content_usage = {}
+
+    for content_item in content_list:
+        content_list[count] = content_item
+        if content_item in content_usage:
+            content_usage[content_item] += 1
+        else:
+            content_usage[content_item] = 1
+        count = count + 1
+
+    # remove duplicate content
+    content_list = list(dict.fromkeys(content_list))
+    total_content = len(content_list) + 1
+    for content_item in content_list:
+        cell_content = workbook.add_format()
+        if content_item in free_content:
+            worksheet_content.write(row, col-1, 'Y')
+        else:
+            worksheet_content.write(row, col-1, 'N')
+
+        # condition to paint the bg_color depending on the row OWNED
+        criteria_Y = '=$'+letter_row+str(row+1)+'="Y"'
+        criteria_N = '=$'+letter_row+str(row+1)+'="N"'
+
+        worksheet_content.conditional_format(2, col-1, total_content, col+1, {'type': 'formula',
+                                                                              'criteria': criteria_Y, 'format': cell_green})
+        worksheet_content.conditional_format(2, col-1, total_content, col+1, {'type': 'formula',
+                                                                              'criteria': criteria_N, 'format': cell_gray})
+        worksheet_content.data_validation(
+            2, col-1, total_content, col-1, {'validate': 'list', 'source': ['Y', 'N']})
+
+        content_usage_temp = content_usage[content_item]
+        worksheet_content.write(row, col, content_item, cell_content)
+        worksheet_content.write(row, col+1, content_usage_temp, cell_content)
+        row = row + 1
 
 
 main()
