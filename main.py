@@ -73,7 +73,7 @@ def main():
         type = pdf_obj.get_type().replace(' ', '_').lower()
         if type != 'fun':
             print_content(workbook, categories[type]['worksheet'], tracks_list,
-                          tracks_col, 'tracks', tracks_cells_list)
+                          tracks_col, 'tracks', tracks_cells_list, linked_content=True)
             update_page(workbook, pdf_obj, categories,
                         cell_format_temp, cell_format_main, cell_format_content, type, content, tracks_cells_list, weeks_col)
 
@@ -170,30 +170,27 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
         criteria = '=CONCAT(CONTENT!' + track_letter + \
             str(track_row) + ', "' + content_text + '")'
 
-        print('track col ' + str(col))
         worksheet.write(row, col, criteria, cell_format_track)
-        worksheet.write('A1', 'COCO', cell_format_track)
 
-        # criteria_Y = '=CONTENT!'+track_letter_prev+str(track_row)+'="Y"'
-        # criteria_N = '=CONTENT!'+track_letter_prev+str(track_row)+'="N"'
-        # criteria_Y = "='ROAD'!$A$1=\"COCO\""
+        criteria_Y = '='+track_letter_prev+str(track_row)+'="Y"'
+        criteria_N = '='+track_letter_prev+str(track_row)+'="N"'
 
-        # cell_green = workbook.add_format()
-        # cell_gray = workbook.add_format()
-        # set_cell_styles(
-        #     cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
-        # set_cell_styles(
-        #     cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
+        cell_green = workbook.add_format()
+        cell_gray = workbook.add_format()
+        set_cell_styles(
+            cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
+        set_cell_styles(
+            cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
 
-        # worksheet.conditional_format(row, col, row, col, {
-        #                              'type': 'formula', 'criteria': criteria_Y, 'format': cell_green})
-        # worksheet.conditional_format(row, col, row, col, {
-        #                              'type': 'formula', 'criteria': criteria_N, 'format': cell_gray})
-
-        # hhh
-        # worksheet.write(row, col, content, cell_format_track)
+        worksheet.conditional_format(row, col, row, col, {
+                                     'type': 'formula', 'criteria': criteria_Y, 'format': cell_green})
+        worksheet.conditional_format(row, col, row, col, {
+                                     'type': 'formula', 'criteria': criteria_N, 'format': cell_gray})
 
     categories[category]['col'] += 1
+
+    # hide content rows in non-content pages
+    worksheet.set_column('A:D', None, None, {'hidden': True})
 
 
 def fill_categories_dic(workbook, categories, start_col):
@@ -236,7 +233,7 @@ def set_auto_col_width(categories, legend_col, categories_col):
             worksheet.set_column(col, col, col_size)
 
 
-def print_content(workbook, worksheet_content, content_list, col, content_type, cells_list):
+def print_content(workbook, worksheet_content, content_list, col, content_type, cells_list, linked_content=False):
     worksheet_content.set_column(col, col, 45)
     content_list = sorted(content_list)
     if content_type == 'tracks':
@@ -275,6 +272,12 @@ def print_content(workbook, worksheet_content, content_list, col, content_type, 
     total_content = len(content_list) + 1
     for content_item in content_list:
         cell_content = workbook.add_format()
+        if linked_content:
+            worksheet_content.write(row-1, col-1, '=CONTENT!B' + str(row))
+            worksheet_content.write(row-1, col, '=CONTENT!C' + str(row))
+            worksheet_content.write(row-1, col+1, '=CONTENT!D' + str(row))
+            row = row + 1
+            continue
         if content_item in free_content:
             worksheet_content.write(row, col-1, 'Y')
         else:
