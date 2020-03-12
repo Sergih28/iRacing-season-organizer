@@ -27,4 +27,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - List of content used in the excel sheet
 - Ability to select Owned content or not in the excel sheet
 
+[0.2.0 - alpha]: https://github.com/Sergih28/iRacing-season-organizer/releases/tag/v0.2.0-alpha
 [0.1.0 - alpha]: https://github.com/Sergih28/iRacing-season-organizer/releases/tag/v0.1.0-alpha
