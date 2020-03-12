@@ -25,32 +25,32 @@ def button(workbook, worksheet, type='DONATION', row=1, col=1):
         row, col, button_url, cell_format=cell_button, string=button_text)
 
 
-def print_buttons(workbook, categories, first_row):
+def print_buttons(workbook, categories, first_row, col):
     for category in categories:
         worksheet = categories[category]['worksheet']
-        button(workbook, worksheet, row=first_row)
-        button(workbook, worksheet, type='TWITTER', row=first_row+1)
-        button(workbook, worksheet, type='GITHUB', row=first_row+2)
+        button(workbook, worksheet, row=first_row, col=col)
+        button(workbook, worksheet, type='TWITTER', row=first_row+1, col=col)
+        button(workbook, worksheet, type='GITHUB', row=first_row+2, col=col)
 
 
-def owned_missing(workbook, worksheet, first_row):
+def owned_missing(workbook, worksheet, first_row, col=1):
     cell = workbook.add_format()
     cell2 = workbook.add_format()
     set_cell_styles(
         cell, color=content['colors']['normal'], bg_color=content['bg_colors']['owned'], bold=True)
     set_cell_styles(
         cell2, color=content['colors']['alt'], bg_color=content['bg_colors']['missing'], bold=True)
-    worksheet.write(first_row, 1, 'Owned', cell)
-    worksheet.write(first_row+1, 1, 'Missing', cell2)
+    worksheet.write(first_row, col, 'Owned', cell)
+    worksheet.write(first_row+1, col, 'Missing', cell2)
 
 
-def print_owned_missing(workbook, categories, first_row):
+def print_owned_missing(workbook, categories, first_row, col):
     for category in categories:
         worksheet = categories[category]['worksheet']
-        owned_missing(workbook, worksheet, first_row)
+        owned_missing(workbook, worksheet, first_row, col)
 
 
-def classes(workbook, worksheet, first_row):
+def classes(workbook, worksheet, first_row, col=1):
     count = 0
     for key in ir_licenses['bg_colors']:
         cell = workbook.add_format()
@@ -61,11 +61,11 @@ def classes(workbook, worksheet, first_row):
 
         set_cell_styles(cell, color=color, bg_color=bg_color, bold=True)
         worksheet.write(
-            row, 1, class_name, cell)
+            row, col, class_name, cell)
         count += 1
 
 
-def print_classes(workbook, categories, first_row):
+def print_classes(workbook, categories, first_row, col):
     for category in categories:
         worksheet = categories[category]['worksheet']
-        classes(workbook, worksheet, first_row)
+        classes(workbook, worksheet, first_row, col)

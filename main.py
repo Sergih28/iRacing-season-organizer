@@ -15,6 +15,13 @@ def main():
     workbook = xlsxwriter.Workbook(
         'iRacing_' + ir_season + '_organizer_2.xlsx')
 
+    # starting columns for non-content pages
+    tracks_col = 2
+    cars_col = 6
+    legends_col = 5
+    weeks_col = 7
+    categories_col = 8
+
     # create cell formats
     cell_format_main = workbook.add_format()
     cell_format_content_owned = workbook.add_format()
@@ -47,14 +54,15 @@ def main():
 
     # --- TRACKS ---
     print_content(workbook, worksheet_content, tracks_list,
-                  2, 'tracks', tracks_cells_list)
+                  tracks_col, 'tracks', tracks_cells_list)
+
     # --- CARS ---
     print_content(workbook, worksheet_content,
-                  cars_list, 6, 'cars', cars_cells_list)
+                  cars_list, cars_col, 'cars', cars_cells_list)
     # ----------------------------------
 
     categories = {}
-    fill_categories_dic(workbook, categories, 4)
+    fill_categories_dic(workbook, categories, categories_col)
 
     for series in pdf_info:
         pdf_obj = Class_schedule(data_type='from_data', data=series)
@@ -64,20 +72,22 @@ def main():
         # Fill pages data
         type = pdf_obj.get_type().replace(' ', '_').lower()
         if type != 'fun':
+            print_content(workbook, categories[type]['worksheet'], tracks_list,
+                          tracks_col, 'tracks', tracks_cells_list)
             update_page(workbook, pdf_obj, categories,
-                        cell_format_temp, cell_format_main, cell_format_content, type, content, tracks_cells_list)
+                        cell_format_temp, cell_format_main, cell_format_content, type, content, tracks_cells_list, weeks_col)
 
-    set_auto_col_width(categories)
+    set_auto_col_width(categories, legends_col, categories_col)
 
     # ---------- LEGEND ----------
-    print_buttons(workbook, categories, 4)
-    print_owned_missing(workbook, categories, 8)
-    print_classes(workbook, categories, 11)
+    print_buttons(workbook, categories, 4, legends_col)
+    print_owned_missing(workbook, categories, 8, legends_col)
+    print_classes(workbook, categories, 11, legends_col)
 
     workbook.close()
 
 
-def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, cell_format_content, category, content, tracks_cells_list):
+def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, cell_format_content, category, content, tracks_cells_list, start_col):
     free_content = get_free_content()
     worksheet = categories[category]['worksheet']
     col = categories[category]['col']
@@ -90,7 +100,8 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
     cell_format_colorised.set_font_color(license_colors[1])
     set_cell_styles(cell_format_colorised, bold=True)
 
-    worksheet.write(2, col, pdf_obj.get_name(), cell_format_colorised)
+    worksheet.write(2, col, pdf_obj.get_name(),
+                    cell_format_colorised)
 
     cars = pdf_obj.get_cars()
     for car in cars:
@@ -116,7 +127,7 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
                 row = row + 1
 
                 # get the first 12 week race Series
-                worksheet.write(row, 3, 'Week ' +
+                worksheet.write(row, start_col, 'Week ' +
                                 str(week) + ' (' + str(dates[week-1]) + ')', cell_format_week)
             weeks_done = True
 
@@ -138,32 +149,46 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
             col_sizes[category][col] = track_length
 
         # colorise background depending if it is owned content or not
-        if track in free_content[0]:
-            cell_format_track = cell_format_content[0]
-        else:
-            cell_format_track = cell_format_content[1]
+        # if track in free_content[0]:
+        #     cell_format_track = cell_format_content[0]
+        # else:
+        #     cell_format_track = cell_format_content[1]
 
         # special check for rallycross weird lap length
         if not ':' in races_length[row-4]:
-            content = ' (' + races_length[row-4] + ' ' + races_type + ')'
+            content_text = ' (' + races_length[row-4] + ' ' + races_type + ')'
         else:
-            content = ' (' + races_length[row-4] + ')'
+            content_text = ' (' + races_length[row-4] + ')'
+
+        cell_format_track = workbook.add_format()
         set_cell_styles(cell_format_track)
         # hhh
         track_row = tracks_cells_list[track]['row']
         track_col = tracks_cells_list[track]['col']
         track_letter = num_to_letter(track_col)
+        track_letter_prev = num_to_letter(track_col - 1)
         criteria = '=CONCAT(CONTENT!' + track_letter + \
-            str(track_row) + '; "' + content + '")'
+            str(track_row) + ', "' + content_text + '")'
+
+        print('track col ' + str(col))
         worksheet.write(row, col, criteria, cell_format_track)
+        worksheet.write('A1', 'COCO', cell_format_track)
 
-        # criteria_Y = '=$'+letter_row+str(row+1)+'="Y"'
-        # criteria_N = '=$'+letter_row+str(row+1)+'="N"'
-        # import pdb
-        # pdb.set_trace()
+        # criteria_Y = '=CONTENT!'+track_letter_prev+str(track_row)+'="Y"'
+        # criteria_N = '=CONTENT!'+track_letter_prev+str(track_row)+'="N"'
+        # criteria_Y = "='ROAD'!$A$1=\"COCO\""
 
-        # worksheet.conditional_format(row, categories[category]['col'], row, categories[category]['col'], {
-        # 'type': 'formula', 'criteria': criteria, 'format': cell_format_track})
+        # cell_green = workbook.add_format()
+        # cell_gray = workbook.add_format()
+        # set_cell_styles(
+        #     cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
+        # set_cell_styles(
+        #     cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
+
+        # worksheet.conditional_format(row, col, row, col, {
+        #                              'type': 'formula', 'criteria': criteria_Y, 'format': cell_green})
+        # worksheet.conditional_format(row, col, row, col, {
+        #                              'type': 'formula', 'criteria': criteria_N, 'format': cell_gray})
 
         # hhh
         # worksheet.write(row, col, content, cell_format_track)
@@ -193,16 +218,16 @@ def fill_cars_list(pdf_obj, cars_list):
         cars_list.append(car)
 
 
-def set_auto_col_width(categories):
+def set_auto_col_width(categories, legend_col, categories_col):
     for category in categories:
         worksheet = categories[category]['worksheet']
         # fixed column widths for first fixed rows
-        worksheet.set_column(1, 1, 12)
-        worksheet.set_column(2, 2, 4)
-        worksheet.set_column(3, 3, 25)
+        worksheet.set_column(legend_col, legend_col, 12)
+        worksheet.set_column(legend_col + 1, legend_col + 1, 4)
+        worksheet.set_column(legend_col + 2, legend_col + 2, 25)
 
-        # auto column widths
-        for col in range(4, categories[category]['col']):
+        # auto column widths // +4
+        for col in range(categories_col, categories[category]['col']):
             if category == 'dirt_oval':
                 col_size = col_sizes[category][col] * 1.9
             else:
