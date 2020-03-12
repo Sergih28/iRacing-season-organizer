@@ -13,7 +13,7 @@ def main():
     # create xlsx file
     ir_season = "2020S2"
     workbook = xlsxwriter.Workbook(
-        'iRacing_' + ir_season + '_organizer_2.xlsx')
+        'iRacing_' + ir_season + '_organizer.xlsx')
 
     # starting columns for non-content pages
     tracks_col = 2
@@ -148,13 +148,6 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
         else:
             col_sizes[category][col] = track_length
 
-        # colorise background depending if it is owned content or not
-        # if track in free_content[0]:
-        #     cell_format_track = cell_format_content[0]
-        # else:
-        #     cell_format_track = cell_format_content[1]
-
-        # special check for rallycross weird lap length
         if not ':' in races_length[row-4]:
             content_text = ' (' + races_length[row-4] + ' ' + races_type + ')'
         else:
