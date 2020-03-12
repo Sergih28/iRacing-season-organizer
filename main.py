@@ -12,7 +12,15 @@ from xlsx import get_license_colors
 def main():
     # create xlsx file
     ir_season = "2020S2"
-    workbook = xlsxwriter.Workbook('iRacing_' + ir_season + '_organizer.xlsx')
+    workbook = xlsxwriter.Workbook(
+        'iRacing_' + ir_season + '_organizer.xlsx')
+
+    # starting columns for non-content pages
+    tracks_col = 2
+    cars_col = 6
+    legends_col = 5
+    weeks_col = 7
+    categories_col = 8
 
     # create cell formats
     cell_format_main = workbook.add_format()
@@ -29,13 +37,32 @@ def main():
     cell_format_content = [cell_format_content_owned,
                            cell_format_content_not_owned]
 
-    tracks_list = []
-    cars_list = []
-
     pdf_info = extract_pdf_info()
 
+    # ---------- CONTENT PAGE ----------
+    worksheet_content = workbook.add_worksheet('CONTENT')
+
+    tracks_list = []
+    cars_list = []
+    tracks_cells_list = {}  # 'name':{ 'row': N, 'col': N}
+    cars_cells_list = {}  # 'name':{ 'row': N, 'col': N}
+
+    for series in pdf_info:
+        pdf_obj = Class_schedule(data_type='from_data', data=series)
+        fill_tracks_list(pdf_obj, tracks_list)
+        fill_cars_list(pdf_obj, cars_list)
+
+    # --- TRACKS ---
+    print_content(workbook, worksheet_content, tracks_list,
+                  tracks_col, 'tracks', tracks_cells_list)
+
+    # --- CARS ---
+    print_content(workbook, worksheet_content,
+                  cars_list, cars_col, 'cars', cars_cells_list)
+    # ----------------------------------
+
     categories = {}
-    fill_categories_dic(workbook, categories, 4)
+    fill_categories_dic(workbook, categories, categories_col)
 
     for series in pdf_info:
         pdf_obj = Class_schedule(data_type='from_data', data=series)
@@ -45,137 +72,22 @@ def main():
         # Fill pages data
         type = pdf_obj.get_type().replace(' ', '_').lower()
         if type != 'fun':
+            print_content(workbook, categories[type]['worksheet'], tracks_list,
+                          tracks_col, 'tracks', tracks_cells_list, linked_content=True)
             update_page(workbook, pdf_obj, categories,
-                        cell_format_temp, cell_format_main, cell_format_content, type, content)
+                        cell_format_temp, cell_format_main, cell_format_content, type, content, tracks_cells_list, weeks_col)
 
-        fill_tracks_list(pdf_obj, tracks_list)
-        fill_cars_list(pdf_obj, cars_list)
-
-    set_auto_col_width(categories)
+    set_auto_col_width(categories, legends_col, categories_col)
 
     # ---------- LEGEND ----------
-    print_buttons(workbook, categories, 4)
-    print_owned_missing(workbook, categories, 8)
-    print_classes(workbook, categories, 11)
-
-    # ---------- CONTENT PAGE ----------
-    worksheet_content = workbook.add_worksheet('CONTENT')
-    # --- TRACKS ---
-    worksheet_content.set_column(2, 2, 45)
-    tracks_list = sorted(tracks_list)
-    free_tracks = get_free_content()[0]
-    cell_green = workbook.add_format()
-    cell_gray = workbook.add_format()
-    # cell_blank = workbook.add_format()
-    cell_title = workbook.add_format()
-    set_cell_styles(cell_title, bold=True)
-    set_cell_styles(
-        cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
-    set_cell_styles(
-        cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
-
-    worksheet_content.write(1, 1, 'OWNED', cell_title)
-    worksheet_content.write(1, 2, 'TRACKS', cell_title)
-    worksheet_content.write(1, 3, 'USAGE', cell_title)
-
-    row = 2
-    count = 0
-    tracks_usage = {}
-
-    for track in tracks_list:
-        track_clean_name = track
-        tracks_list[count] = track_clean_name
-        if track_clean_name in tracks_usage:
-            tracks_usage[track_clean_name] += 1
-        else:
-            tracks_usage[track_clean_name] = 1
-        count = count + 1
-
-    # remove duplicate tracks
-    tracks_list = list(dict.fromkeys(tracks_list))
-    total_tracks = len(tracks_list) + 1
-    for track in tracks_list:
-        cell_track = workbook.add_format()
-        if track in free_tracks:
-            worksheet_content.write(row, 1, 'Y')
-        else:
-            worksheet_content.write(row, 1, 'N')
-
-        # condition to paint the bg_color depending on the row OWNED
-        criteria_Y = '=$B'+str(row+1)+'="Y"'
-        criteria_N = '=$B'+str(row+1)+'="N"'
-
-        worksheet_content.conditional_format(2, 1, total_tracks, 3, {'type': 'formula',
-                                                                     'criteria': criteria_Y, 'format': cell_green})
-        worksheet_content.conditional_format(2, 1, total_tracks, 3, {'type': 'formula',
-                                                                     'criteria': criteria_N, 'format': cell_gray})
-        worksheet_content.data_validation(
-            2, 1, total_tracks, 1, {'validate': 'list', 'source': ['Y', 'N']})
-
-        track_usage = tracks_usage[track]
-        worksheet_content.write(row, 2, track, cell_track)
-        worksheet_content.write(row, 3, track_usage, cell_track)
-        row = row + 1
-
-    # --- CARS ---
-    worksheet_content.set_column(6, 6, 45)
-    cars_list = sorted(cars_list)
-    free_cars = get_free_content()[1]
-    cell_green_cars = workbook.add_format()
-    cell_gray_cars = workbook.add_format()
-    cell_title = workbook.add_format()
-    set_cell_styles(cell_title, bold=True)
-    set_cell_styles(
-        cell_green_cars, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
-    set_cell_styles(
-        cell_gray_cars, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
-
-    worksheet_content.write(1, 5, 'OWNED', cell_title)
-    worksheet_content.write(1, 6, 'CARS', cell_title)
-    worksheet_content.write(1, 7, 'USAGE', cell_title)
-
-    row = 2
-    count = 0
-    cars_usage = {}
-
-    for car in cars_list:
-        cars_list[count] = car
-        if car in cars_usage:
-            cars_usage[car] += 1
-        else:
-            cars_usage[car] = 1
-        count = count + 1
-
-    # remove duplicate tracks
-    cars_list = list(dict.fromkeys(cars_list))
-    total_cars = len(cars_list) + 1
-    for car in cars_list:
-        cell_car = workbook.add_format()
-        if car in free_cars:
-            worksheet_content.write(row, 5, 'Y')
-        else:
-            worksheet_content.write(row, 5, 'N')
-
-        # condition to paint the bg_color depending on the row OWNED
-        criteria_Y = '=$F'+str(row+1)+'="Y"'
-        criteria_N = '=$F'+str(row+1)+'="N"'
-
-        worksheet_content.conditional_format(2, 5, total_cars, 7, {'type': 'formula',
-                                                                   'criteria': criteria_Y, 'format': cell_green_cars})
-        worksheet_content.conditional_format(2, 5, total_cars, 7, {'type': 'formula',
-                                                                   'criteria': criteria_N, 'format': cell_gray_cars})
-        worksheet_content.data_validation(
-            2, 5, total_cars, 5, {'validate': 'list', 'source': ['Y', 'N']})
-
-        car_usage = cars_usage[car]
-        worksheet_content.write(row, 6, car, cell_car)
-        worksheet_content.write(row, 7, car_usage, cell_car)
-        row = row + 1
+    print_buttons(workbook, categories, 4, legends_col)
+    print_owned_missing(workbook, categories, 8, legends_col)
+    print_classes(workbook, categories, 11, legends_col)
 
     workbook.close()
 
 
-def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, cell_format_content, category, content):
+def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, cell_format_content, category, content, tracks_cells_list, start_col):
     free_content = get_free_content()
     worksheet = categories[category]['worksheet']
     col = categories[category]['col']
@@ -188,7 +100,8 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
     cell_format_colorised.set_font_color(license_colors[1])
     set_cell_styles(cell_format_colorised, bold=True)
 
-    worksheet.write(2, col, pdf_obj.get_name(), cell_format_colorised)
+    worksheet.write(2, col, pdf_obj.get_name(),
+                    cell_format_colorised)
 
     cars = pdf_obj.get_cars()
     for car in cars:
@@ -214,7 +127,7 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
                 row = row + 1
 
                 # get the first 12 week race Series
-                worksheet.write(row, 3, 'Week ' +
+                worksheet.write(row, start_col, 'Week ' +
                                 str(week) + ' (' + str(dates[week-1]) + ')', cell_format_week)
             weeks_done = True
 
@@ -235,22 +148,42 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
         else:
             col_sizes[category][col] = track_length
 
-        # colorise background depending if it is owned content or not
-        if track in free_content[0]:
-            cell_format_track = cell_format_content[0]
-        else:
-            cell_format_track = cell_format_content[1]
-
-        # special check for rallycross weird lap length
         if not ':' in races_length[row-4]:
-            content = track + \
-                ' (' + races_length[row-4] + ' ' + races_type + ')'
+            content_text = ' (' + races_length[row-4] + ' ' + races_type + ')'
         else:
-            content = track + ' (' + races_length[row-4] + ')'
+            content_text = ' (' + races_length[row-4] + ')'
+
+        cell_format_track = workbook.add_format()
         set_cell_styles(cell_format_track)
-        worksheet.write(row, col, content, cell_format_track)
+        # hhh
+        track_row = tracks_cells_list[track]['row']
+        track_col = tracks_cells_list[track]['col']
+        track_letter = num_to_letter(track_col)
+        track_letter_prev = num_to_letter(track_col - 1)
+        criteria = '=CONCAT(CONTENT!' + track_letter + \
+            str(track_row) + ', "' + content_text + '")'
+
+        worksheet.write(row, col, criteria, cell_format_track)
+
+        criteria_Y = '='+track_letter_prev+str(track_row)+'="Y"'
+        criteria_N = '='+track_letter_prev+str(track_row)+'="N"'
+
+        cell_green = workbook.add_format()
+        cell_gray = workbook.add_format()
+        set_cell_styles(
+            cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
+        set_cell_styles(
+            cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
+
+        worksheet.conditional_format(row, col, row, col, {
+                                     'type': 'formula', 'criteria': criteria_Y, 'format': cell_green})
+        worksheet.conditional_format(row, col, row, col, {
+                                     'type': 'formula', 'criteria': criteria_N, 'format': cell_gray})
 
     categories[category]['col'] += 1
+
+    # hide content rows in non-content pages
+    worksheet.set_column('A:D', None, None, {'hidden': True})
 
 
 def fill_categories_dic(workbook, categories, start_col):
@@ -275,22 +208,99 @@ def fill_cars_list(pdf_obj, cars_list):
         cars_list.append(car)
 
 
-def set_auto_col_width(categories):
+def set_auto_col_width(categories, legend_col, categories_col):
     for category in categories:
         worksheet = categories[category]['worksheet']
         # fixed column widths for first fixed rows
-        worksheet.set_column(1, 1, 12)
-        worksheet.set_column(2, 2, 4)
-        worksheet.set_column(3, 3, 25)
+        worksheet.set_column(legend_col, legend_col, 12)
+        worksheet.set_column(legend_col + 1, legend_col + 1, 4)
+        worksheet.set_column(legend_col + 2, legend_col + 2, 25)
 
-        # auto column widths
-        for col in range(4, categories[category]['col']):
+        # auto column widths // +4
+        for col in range(categories_col, categories[category]['col']):
             if category == 'dirt_oval':
                 col_size = col_sizes[category][col] * 1.9
             else:
                 col_size = col_sizes[category][col] * 1.55
 
             worksheet.set_column(col, col, col_size)
+
+
+def print_content(workbook, worksheet_content, content_list, col, content_type, cells_list, linked_content=False):
+    worksheet_content.set_column(col, col, 45)
+    content_list = sorted(content_list)
+    if content_type == 'tracks':
+        free_content = get_free_content()[0]
+        letter_row = 'B'
+    else:
+        free_content = get_free_content()[1]
+        letter_row = 'F'
+    cell_green = workbook.add_format()
+    cell_gray = workbook.add_format()
+    cell_title = workbook.add_format()
+    set_cell_styles(cell_title, bold=True)
+    set_cell_styles(
+        cell_green, bg_color=content['bg_colors']['owned'], color=content['colors']['normal'])
+    set_cell_styles(
+        cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
+
+    worksheet_content.write(1, col-1, 'OWNED', cell_title)
+    worksheet_content.write(1, col, content_type.upper(), cell_title)
+    worksheet_content.write(1, col+1, 'USAGE', cell_title)
+
+    row = 2
+    count = 0
+    content_usage = {}
+
+    for content_item in content_list:
+        content_list[count] = content_item
+        if content_item in content_usage:
+            content_usage[content_item] += 1
+        else:
+            content_usage[content_item] = 1
+        count = count + 1
+
+    # remove duplicate content
+    content_list = list(dict.fromkeys(content_list))
+    total_content = len(content_list) + 1
+    for content_item in content_list:
+        cell_content = workbook.add_format()
+        if linked_content:
+            worksheet_content.write(row-1, col-1, '=CONTENT!B' + str(row))
+            worksheet_content.write(row-1, col, '=CONTENT!C' + str(row))
+            worksheet_content.write(row-1, col+1, '=CONTENT!D' + str(row))
+            row = row + 1
+            continue
+        if content_item in free_content:
+            worksheet_content.write(row, col-1, 'Y')
+        else:
+            worksheet_content.write(row, col-1, 'N')
+
+        # condition to paint the bg_color depending on the row OWNED
+        criteria_Y = '=$'+letter_row+str(row+1)+'="Y"'
+        criteria_N = '=$'+letter_row+str(row+1)+'="N"'
+
+        worksheet_content.conditional_format(2, col-1, total_content, col+1, {'type': 'formula',
+                                                                              'criteria': criteria_Y, 'format': cell_green})
+        worksheet_content.conditional_format(2, col-1, total_content, col+1, {'type': 'formula',
+                                                                              'criteria': criteria_N, 'format': cell_gray})
+        worksheet_content.data_validation(
+            2, col-1, total_content, col-1, {'validate': 'list', 'source': ['Y', 'N']})
+
+        content_usage_temp = content_usage[content_item]
+        worksheet_content.write(row, col, content_item, cell_content)
+        worksheet_content.write(row, col+1, content_usage_temp, cell_content)
+
+        # save cell position to be able to link it later
+        cells_list[content_item] = {}
+        cells_list[content_item]['row'] = row + 1
+        cells_list[content_item]['col'] = col
+
+        row = row + 1
+
+
+def num_to_letter(n):
+    return chr(n + 65)
 
 
 main()

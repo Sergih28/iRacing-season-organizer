@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) adapted to iRacing Seasons.
 
-## [0.1.0 - alpha] - 2020-03-10 (2020 Season 2)
+## [0.2.0 - alpha] - 2020-03-12 (2020 Season 2 - beta)
+
+### Added
+
+- Linked track names with the tracks list. So whenever you change the tracks content from owned or not, it reflects the changes in the other pages as well.
+
+### Changed
+
+- Moved "CONTENT" page to be the first one.
+
+## [0.1.0 - alpha] - 2020-03-10 (2020 Season 2 - beta)
 
 ### Added
 
