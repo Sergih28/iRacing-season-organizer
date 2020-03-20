@@ -1,19 +1,19 @@
 import sys
-from pdf import extract_pdf_info
-from class_schedule import Class_schedule
-from free_content import get_free_content
-from cell import set_cell_styles
-from legend import print_buttons, print_owned_missing, print_classes
+from .pdf import extract_pdf_info
+from .class_schedule import Class_schedule
+from .free_content import get_free_content
+from .cell import set_cell_styles
+from .legend import print_buttons, print_owned_missing, print_classes
 import xlsxwriter
-from dics import content, col_sizes
-from xlsx import get_license_colors
+from .dics import content, col_sizes
+from .xlsx import get_license_colors
 
 
-def main():
+def run():
     # create xlsx file
     ir_season = "2020S2"
     workbook = xlsxwriter.Workbook(
-        'iracing-season-organizer/output/iRacing_' + ir_season + '_organizer.xlsx')
+        'iracing_season_organizer/output/iRacing_' + ir_season + '_organizer.xlsx')
 
     # starting columns for non-content pages
     tracks_col = 2
@@ -301,6 +301,3 @@ def print_content(workbook, worksheet_content, content_list, col, content_type, 
 
 def num_to_letter(n):
     return chr(n + 65)
-
-
-main()

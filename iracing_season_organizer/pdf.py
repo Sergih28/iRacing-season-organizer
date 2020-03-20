@@ -1,6 +1,6 @@
 import PyPDF2
 import sys
-from class_schedule import Class_schedule
+from .class_schedule import Class_schedule
 
 
 def extract_pdf_info():
@@ -11,7 +11,7 @@ def extract_pdf_info():
     categories = get_categories(pdf_fileReader)  # based on index page
 
     # writting ouput to file for testing purposes
-    f = open("iracing-season-organizer/output/output.txt", "w")
+    f = open("iracing_season_organizer/output/output.txt", "w")
 
     category_pos = 0
     pdf_total_pages = pdf_fileReader.getNumPages()
