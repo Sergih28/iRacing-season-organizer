@@ -2,8 +2,8 @@
 env/
 __pycache__
 
-# excel file
-*.xlsx
+# output files
+output/
 
 #VSCODE
 .vscode
