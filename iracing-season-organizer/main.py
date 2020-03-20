@@ -13,7 +13,7 @@ def main():
     # create xlsx file
     ir_season = "2020S2"
     workbook = xlsxwriter.Workbook(
-        'iRacing_' + ir_season + '_organizer.xlsx')
+        'iracing-season-organizer/output/iRacing_' + ir_season + '_organizer.xlsx')
 
     # starting columns for non-content pages
     tracks_col = 2

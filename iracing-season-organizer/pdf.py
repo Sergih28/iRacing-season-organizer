@@ -11,7 +11,7 @@ def extract_pdf_info():
     categories = get_categories(pdf_fileReader)  # based on index page
 
     # writting ouput to file for testing purposes
-    f = open("output.txt", "w")
+    f = open("iracing-season-organizer/output/output.txt", "w")
 
     category_pos = 0
     pdf_total_pages = pdf_fileReader.getNumPages()
