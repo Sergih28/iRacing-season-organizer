@@ -1,6 +1,6 @@
 import PyPDF2
 import sys
-from .class_schedule import Class_schedule
+from ..class_schedule import Class_schedule
 
 
 def extract_pdf_info():

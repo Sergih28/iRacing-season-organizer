@@ -1,12 +1,12 @@
 import sys
-from .pdf import extract_pdf_info
+from .pdf.pdf import extract_pdf_info
 from .class_schedule import Class_schedule
-from .free_content import get_free_content
-from .cell import set_cell_styles
-from .legend import print_buttons, print_owned_missing, print_classes
+from .data.free_content import get_free_content
+from .xlsx.cell import set_cell_styles
+from .xlsx.legend import print_buttons, print_owned_missing, print_classes
 import xlsxwriter
 from .dics import content, col_sizes
-from .xlsx import get_license_colors
+from .xlsx.ir_license import get_license_colors
 
 
 def run():
