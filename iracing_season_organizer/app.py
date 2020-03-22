@@ -1,6 +1,6 @@
 import sys
 from .pdf.pdf import extract_pdf_info
-from .class_schedule import Class_schedule
+from .classes.class_schedule import Class_schedule
 from .data.free_content import get_free_content
 from .xlsx.cell import set_cell_styles
 from .xlsx.legend import print_buttons, print_owned_missing, print_classes
