@@ -1,56 +1,55 @@
+tracks = ['Tsukuba Circuit',
+          'Charlotte Motor Speedway',
+          'Charlotte Motor Speedway 2016',
+          'Charlotte Motor Speedway 2018',
+          'Michigan International Speedway 2014',
+          'Silverstone Circuit 2011',
+          'Lanier Dirt',
+          'Dirt – USA Speedway',
+          'Daytona International Speedway 2007',
+          'Pocono Raceway 2011',
+          'Thompson Speedway Motorsports Park',
+          'South Boston Speedway',
+          'WeatherTech Raceway at Laguna Seca',
+          'Okayama International Circuit',
+          'Phoenix International Raceway 2008',
+          'Concord Speedway',
+          'Oxford Plains Speedway',
+          'Lanier National Speedway',
+          'USA International Speedway',
+          'Lime Rock Park',
+          'Summit Point Raceway',
+          'Centripetal Circuit'
+          ]
+
+cars = ['NASCAR Cup Series Ford Fusion',
+        'NASCAR Chevrolet SS Cup Car',
+        'NASCAR Toyota Camry Xfinity Car 2018',
+        'NASCAR Chevrolet Camaro Xfinity Car 2018',
+        'NASCAR Ford Mustang Xfinity Car 2018',
+        'Street Stock',
+        'Legends Ford \'34 Coupe',
+        'Dirt Legends Ford \'34 Coupe',
+        'NASCAR Chevrolet Impala SS COT 2013',
+        'NASCAR Chevrolet Silverado Truck 2013',
+        'NASCAR Chevrolet Impala SS Xfinity Car 2011',
+        'Global Mazda MX-5 Cup',
+        'Cadillac CTS-V',
+        'Kia Optima',
+        'Pontiac Solstice Club Sport',
+        'Ford V8 Super Car 2012',
+        'Mazda MX-5 Cup 2015',
+        'Mazda MX-5 Roadster 2015',
+        'Dallara DW12 Indycar',
+        'Indycar Dallara 2011',
+        'Legends Ford ’34 Coupe',
+        'Dirt Street Stock',
+        'Riley Mk XX Daytona Prototype',
+        'Radical SR8 V8',
+        'SCCA Spec Racer Ford',
+        'VW Beetle'
+        ]
+
+
 def get_free_content():
-    content = [[], []]
-
-    # tracks
-    content[0].append('Tsukuba Circuit')
-    content[0].append('Charlotte Motor Speedway')
-    content[0].append('Charlotte Motor Speedway 2016')
-    content[0].append('Charlotte Motor Speedway 2018')
-    content[0].append('Michigan International Speedway 2014')
-    content[0].append('Silverstone Circuit 2011')
-    content[0].append('Lanier Dirt')
-    content[0].append('Dirt – USA Speedway')
-    content[0].append('Daytona International Speedway 2007')
-    content[0].append('Pocono Raceway 2011')
-    content[0].append('Thompson Speedway Motorsports Park')
-    content[0].append('South Boston Speedway')
-    content[0].append('WeatherTech Raceway at Laguna Seca')
-    content[0].append('Okayama International Circuit')
-    content[0].append('Phoenix International Raceway 2008')
-    content[0].append('Concord Speedway')
-    content[0].append('Oxford Plains Speedway')
-    content[0].append('Lanier National Speedway')
-    content[0].append('USA International Speedway')
-    content[0].append('Lime Rock Park')
-    content[0].append('Summit Point Raceway')
-    content[0].append('Centripetal Circuit')
-
-    # cars
-    content[1].append('NASCAR Cup Series Ford Fusion')
-    content[1].append('NASCAR Chevrolet SS Cup Car')
-    content[1].append('NASCAR Toyota Camry Xfinity Car 2018')
-    content[1].append('NASCAR Chevrolet Camaro Xfinity Car 2018')
-    content[1].append('NASCAR Ford Mustang Xfinity Car 2018')
-    content[1].append('Street Stock')
-    content[1].append('Legends Ford \'34 Coupe')
-    content[1].append('Dirt Legends Ford \'34 Coupe')
-    content[1].append('NASCAR Chevrolet Impala SS COT 2013')
-    content[1].append('NASCAR Chevrolet Silverado Truck 2013')
-    content[1].append('NASCAR Chevrolet Impala SS Xfinity Car 2011')
-    content[1].append('Global Mazda MX-5 Cup')
-    content[1].append('Cadillac CTS-V')
-    content[1].append('Kia Optima')
-    content[1].append('Pontiac Solstice Club Sport')
-    content[1].append('Ford V8 Super Car 2012')
-    content[1].append('Mazda MX-5 Cup 2015')
-    content[1].append('Mazda MX-5 Roadster 2015')
-    content[1].append('Dallara DW12 Indycar')
-    content[1].append('Indycar Dallara 2011')
-    content[1].append('Legends Ford ’34 Coupe')
-    content[1].append('Dirt Street Stock')
-    content[1].append('Riley Mk XX Daytona Prototype')
-    content[1].append('Radical SR8 V8')
-    content[1].append('SCCA Spec Racer Ford')
-    content[1].append('VW Beetle')
-
-    return content
+    return [tracks, cars]
