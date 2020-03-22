@@ -1,4 +1,4 @@
-from ..dics import ir_licenses
+from ..data.colors import ir_licenses
 
 
 def get_license_colors(sel_ir_license):
