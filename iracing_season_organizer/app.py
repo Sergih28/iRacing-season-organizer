@@ -3,7 +3,7 @@ from .pdf.pdf import extract_pdf_info
 from .classes.class_schedule import Class_schedule
 from .data.free_content import get_free_content
 from .xlsx.cell import set_cell_styles
-from .xlsx.legend import print_buttons, print_owned_missing, print_classes
+from .xlsx.legend import print_legends
 import xlsxwriter
 from .data.dics import col_sizes
 from .data.colors import content
@@ -80,10 +80,8 @@ def run():
 
     set_auto_col_width(categories, legends_col, categories_col)
 
-    # ---------- LEGEND ----------
-    print_buttons(workbook, categories, 4, legends_col)
-    print_owned_missing(workbook, categories, 8, legends_col)
-    print_classes(workbook, categories, 11, legends_col)
+    # ---------- LEGENDS ----------
+    print_legends(workbook, categories, legends_col)
 
     workbook.close()
 
