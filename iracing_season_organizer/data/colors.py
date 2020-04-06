@@ -43,10 +43,3 @@ content = {
         'paypal': '#009CDE'
     }
 }
-
-col_sizes = {
-    'road': {},
-    'oval': {},
-    'dirt_road': {},
-    'dirt_oval': {}
-}

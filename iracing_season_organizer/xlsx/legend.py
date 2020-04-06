@@ -1,5 +1,5 @@
-from cell import set_cell_styles
-from dics import content, ir_licenses
+from .cell import set_cell_styles
+from ..data.colors import content, ir_licenses
 
 
 def button(workbook, worksheet, type='DONATION', row=1, col=1):
@@ -69,3 +69,9 @@ def print_classes(workbook, categories, first_row, col):
     for category in categories:
         worksheet = categories[category]['worksheet']
         classes(workbook, worksheet, first_row, col)
+
+
+def print_legends(workbook, categories, legends_col):
+    print_buttons(workbook, categories, 4, legends_col)
+    print_owned_missing(workbook, categories, 8, legends_col)
+    print_classes(workbook, categories, 11, legends_col)
