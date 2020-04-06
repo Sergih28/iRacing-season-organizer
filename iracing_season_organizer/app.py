@@ -42,6 +42,7 @@ def run():
 
     # ---------- CONTENT PAGE ----------
     worksheet_content = workbook.add_worksheet('CONTENT')
+    worksheet_content.set_tab_color('black')
 
     tracks_list = []
     cars_list = []
@@ -77,6 +78,8 @@ def run():
                           tracks_col, 'tracks', tracks_cells_list, linked_content=True)
             update_page(workbook, pdf_obj, categories,
                         cell_format_temp, cell_format_main, cell_format_content, type, content, tracks_cells_list, weeks_col)
+
+        categories[type]['worksheet'].set_tab_color('yellow')
 
     set_auto_col_width(categories, legends_col, categories_col)
 
