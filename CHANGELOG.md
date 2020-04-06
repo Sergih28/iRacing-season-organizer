@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) adapted to iRacing Seasons.
 
+## [0.2.1 - alpha] - 2020-04-06 (2020 Season 2 - beta)
+
+### Added
+
+- Colors to the tabs.
+
 ## [0.2.0 - alpha] - 2020-03-12 (2020 Season 2 - beta)
 
 ### Added
@@ -27,5 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - List of content used in the excel sheet
 - Ability to select Owned content or not in the excel sheet
 
+[0.2.1 - alpha]: https://github.com/Sergih28/iRacing-season-organizer/releases/tag/v0.2.1-alpha
 [0.2.0 - alpha]: https://github.com/Sergih28/iRacing-season-organizer/releases/tag/v0.2.0-alpha
 [0.1.0 - alpha]: https://github.com/Sergih28/iRacing-season-organizer/releases/tag/v0.1.0-alpha
