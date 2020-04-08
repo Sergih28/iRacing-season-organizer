@@ -94,6 +94,7 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
     worksheet = categories[category]['worksheet']
     col = categories[category]['col']
     weeks_done = categories[category]['weeks_done']
+    series_name = pdf_obj.get_name()
 
     # set bg color and font color for that cell
     cell_format_colorised = cell_format
@@ -102,8 +103,7 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
     cell_format_colorised.set_font_color(license_colors[1])
     set_cell_styles(cell_format_colorised, bold=True)
 
-    worksheet.write(2, col, pdf_obj.get_name(),
-                    cell_format_colorised)
+    worksheet.write(2, col, series_name, cell_format_colorised)
 
     cars = pdf_obj.get_cars()
     for car in cars:
@@ -137,9 +137,15 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
     races_type = pdf_obj.get_races_type()
     races_length = pdf_obj.get_races_length()
     row = 3
+    irelms_counter = 0
 
     for track in tracks:
-        row = row + 1
+        row += 1
+        print_row = row
+        if 'iRacing Endurance Le Mans Series' in series_name:
+            print_row += 1
+            print_row += irelms_counter
+            irelms_counter += 1
 
         # save track length if it's higher than current
         track_length = len(track)
@@ -165,7 +171,7 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
         criteria = '=CONCAT(CONTENT!' + track_letter + \
             str(track_row) + ', "' + content_text + '")'
 
-        worksheet.write(row, col, criteria, cell_format_track)
+        worksheet.write(print_row, col, criteria, cell_format_track)
 
         criteria_Y = '='+track_letter_prev+str(track_row)+'="Y"'
         criteria_N = '='+track_letter_prev+str(track_row)+'="N"'
@@ -177,15 +183,18 @@ def update_page(workbook, pdf_obj, categories, cell_format, cell_format_main, ce
         set_cell_styles(
             cell_gray, bg_color=content['bg_colors']['missing'], color=content['colors']['alt'])
 
-        worksheet.conditional_format(row, col, row, col, {
+        worksheet.conditional_format(print_row, col, print_row, col, {
                                      'type': 'formula', 'criteria': criteria_Y, 'format': cell_green})
-        worksheet.conditional_format(row, col, row, col, {
+        worksheet.conditional_format(print_row, col, print_row, col, {
                                      'type': 'formula', 'criteria': criteria_N, 'format': cell_gray})
 
     categories[category]['col'] += 1
 
     # hide content rows in non-content pages
     worksheet.set_column('A:D', None, None, {'hidden': True})
+
+    # freeze weeks column
+    worksheet.freeze_panes(0, 8)
 
 
 def fill_categories_dic(workbook, categories, start_col):
